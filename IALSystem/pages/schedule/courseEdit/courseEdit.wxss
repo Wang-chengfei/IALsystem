@@ -1,0 +1,46 @@
+.common {
+  width: 100%;
+  margin: 20rpx 0;
+}
+
+.common .name,
+.common .teacher,
+.common .courseWeek,
+.section .location,
+.section .classTime {
+  background-color: #fff;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: relative;
+}
+
+.title {
+  display: inline-block;
+  margin-left: 34rpx;
+}
+
+.content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 130rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 590rpx;
+}
+.content text {
+  color: #9d948b;
+}
+.section {
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.addSection {
+  width: 100%;
+  background-color: #fff;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #1e90ff;
+}
+

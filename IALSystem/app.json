@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/mainPage/mainPage",
+    "pages/settingPages/settingPage/settingPage",
+    "pages/settingPages/settingTask/settingTask", 
+    "pages/settingPages/settingEnglishWords/settingEnglishWords",
+    "pages/settingPages/settingChickenSoup/settingChickenSoup",
+    "pages/settingPages/settingMotto/settingMotto",
+    "pages/settingPages/settingPlan/settingPlan",
+    "pages/settingPages/aboutUs/aboutUs",
+    "pages/schedule/schedule",
+    "pages/schedule/courseEdit/courseEdit",
+    "pages/schedule/classTimeEdit/classTimeEdit",
+    "pages/plan/plan",
+    "pages/EnWord/EnWord",
+    "pages/chickenSoup/chickenSoup",
+    "pages/plan/planEdit/planEdit",
+    "pages/task/task",
+    "pages/task/taskEdit/taskEdit"
+  ],
+  "usingComponents": {
+    "mp-tabbar": "/components/tabbar/tabbar",
+    "mp-cells": "/components/cells/cells",
+    "mp-cell": "/components/cell/cell",
+    "mp-slideview": "../components/slideview/slideview"
+  },
+  "window": {
+    "enablePullDownRefresh": true,
+    "navigationBarBackgroundColor": "#1e90ff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "学习辅助系统",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "text": "主页",
+        "iconPath": "/images/icons/列表0.png",
+        "selectedIconPath": "/images/icons/列表1.png",
+        "pagePath": "pages/mainPage/mainPage"
+      },
+      {
+        "text": "设置",
+        "iconPath": "/images/icons/setting0.png",
+        "selectedIconPath": "/images/icons/setting1.png",
+        "pagePath": "pages/settingPages/settingPage/settingPage"
+      }
+    ],
+    "color": "#b2b2b2",
+    "selectedColor": "#000000"
+  },
+  "sitemapLocation": "sitemap92.json"
+}

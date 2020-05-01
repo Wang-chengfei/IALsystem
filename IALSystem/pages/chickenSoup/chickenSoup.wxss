@@ -1,0 +1,20 @@
+page {
+  background-color: #c1d5f8;
+}
+.content image {
+  position: absolute;
+  top: 120rpx;
+  left: 90rpx;
+  width: 66rpx;
+  height: 66rpx;
+  background-color: #c1d5f8;
+}
+.content text {
+  display: block;
+  width: 600rpx;
+  padding: 30rpx;
+  margin: 150rpx auto;
+  border: 2rpx dashed blue;
+  border-radius: 20rpx;
+  font-size: 34rpx;
+}

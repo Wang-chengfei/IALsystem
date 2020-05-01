@@ -1,0 +1,35 @@
+<view class="container">
+	<image src="{{save}}" class="save" bindtap="tapSave"></image>
+	<image src="{{delet}}" class="delet" bindtap="tapDelet"></image>
+	<!-- 内容概述 -->
+	<view class="summary">
+		<smallTitle imgUrl="/images/icons/summary.png" titleContent="任务概述"></smallTitle>
+		<view class="textarea">
+			<textarea maxlength="-1" auto-height="{{true}}" value="{{summary}}"></textarea>
+		</view>
+	</view>
+	<!-- 具体内容 -->
+	<view class="details">
+		<smallTitle imgUrl="/images/icons/details.png" titleContent="具体内容"></smallTitle>
+		<view class="textarea">
+			<textarea maxlength="-1" auto-height="{{true}}" value="{{details}}"></textarea>
+		</view>
+	</view>
+	<!-- 设定截止日期 -->
+	<view class="deadline">
+		<smallTitle imgUrl="/images/icons/deadline.png" titleContent="设定截止日期"></smallTitle>
+		<picker mode="date" value="{{deadline}}" start="2010-01-01" end="2050-12-31" bindchange="bindDateChange">
+			<view class="choose">日期：{{deadline}}</view>
+		</picker>
+	</view>
+	<!-- 标记重要程度 -->
+	<view class="importanceLevel">
+		<smallTitle imgUrl="/images/icons/importanceLevel.png" titleContent="选择重要程度"></smallTitle>
+		<slider min="0" max="10" show-value="{{true}}" value="{{importanceLevel}}"></slider>
+	</view>
+	<!-- 标记难易程度 -->
+	<view class="difficultyLevel">
+		<smallTitle imgUrl="/images/icons/difficultyLevel.png" titleContent="选择难易程度"></smallTitle>
+		<slider min="0" max="10" show-value="{{true}}" value="{{difficultyLevel}}"></slider>
+	</view>
+</view>

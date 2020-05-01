@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "smallTitle":"../../../components/smallTitle/smallTitle"
+  },
+  "navigationBarTitleText": "编辑计划"
+}

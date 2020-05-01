@@ -1,0 +1,14 @@
+<view class="container">
+<!-- 设置是否显示在主页面上 -->
+  <view class="display">
+    <text>是否在主页面显示每日单词</text>
+    <switch checked="{{display}}" bindchange="changeDisplay"></switch>
+  </view>
+<!-- 显示详情 -->
+  <block wx:if="{{display==true}}">
+    <view class="detail">
+      <text>每日显示单词数量：</text>
+      <slider max="10" min="1" show-value="{{true}}"></slider>
+    </view>
+  </block>
+</view>

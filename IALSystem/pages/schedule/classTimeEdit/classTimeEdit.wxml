@@ -1,0 +1,14 @@
+<view class="container">
+	<block wx:for="{{classTime}}">
+		<view class="classTimeList">
+			<view class="statement"><text decode="true">第 {{item.id}} 节</text></view>
+			<picker class="startTime" mode="time" value="{{item.startTime}}" start="{{classTime[item.id-2].endTime}}" end="23:30" bindchange="startTimeChange" data-index="{{index}}">
+				<view class="choose">{{item.startTime}}</view>
+			</picker>
+			<view class="connect">-</view>
+			<picker class="endTime" mode="time" value="{{item.endTime}}" start="{{item.startTime}}" end="23:30" bindchange="endTimeChange" data-index="{{index}}">
+				<view class="choose">{{item.endTime}}</view>
+			</picker>
+		</view>
+	</block>
+</view>

@@ -1,0 +1,23 @@
+page {
+  background-color: #f2f6f7;
+}
+
+view {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+image {
+  vertical-align: middle;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}

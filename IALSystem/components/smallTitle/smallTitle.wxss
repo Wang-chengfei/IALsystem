@@ -1,0 +1,19 @@
+.title {
+  display: inline-block;
+  font-size: 38rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+}
+
+.icon {
+  display: inline-block;
+}
+
+.icon image {
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  padding-left: 30rpx;
+  padding-bottom: 10rpx;
+}

@@ -1,0 +1,142 @@
+
+.container{
+  width: 100%;
+}
+.motivationImage{
+  width: 100%;
+}
+.container1 {
+  display: block;
+  margin: 16rpx auto;
+  width: 720rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.container1 .iconsContainer{
+  display: block;
+  width: 600rpx;
+  height: 130rpx;
+  margin: 0 auto;
+}
+
+.container1 .iconContaner{
+  display: inline-block;
+  width: 200rpx;
+}
+.container1 .iconContaner text {
+  display: block;
+  text-align: center;
+}
+.container1 .iconImage{
+  display: block;
+  margin: 10rpx auto;
+  width: 64rpx;
+  height: 64rpx;
+}
+.container2 {
+  width: 720rpx;
+  margin: 16rpx auto;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.container2 .title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  height: 80rpx;
+  padding: 15rpx 0 0 30rpx;
+}
+.container2 .title image {
+  display: inline-block;
+  margin-right: 20rpx;
+  width: 47rpx;
+  height: 47rpx;
+}
+.container2 .content {
+  width: 100%;
+}
+.container2 .content .taskList {
+  height: 75rpx;
+  border-top: 2rpx solid #eee;
+}
+.container2 .content .taskList image {
+  padding: 0 30rpx 56rpx 30rpx;
+  display: inline-block;
+  height: 45rpx;
+  width: 45rpx;
+}
+.container2 .content .taskList text {
+  display: inline-block;
+  padding-left: 15rpx;
+  line-height: 75rpx;
+  overflow: hidden;
+  text-overflow : ellipsis;
+}
+.container3 {
+  width: 720rpx;
+  margin: 16rpx auto;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.container3 .title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  height: 80rpx;
+  padding: 15rpx 0 0 30rpx;
+}
+.container3 .title image {
+  display: inline-block;
+  margin-right: 20rpx;
+  width: 47rpx;
+  height: 47rpx;
+}
+.container3 .content {
+  width: 100%;
+}
+.container3 .content .wordList {
+  position: relative;
+  width: 100%;
+  line-height: 75rpx;
+  height: 75rpx;
+  border-top: 2rpx solid #eee;
+}
+.container3 .content .wordList .word {
+  display: inline-block;
+  padding-left: 30rpx;
+}
+.container3 .content .wordList .meaning {
+  position: absolute;
+  display: inline-block;
+  right: 30rpx;
+}
+.container4 {
+  width: 720rpx;
+  margin: 16rpx auto;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.container4 .title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  height: 80rpx;
+  padding: 15rpx 0 0 30rpx;
+}
+.container4 .title image {
+  display: inline-block;
+  margin-right: 20rpx;
+  width: 47rpx;
+  height: 47rpx;
+}
+.container4 .content {
+  width: 100%;
+}
+.container4 .content .soupList {
+  width: 100%;
+  padding: 15rpx 30rpx;
+  border-top: 2rpx solid #eee;
+}
+
+
+

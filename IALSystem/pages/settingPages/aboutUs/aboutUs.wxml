@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="words">
+    <text decode="ture">{{words}}</text>
+  </view>
+</view>

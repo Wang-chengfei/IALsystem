@@ -1,0 +1,57 @@
+<!--miniprogram/pages/mainPage.wxml-->
+<view class="container">
+    <!-- 大图片部分 -->
+    <image src="/images/motivationImages/motivatExample.png" class="motivationImage" mode="widthFix"></image>
+    <!-- 菜单部分 -->
+    <view class="container1">
+    <view class="iconsContainer">
+            <view class="iconContaner" bindtap="toSchedule">
+                 <image src="/images/icons/schedule.png" class="iconImage"></image> 
+                 <text>课程表</text>
+            </view>
+            <view class="iconContaner" bindtap="toTimeTable">
+                 <image src="/images/icons/timeTable.png" class="iconImage"></image> 
+                 <text>计划</text>
+            </view>
+            <view class="iconContaner" bindtap="toTask">
+                 <image src="/images/icons/task.png" class="iconImage"></image> 
+                 <text>任务</text>
+            </view>
+    </view>
+    </view>
+    <!-- 待完成任务部分 -->
+    <view class="container2">
+        <view class="title"><image src="../../images/icons/daiban.png"></image>待完成任务</view>
+        <view class="content">
+            <block wx:for="{{task}}">
+                <view class="taskList">
+                <image src="../../images/icons/{{item.iconColor}}Round.png"></image>
+                <text>{{item.summary}}</text>
+                </view>
+            </block>
+        </view>
+    </view>    
+    <!-- 每日单词部分 -->
+    <view class="container3">
+        <view class="title"><image src="../../images/icons/yingyu.png"></image>每日单词</view>
+        <view class="content">
+            <block wx:for="{{EnglishWord}}">
+                <view class="wordList" bindtap="toEnWordDetail">
+                    <text class="word">{{item.word}}</text>
+                    <text class="meaning">{{item.meaning}}</text>
+                </view>
+            </block>
+        </view>
+    </view>
+    <!-- 每日鸡汤部分 -->
+    <view class="container4">
+        <view class="title"><image src="../../images/icons/jitang.png"></image>每日鸡汤</view>
+        <view class="content">
+            <block wx:for="{{chickenSoup}}">
+                <view class="soupList" bindtap="toChickenSoupDetail" data-index="{{index}}">
+                    <text>{{item.content}}</text>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

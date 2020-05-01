@@ -1,0 +1,38 @@
+<view class="container">
+	<view class="common">
+		<view class="name">
+			<view class="title">课名</view>
+			<input class="content" type="text" value="{{course.name}}" placeholder="未填写" bindinput="nameChange"></input>
+		</view>
+		<view class="teacher">
+			<view class="title">老师</view>
+			<input class="content" type="text" value="{{course.teacher}}" placeholder="未填写" bindinput="teacherChange"></input>
+		</view>
+		<view class="courseWeek">
+			<picker mode="multiSelector" range="{{weekArr}}" value="{{weekIndex}}" header-text="选择上课周数" bindchange="weekChange">
+				<view class="title">周数</view>
+				<view class="content">{{weekIndex[0]+1}} - {{weekIndex[1]+1}}周</view>
+			</picker>
+		</view>
+	</view>
+	<block wx:for="{{course.section}}">
+		<view class="section">
+			<view class="location">
+				<view class="title">教室</view>
+				<input value="{{item.location}}" placeholder="未填写" class="content" bindinput="locationChange" data-index="{{index}}"></input>
+			</view>
+			<picker header-text="选择上课节数" class="classTime" mode="multiSelector" range="{{classTimeArr}}" value="{{classTimeIndex[index]}}" bindchange="classTimeChange" data-index="{{index}}">
+				<view class="title">节数</view>
+				<view class="content">{{classTimeArr[0][classTimeIndex[index][0]]}}
+          <block wx:if="{{classTimeArr[1][classTimeIndex[index][1]]==null}}"><text>未填写</text></block>
+					<block wx:elif="{{classTimeArr[1][classTimeIndex[index][1]]==classTimeArr[2][classTimeIndex[index][2]][1]}}">
+						第{{classTimeArr[1][classTimeIndex[index][1]]}}节
+					</block>
+					<block wx:else>{{classTimeArr[1][classTimeIndex[index][1]]}}-
+						{{classTimeArr[2][classTimeIndex[index][2]][1]}}节</block>
+				</view>
+			</picker>
+		</view>
+	</block>
+	<view class="addSection" bindtap="addSection">+添加其他时段</view>
+</view>

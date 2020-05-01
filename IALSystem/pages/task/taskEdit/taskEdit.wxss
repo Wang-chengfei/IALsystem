@@ -1,0 +1,43 @@
+.save,
+.delet {
+  position: absolute;
+  right: 40rpx;
+  top: 8rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.delet {
+  right: 140rpx;
+}
+
+.summary .textarea,
+.details .textarea {
+  display: block;
+  width: 720rpx;
+  font-size: 36rpx;
+  margin: 10rpx auto;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+
+.summary textarea,
+.details textarea {
+  width: 692rpx;
+  padding: 20rpx;
+}
+
+.deadline .choose {
+  display: block;
+  width: 720rpx;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding-left: 30rpx;
+  background-color: #fff;
+}
+
+slider {
+  padding-left: 20rpx;
+}

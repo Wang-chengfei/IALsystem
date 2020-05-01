@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="avatar">
+    <button class="getUserInfomation"wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+    <image src="{{userInfo.avatarUrl}}" class="about-banner"></image>
+    <text>{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="listClass">
+      <mp-cells >
+        <view wx:for="{{settingList}}">
+          <mp-cell link='true' url="{{item.url}}" value="{{item.value}}" footer="{{item.footer}}" catchtap="f0"> 
+          </mp-cell>
+        </view>
+      </mp-cells>  
+      <view bindtap="toJurisdiction" class="Jurisdiction">权限管理</view>
+    </view>
+</view>

@@ -1,0 +1,64 @@
+<view class="container">
+
+	<!-- 今日课程部分 -->
+	<view class="todayClass">
+		<bigTitle titleContent="今日课程"></bigTitle>
+		<view class="titleState">
+			<view class="howManyCourse">今天有{{todayCourse.length}}门课</view>
+			<view class="changeWeek">更改当前周</view>
+		</view>
+		<view class="content">
+			<block wx:for="{{todayCourse}}" wx:for-index="index" wx:for-item="item">
+				<view class="classList">
+					<view class="section" wx:if="{{item.startLesson<item.endLesson}}">{{item.startLesson}}~{{item.endLesson}}</view>
+					<view class="section" wx:else>{{item.startLesson}}</view>
+					<view class="detail">
+						<view class="name">{{item.name}}</view>
+						<view class="location">
+							<image src="../../images/icons/location.png"></image> {{item.location}}
+						</view>
+						<view class="time">
+							<image src="../../images/icons/time.png"></image>{{classTime[item.startLesson-1].startTime}}-{{classTime[item.endLesson-1].endTime}}
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+	</view>
+
+	<!-- 本学期课程表部分 -->
+	<view class="schedule">
+		<bigTitle titleContent="本学期课表"></bigTitle>
+		<view class="chooseWeek">
+			<view class="display">第{{numOfWeek}}周▾</view>
+			<view class="addCourse" bindtap="addCourse">+添加课程</view>
+		</view>
+		<view class="table">
+			<!-- 表头，显示周几 -->
+			<view class="tr">
+				<block wx:for="{{weekDisplay}}">
+					<view class="th weekColor{{weekTime==index+1}}">{{item}}</view>
+				</block>
+			</view>
+			<!-- 侧边栏，显示课序号 -->
+			<view class="nav">
+				<view class="number">{{month}}月</view>
+				<block wx:for="{{lessonDisplay}}">
+					<view class="number" bindtap="editClassTime">{{item}}</view>
+				</block>
+			</view>
+			<!-- 主体，显示课程 -->
+			<view class="course">
+				<block wx:for="{{course}}" wx:for-index="index1" wx:for-item="item1">
+					<block wx:for="{{item1.section}}" wx:for-index="index" wx:for-item="item">
+						<view bindtap="editCourse" data-index="{{index1}}" class="detailCourse day{{item.weekTime}} hight{{item.endLesson - item.startLesson + 1}} lesson{{item.startLesson}} color{{code[index1]%8}}">
+							{{item1.name}}
+							<image src="../../images/icons/thisLocation.png" class="thisLocation"></image>
+							{{item.location}}
+						</view>
+					</block>
+				</block>
+			</view>
+		</view>
+	</view>
+</view>

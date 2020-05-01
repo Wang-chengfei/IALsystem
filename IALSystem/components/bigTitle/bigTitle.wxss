@@ -1,0 +1,21 @@
+.title {
+  display: block;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+.title text {
+  display: inline-block;
+  margin: 0 12rpx;
+  font-size: 38rpx;
+}
+
+.dot {
+  display: inline-block;
+  background-color: #4183ff;
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  margin: 0 10rpx 5rpx 10rpx;
+}

@@ -1,0 +1,95 @@
+.save,
+.delet {
+  position: absolute;
+  right: 40rpx;
+  top: 8rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.delet {
+  right: 140rpx;
+}
+
+.summary .textarea,
+.remarks .textarea {
+  display: block;
+  width: 720rpx;
+  font-size: 36rpx;
+  margin: 10rpx auto;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+
+.summary textarea,
+.remarks textarea {
+  width: 692rpx;
+  padding: 20rpx;
+}
+
+.setting .content {
+  position: relative;
+  margin: 10rpx auto;
+  border-radius: 20rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 720rpx;
+  background-color: #fff;
+}
+
+.setting .content text {
+  display: inline-block;
+  padding-left: 30rpx;
+}
+
+.setting .content switch {
+  position: absolute;
+  right: 30rpx;
+  bottom: 4rpx;
+}
+
+.longPlan,
+.shortPlan {
+  margin: 16rpx 0;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+
+.longPlan text {
+  display: inline-block;
+}
+
+.longPlan image {
+  display: inline-block;
+  width: 46rpx;
+  height: 46rpx;
+  padding-bottom: 6rpx;
+}
+
+.longPlan .longPlantime {
+  display: block;
+  width: 100%;
+  padding-left: 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.weekType,
+.monthType {
+  padding-left: 30rpx;
+  width: 720rpx;
+  margin: 0 auto;
+}
+
+.weekType checkbox,
+.monthType checkbox {
+  font-size: 32rpx;
+  width: 180rpx;
+}
+
+.shortPlan .choose,
+.shortPlan picker {
+  padding-left: 20rpx;
+  width: 300rpx;
+  display: inline-block;
+}

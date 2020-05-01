@@ -1,0 +1,297 @@
+.container {
+  width: 100%;
+}
+
+.todayClass {
+  width: 720rpx;
+  margin: 0 auto;
+}
+.titleState {
+  position: relative;
+  right: 15rpx;
+  width: 750rpx;
+  background-color: #fff;
+  margin: 0 auto 10rpx auto;
+}
+.titleState .howManyCourse {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 50rpx;
+  border-radius: 20rpx;
+}
+.titleState .changeWeek {
+  position: absolute;
+  top:15rpx;
+  right: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  width: 160rpx;
+  border-radius: 25rpx;
+  border: 1rpx solid blue;
+  font-size: 24rpx;
+}
+.todayClass .content .classList {
+  margin: 0 auto 16rpx auto;
+  height: 160rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+
+.todayClass .content .classList .section {
+  position: relative;
+  bottom: 54rpx;
+  display: inline-block;
+  width: 160rpx;
+  height: 160rpx;
+  text-align: center;
+  font-size: 40rpx;
+}
+
+.todayClass .content .classList .detail {
+  display: inline-block;
+  height: 160rpx;
+  width: 560rpx;
+  padding-left: 2rpx;
+}
+
+.name {
+  display: block;
+  border-bottom: 2rpx solid #eee;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 36rpx;
+}
+
+.location,
+.time {
+  display: block;
+  height: 45rpx;
+  line-height: 45rpx;
+  font-size: 26rpx;
+}
+
+.todayClass .content .classList .detail image,
+.thisLocation {
+  display: inline-block;
+  height: 26rpx;
+  width: 26rpx;
+  padding-right: 15rpx;
+}
+
+.thisLocation {
+  padding: 0;
+  margin: 0;
+}
+
+.schedule {
+  width: 100%;
+  margin: 0;
+}
+.chooseWeek {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+}
+.chooseWeek .display {
+  font-size: 42rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+.chooseWeek .addCourse {
+  position: absolute;
+  height: 90rpx;
+  line-height: 90rpx;
+  width: 200rpx;
+  text-align: center;
+  top: 0;
+  right: 10rpx;
+}
+
+.table {
+  position: relative;
+  width: 100%;
+  height: 1300rpx;
+  background-color: #fff;
+}
+
+.table .tr {
+  width: 686rpx;
+  position: relative;
+  left: 64rpx;
+}
+
+.table .tr .th {
+  background-color: #fbfcfc;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 98rpx;
+  display: inline-block;
+  text-align: center;
+}
+.container .table .tr .weekColortrue {
+  background-color: #e4eff0;
+  border-radius: 18rpx;
+}
+
+.table .nav {
+  background-color: #fbfcfc;
+  position: absolute;
+  top: 0;
+  display: inline-block;
+}
+
+.table .nav .number {
+  width: 64rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.table .course {
+  position: relative;
+  display: inline-block;
+}
+
+.table .course .detailCourse {
+  position: absolute;
+  display: inline-block;
+  padding: 4rpx;
+  width: 92rpx;
+  margin: 0 3rpx;
+  font-size: 24rpx;
+  color: #fff;
+  border-radius: 14rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.day1 {
+  left: 64rpx;
+}
+
+.day2 {
+  left: 162rpx;
+}
+
+.day3 {
+  left: 260rpx;
+}
+
+.day4 {
+  left: 358rpx;
+}
+
+.day5 {
+  left: 456rpx;
+}
+
+.day6 {
+  left: 554rpx;
+}
+
+.day7 {
+  left: 652rpx;
+}
+
+.hight1 {
+  height: 92rpx;
+}
+
+.hight2 {
+  height: 192rpx;
+}
+
+.hight3 {
+  height: 292rpx;
+}
+
+.hight4 {
+  height: 392rpx;
+}
+
+.hight5 {
+  height: 492rpx;
+}
+
+.lesson1 {
+  top: -30rpx;
+}
+
+.lesson2 {
+  top: 70rpx;
+}
+
+.lesson3 {
+  top: 170rpx;
+}
+
+.lesson4 {
+  top: 270rpx;
+}
+
+.lesson5 {
+  top: 370rpx;
+}
+
+.lesson6 {
+  top: 470rpx;
+}
+
+.lesson7 {
+  top: 570rpx;
+}
+
+.lesson8 {
+  top: 670rpx;
+}
+
+.lesson9 {
+  top: 770rpx;
+}
+
+.lesson10 {
+  top: 870rpx;
+}
+
+.lesson11 {
+  top: 970rpx;
+}
+
+.lesson12 {
+  top: 1070rpx;
+}
+
+.color0 {
+  background-color: #ffc450;
+}
+
+.color1 {
+  background-color: #aeeb34;
+}
+
+.color2 {
+  background-color: #a991f1;
+}
+
+.color3 {
+  background-color: #fe9cd7;
+}
+
+.color4 {
+  background-color: #fe9292;
+}
+
+.color5 {
+  background-color: #86affe;
+}
+
+.color6 {
+  background-color: #f7df5b;
+}
+
+.color7 {
+  background-color: #d58df9;
+}

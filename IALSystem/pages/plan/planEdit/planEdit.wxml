@@ -1,0 +1,100 @@
+<view class="container">
+	<image src="{{save}}" class="save" bindtap="tapSave"></image>
+	<image src="{{delet}}" class="delet" bindtap="tapDelet"></image>
+	<!-- 计划概述 -->
+	<view class="summary">
+		<smallTitle imgUrl="/images/icons/summary.png" titleContent="计划概述"></smallTitle>
+		<view class="textarea"><textarea maxlength="-1" auto-height="{{true}}"></textarea></view>
+	</view>
+	<!-- 计划备注 -->
+	<view class="remarks">
+		<smallTitle imgUrl="/images/icons/details.png" titleContent="计划备注"></smallTitle>
+		<view class="textarea"><textarea maxlength="-1" auto-height="{{true}}"></textarea></view>
+	</view>
+	<!-- 设置计划类型 -->
+	<view class="setting">
+		<smallTitle imgUrl="/images/icons/planType.png" titleContent="设置计划类型"></smallTitle>
+		<view class="content">
+			<text>是否为长期计划</text>
+			<switch checked="{{type}}" bindchange="typeChange"/>
+			<!-- 长期计划 -->
+			<block wx:if="{{type==1}}">
+				<view class="longPlan">
+					<text>选择重复类型：</text>
+					<image src="../../../images/icons/xuanze.png" bindtap="longType"></image>
+					<text bindtap="longType">{{time.repetitionType==0?"每天":time.repetitionType==1?"按周选择":"按月选择"}}</text>
+					<!-- 每天重复 -->
+					<block wx:if="{{time.repetitionType==0}}">
+					</block>
+					<!-- 按周选择 -->
+					<block wx:elif="{{time.repetitionType==1}}">
+						<text class="longPlantime">选择重复时间：</text>
+						<checkbox-group class="weekType">
+							<checkbox checked="{{weekRepeat[0]}}">周一</checkbox>
+							<checkbox checked="{{weekRepeat[1]}}">周二</checkbox>
+							<checkbox checked="{{weekRepeat[2]}}">周三</checkbox>
+							<checkbox checked="{{weekRepeat[3]}}">周四</checkbox>
+							<checkbox checked="{{weekRepeat[4]}}">周五</checkbox>
+							<checkbox checked="{{weekRepeat[5]}}">周六</checkbox>
+							<checkbox checked="{{weekRepeat[6]}}">周日</checkbox>
+						</checkbox-group>
+					</block>
+					<!-- 按月选择 -->
+					<block wx:elif="{{time.repetitionType==2}}">
+						<text class="longPlantime">选择重复时间：</text>
+						<checkbox-group class="monthType">
+							<checkbox checked="{{monthRepeat[0]}}">1号</checkbox>
+							<checkbox checked="{{monthRepeat[1]}}">2号</checkbox>
+							<checkbox checked="{{monthRepeat[2]}}">3号</checkbox>
+							<checkbox checked="{{monthRepeat[3]}}">4号</checkbox>
+							<checkbox checked="{{monthRepeat[4]}}">5号</checkbox>
+							<checkbox checked="{{monthRepeat[5]}}">6号</checkbox>
+							<checkbox checked="{{monthRepeat[6]}}">7号</checkbox>
+							<checkbox checked="{{monthRepeat[7]}}">8号</checkbox>
+							<checkbox checked="{{monthRepeat[8]}}">9号</checkbox>
+							<checkbox checked="{{monthRepeat[9]}}">10号</checkbox>
+							<checkbox checked="{{monthRepeat[10]}}">11号</checkbox>
+							<checkbox checked="{{monthRepeat[11]}}">12号</checkbox>
+							<checkbox checked="{{monthRepeat[12]}}">13号</checkbox>
+							<checkbox checked="{{monthRepeat[13]}}">14号</checkbox>
+							<checkbox checked="{{monthRepeat[14]}}">15号</checkbox>
+							<checkbox checked="{{monthRepeat[15]}}">16号</checkbox>
+							<checkbox checked="{{monthRepeat[16]}}">17号</checkbox>
+							<checkbox checked="{{monthRepeat[17]}}">18号</checkbox>
+							<checkbox checked="{{monthRepeat[18]}}">19号</checkbox>
+							<checkbox checked="{{monthRepeat[19]}}">20号</checkbox>
+							<checkbox checked="{{monthRepeat[20]}}">21号</checkbox>
+							<checkbox checked="{{monthRepeat[21]}}">22号</checkbox>
+							<checkbox checked="{{monthRepeat[22]}}">23号</checkbox>
+							<checkbox checked="{{monthRepeat[23]}}">24号</checkbox>
+							<checkbox checked="{{monthRepeat[24]}}">25号</checkbox>
+							<checkbox checked="{{monthRepeat[25]}}">26号</checkbox>
+							<checkbox checked="{{monthRepeat[26]}}">27号</checkbox>
+							<checkbox checked="{{monthRepeat[27]}}">28号</checkbox>
+							<checkbox checked="{{monthRepeat[28]}}">29号</checkbox>
+							<checkbox checked="{{monthRepeat[29]}}">30号</checkbox>
+							<checkbox checked="{{monthRepeat[30]}}">31号</checkbox>
+						</checkbox-group>
+					</block>
+				</view>
+			</block>
+			<!-- 短期计划 -->
+			<block wx:else>
+				<view class="shortPlan">
+					<view class="startTime">
+						<text>开始时间:</text>
+						<picker mode="date" value="{{date}}" start="2010-01-01" end="2050-12-31" bindchange="startTimeChange">
+							<view class="choose">{{time.startTime}}</view>
+						</picker>
+					</view>
+					<view class="endTime">
+						<text>截止时间:</text>
+						<picker mode="date" value="{{date}}" start="2010-01-01" end="2050-12-31" bindchange="endTimeChange">
+							<view class="choose">{{time.endTime}}</view>
+						</picker>
+					</view>
+				</view>
+			</block>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,49 @@
+.addTask {
+  position: fixed;
+  right: 40rpx;
+  bottom: 220rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+}
+
+.seek .content,
+.allPlan .content {
+  width: 720rpx;
+  margin: 0 auto;
+}
+
+.seek .content .planList,
+.allPlan .content .planList {
+  margin: 16rpx 0;
+  padding-left: 30rpx;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+
+.seek .content .planList .summary,
+.allPlan .content .planList .summary {
+  font-size: 34rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+}
+
+.seek .content .planList .remarks,
+.seek .content .planList .type,
+.allPlan .content .planList .remarks,
+.allPlan .content .planList .type {
+  height: 46rpx;
+  line-height: 46rpx;
+}
+
+.seek .choose {
+  display: block;
+  width: 720rpx;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding-left: 30rpx;
+  background-color: #fff;
+}

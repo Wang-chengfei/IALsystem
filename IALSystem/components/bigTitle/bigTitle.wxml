@@ -1,0 +1,7 @@
+<view class="title">
+	<view class="dot"></view>
+	<view class="dot"></view>
+	<text>{{titleContent}}</text>
+	<view class="dot"></view>
+	<view class="dot"></view>
+</view>
