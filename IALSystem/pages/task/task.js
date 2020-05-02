@@ -10,27 +10,22 @@ Page({
         summary:"写报告",
         details:"写报告写报告写报告写报告写报告写报告写报告写报告写报告写报告写报告",
         deadline:"2020-05-05",
-        difficultyLevel:2,
         importanceLevel:3,
         completed:false,
         iconColor:"yellow"
-
       },
       {
         summary:"复习高数",
         details:"复习高数复习高数复习高数复习高数复习高数复习高数",
         deadline:"2020-05-01",
-        difficultyLevel:8,
         importanceLevel:3,
         completed:false,
         iconColor:"red"
-
       },
       {
         summary:"学习小程序",
         details:"学习小程序学习小程序学习小程序学习小程序学习小程序学习小程序学习小程序学习小程序",
         deadline:"2020-05-16",
-        difficultyLevel:6,
         importanceLevel:3,
         completed:false,
         iconColor:"green"  

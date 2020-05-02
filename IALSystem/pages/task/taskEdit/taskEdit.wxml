@@ -27,9 +27,4 @@
 		<smallTitle imgUrl="/images/icons/importanceLevel.png" titleContent="选择重要程度"></smallTitle>
 		<slider min="0" max="10" show-value="{{true}}" value="{{importanceLevel}}"></slider>
 	</view>
-	<!-- 标记难易程度 -->
-	<view class="difficultyLevel">
-		<smallTitle imgUrl="/images/icons/difficultyLevel.png" titleContent="选择难易程度"></smallTitle>
-		<slider min="0" max="10" show-value="{{true}}" value="{{difficultyLevel}}"></slider>
-	</view>
 </view>

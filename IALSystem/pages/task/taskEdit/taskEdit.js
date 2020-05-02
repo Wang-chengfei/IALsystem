@@ -8,7 +8,6 @@ Page({
     summary:"",
     details:"",
     deadline:"",
-    difficultyLevel:0,
     importanceLevel:0,
     save:"../../../images/icons/save.png",
     delet:"../../../images/icons/clear.png",

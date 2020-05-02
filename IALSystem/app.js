@@ -4,8 +4,24 @@ App({
       env:"cloud-ials"
     })
     wx.login({
-      success: res => {
+      success:function(res) {
+        var appid = "wxbc05f859ff1233f3";
+        var secret = "b4cfead7b3fd7b3859795636397fde85";
+        var code = res.code;
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          url: "https://api.weixin.qq.com/sns/jscode2session?appid="+appid+"&secret="+secret+"&grant_type=authorization_code&js_code="+code,
+          header: {
+            'content-type': 'application/json'
+        },
+        success: function(res) {
+          console.log(res.data)
+          console.log(res.data.openid) //获取openid
+        },
+        fail:function(res){
+          console.log("获取code失败")
+        }
+        })
       }
     })
     wx.getSetting({
