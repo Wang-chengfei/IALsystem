@@ -5,9 +5,12 @@
 	<view class="content">
 		<block wx:for="{{task}}">
 			<view class="taskList clearfix" bindtap="toDetails" data-index="{{index}}">
-				<image src="../../images/icons/{{item.iconColor}}Round.png"></image>
+				<view class="image {{item.color}}"></view>
 				<view class="wenzi">
-					<text class="details"> {{item.details}}</text>
+					<text class="details">
+						<block wx:if="{{item.details.length==0}}">{{item.summry}}</block>
+						<block wx:else>{{item.details}}</block>
+					</text>
 					<text class="deadline"> 截止日期：{{item.deadline}}</text>
 				</view>
 			</view>

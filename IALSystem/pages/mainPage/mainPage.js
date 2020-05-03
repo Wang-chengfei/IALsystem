@@ -9,15 +9,15 @@ Page({
   task:[
     {
       summary:"写报告",
-      iconColor:"yellow"
+      color:"yellow"
     },
     {
       summary:"复习高数",
-      iconColor:"red"
+      color:"red"
     },
     {
       summary:"学习小程序",
-      iconColor:"green"  
+      color:"green"  
     }
   ],
   EnglishWord:[

@@ -25,7 +25,7 @@
         <view class="content">
             <block wx:for="{{task}}">
                 <view class="taskList">
-                <image src="../../images/icons/{{item.iconColor}}Round.png"></image>
+                <view class="image {{item.color}}"></view>
                 <text>{{item.summary}}</text>
                 </view>
             </block>

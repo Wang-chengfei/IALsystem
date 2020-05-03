@@ -21,19 +21,19 @@
 }
 
 .content .taskList {
-  position: relative;
   border-radius: 20rpx;
   background-color: #fff;
   margin: 0rpx auto 20rpx auto;
 }
 
-.content .taskList image {
+.content .taskList .image {
   float: left;
-  display: block;
-  padding: 30rpx 10rpx 0 30rpx;
   width: 45rpx;
   height: 45rpx;
+  margin: 30rpx 0 0 20rpx;
+  border-radius: 50%;
 }
+
 
 .content .taskList .wenzi {
   padding: 20rpx 0;

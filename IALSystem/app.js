@@ -15,8 +15,8 @@ App({
             'content-type': 'application/json'
         },
         success: function(res) {
-          console.log(res.data)
-          console.log(res.data.openid) //获取openid
+          wx.setStorageSync('openid', res.data.openid);//获取用户openid
+          wx.setStorageSync('session_key', res.data.session_key)
         },
         fail:function(res){
           console.log("获取code失败")
