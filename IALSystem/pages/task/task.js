@@ -71,7 +71,7 @@ Page({
       openid: openid1
     })
     wx.request({
-      url: '39.102.49.243/load/task',  //服务器地址
+      url: "http://39.102.49.243:8080",  //服务器地址
       method:"GET",  //请求方法 GET：请求数据， POST：发送数据给服务器并让服务器处理
       header: {
         'content-type': 'application/json'  //小程序将以json形式读取文件
@@ -81,10 +81,14 @@ Page({
         openid:wx.getStorageSync('openid')  //发送给服务器的请求参数
       },
       success: function (res) {
+        console.log("成功")
         console.log(res)
+        console.log(res.data)
       },
       fail: function (res) {
+        console.log("失败")
         console.log(res)
+        console.log(res.data)
       }
     })
     // var day = today.split("-");
