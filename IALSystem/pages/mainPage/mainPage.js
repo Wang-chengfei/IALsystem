@@ -5,35 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
-  task:[
-    {
-      summary:"写报告",
-      color:"yellow"
-    },
-    {
-      summary:"复习高数",
-      color:"red"
-    },
-    {
-      summary:"学习小程序",
-      color:"green"  
-    }
-  ],
-  EnglishWord:[
-    {
-      word:"execute",
-      meaning:"执行"
-    },
-    {
-      word:"insert",
-      meaning:"插入"
-    },
-    {
-      word:"related",
-      meaning:"相关的"
-    }
-  ],
+  task:[],
   chickenSoup:[
     {
       content:"有目标的人生才有方向，有规划的人生才更精彩。"
@@ -78,9 +50,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var task1 = wx.getStorageSync('task')
+    this.setData({
+      task:task1
+    })
+    console.log(this.data.task)
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,5 +1,3 @@
-var scheduleData = require('../../../data/scheduleData.js');
-var classTime1 = scheduleData.classTimes;
 
 Page({
 
@@ -7,24 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classTime:classTime1
+
   },
-  startTimeChange:function(e){
-    var changedClassTime = this.data.classTime;
-    var index = e.currentTarget.dataset.index;
-    changedClassTime[index].startTime = e.detail.value;
-    this.setData({
-      classTime:changedClassTime
-    })
-  },
-  endTimeChange:function(e){
-    var changedClassTime = this.data.classTime;
-    var index = e.currentTarget.dataset.index;
-    changedClassTime[index].endTime = e.detail.value;
-    this.setData({
-      classTime:changedClassTime
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,27 +1,54 @@
 App({
-  onLaunch:function(){
-    wx.cloud.init({
-      env:"cloud-ials"
-    })
+  onLaunch: function () {
     wx.login({
-      success:function(res) {
+      success: function (res) {
         var appid = "wxbc05f859ff1233f3";
         var secret = "b4cfead7b3fd7b3859795636397fde85";
         var code = res.code;
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
-          url: "https://api.weixin.qq.com/sns/jscode2session?appid="+appid+"&secret="+secret+"&grant_type=authorization_code&js_code="+code,
+          url: "https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + secret + "&grant_type=authorization_code&js_code=" + code,
           header: {
             'content-type': 'application/json'
-        },
-        success: function(res) {
-          wx.setStorageSync('openid', res.data.openid);//获取用户openid
-          wx.setStorageSync('session_key', res.data.session_key)
-        },
-        fail:function(res){
-          console.log("获取code失败")
-        }
+          },
+          success: function (res) {
+            wx.setStorageSync('openid', res.data.openid); //获取用户openid
+            wx.setStorageSync('session_key', res.data.session_key)
+          },
+          fail: function (res) {
+            console.log("获取code失败")
+          }
         })
+      }
+    })
+
+    var openid1 = wx.getStorageSync('openid'); //用户的openid
+    wx.request({
+      url: "http://39.102.49.243:8080/IALS/load/task", //服务器地址
+      method: "GET", //请求方法 GET：请求数据， POST：发送数据给服务器并让服务器处理
+      header: {
+        'content-type': 'application/json' //小程序将以json形式读取文件
+      },
+      dataType: JSON, //返回的数据为 JSON，返回后会对返回的数据进行一次 JSON.parse
+      data: {
+        openid: "temptry-05-03" //发送给服务器的请求参数
+      },
+      success: function (res) {
+        console.log("成功")
+        var task = res.data.slice(5);
+        task = JSON.parse(task)
+        wx.setStorageSync('task', task)
+        // task = task.replace(/\ufeff/g, "");
+        // var task = JSON.parse(res.data);
+        // wx.setStorageSync('task', res.data)
+        // console.log(task1)
+        // task1 = task1.slice(5);
+        // var task = JSON.parse(task1);
+        // console.log(task)
+      },
+      fail: function (res) {
+        console.log("失败")
+        console.log(res)
       }
     })
     wx.getSetting({

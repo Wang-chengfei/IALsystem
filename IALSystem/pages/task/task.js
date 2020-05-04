@@ -8,31 +8,7 @@ Page({
    */
   data: {
     openid: "",
-    task: [{
-        summary: "写报告",
-        details: "写报告写报告写报告写报告写报告写报告写报告写报告写报告写报告写报告",
-        deadline: "2020-05-05",
-        importanceLevel: 5,
-        completed: false,
-        color: "red"
-      },
-      {
-        summary: "复习高数",
-        details: "复习高数复习高数复习高数复习高数复习高数复习高数",
-        deadline: "2020-05-01",
-        importanceLevel: 4,
-        completed: false,
-        color: "yellow"
-      },
-      {
-        summary: "学习小程序",
-        details: "学习小程序学习小程序学习小程序学习小程序学习小程序学习小程序学习小程序学习小程序",
-        deadline: "2020-05-16",
-        importanceLevel: 3,
-        completed: false,
-        color: "green"
-      }
-    ]
+    task:[]
   },
   addTask: function () {
     wx.navigateTo({
@@ -66,68 +42,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var openid1 = wx.getStorageSync('openid'); //获取openid
+    var task1 = wx.getStorageSync('task');
+    var openid1 = wx.getStorageSync('openid');
     this.setData({
-      openid: openid1
+      openid: openid1,
+      task:task1
     })
-    wx.request({
-      url: "http://39.102.49.243:8080",  //服务器地址
-      method:"GET",  //请求方法 GET：请求数据， POST：发送数据给服务器并让服务器处理
-      header: {
-        'content-type': 'application/json'  //小程序将以json形式读取文件
-      },
-      dataType:JSON,  //返回的数据为 JSON，返回后会对返回的数据进行一次 JSON.parse
-      data:{
-        openid:wx.getStorageSync('openid')  //发送给服务器的请求参数
-      },
-      success: function (res) {
-        console.log("成功")
-        console.log(res)
-        console.log(res.data)
-      },
-      fail: function (res) {
-        console.log("失败")
-        console.log(res)
-        console.log(res.data)
-      }
-    })
-    // var day = today.split("-");
-    // var todayYear = day[0];
-    // var todayMonth = day[1];
-    // var todayDate = day[2];
-    // //获取任务以上色
-    // var task1 = this.data.task;
-    // for(var i = 0; i<task1.length;i++){
-    //   var deadline1 = task1[i].deadline.split("-");
-    //   var deadlineYear = deadline1[0];
-    //   var deadlineMonth = deadline1[1];
-    //   var deadlineDate = deadline1[2];
-    //   if(todayYear == deadlineYear && todayMonth == deadlineMonth && deadlineDate-todayDate<3){
-    //     task1[i].color = "red"
-    //   }
-    //   else if(task1[i].importanceLevel>7)task1[i].color = "red";
-    //   else if(task1[i].importanceLevel>3)task1[i].color = "yellow"
-    //   else task1[i].color = "green"
-    // }
-    // //根据紧急程度对任务进行排序
-    // var by = function (prop) {
-    //   return function (obj1, obj2) {
-    //     var val1 = obj1[prop];
-    //     var val2 = obj2[prop];
-    //     if (!isNaN(Number(val1)) && !isNaN(Number(val2))) {
-    //       val1 = Number(val1);
-    //       val2 = Number(val2);
-    //     }
-    //     if (val1 < val2) {
-    //       return 1;
-    //     } else if (val1 > val2) {
-    //       return -1;
-    //     } else {
-    //       return 0;
-    //     }
-    //   }
-    // }
-    // task1.sort(by("importanceLevel"));
+    console.log(this.data.openid)
   },
 
   /**

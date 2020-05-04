@@ -11,10 +11,9 @@
     "pages/schedule/schedule",
     "pages/schedule/courseEdit/courseEdit",
     "pages/schedule/classTimeEdit/classTimeEdit",
-    "pages/plan/plan",
+    "pages/timeTable/timeTable",
     "pages/EnWord/EnWord",
     "pages/chickenSoup/chickenSoup",
-    "pages/plan/planEdit/planEdit",
     "pages/task/task",
     "pages/task/taskEdit/taskEdit"
   ],

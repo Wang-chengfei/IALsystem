@@ -6,31 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    TaskList: [{
-        summary: "写报告",
-        details: "写报告写报告写报告写报告写报告写报告写报告写报告写报告写报告写报告",
-        deadline: "2020-05-05",
-        importanceLevel: 5,
-        completed: false,
-        color: "red"
-      },
-      {
-        summary: "复习高数",
-        details: "复习高数复习高数复习高数复习高数复习高数复习高数",
-        deadline: "2020-05-01",
-        importanceLevel: 4,
-        completed: false,
-        color: "yellow"
-      },
-      {
-        summary: "学习小程序",
-        details: "学习小程序学习小程序学习小程序学习小程序学习小程序学习小程序学习小程序学习小程序",
-        deadline: "2020-05-16",
-        importanceLevel: 3,
-        completed: false,
-        color: "green"
-      }
-    ],
+    task:[],
     summary: "",
     details: "",
     deadline: today,
@@ -76,21 +52,21 @@ Page({
       title: '保存成功',
       duration: 1000
     })
-    var taskList1 = this.data.TaskList;
-   if(index != taskList1.length){
-    taskList1[index].summary = that.data.summary;
-    taskList1[index].details = that.data.details;
-    taskList1[index].deadline = that.data.deadline;
-    taskList1[index].importanceLevel = that.data.importanceLevel;
-    taskList1[index].completed = that.data.completed;
+    var task1 = this.data.task;
+   if(index != task1.length){
+    task1[index].summary = that.data.summary;
+    task1[index].details = that.data.details;
+    task1[index].deadline = that.data.deadline;
+    task1[index].importanceLevel = that.data.importanceLevel;
+    task1[index].completed = that.data.completed;
    }
    else {
-     taskList1.push({summary:that.data.summary,details:that.data.details,deadline:that.data.deadline,importanceLevel:that.data.importanceLevel,completed:that.data.completed})
+     task1.push({summary:that.data.summary,details:that.data.details,deadline:that.data.deadline,importanceLevel:that.data.importanceLevel,completed:that.data.completed})
    }
     this.setData({
-      TaskList:taskList1
+      task:task1
     })
-    console.log(this.data.TaskList)
+    console.log(this.data.task)
   },
   //删除
   tapDelet: function (e) {
@@ -100,12 +76,12 @@ Page({
       content: '您确定要删除该任务吗？',
       success(res) {
         if (res.confirm) {
-          var task1 = that.data.TaskList;
+          var task1 = that.data.task;
           task1.splice(index,1);
           that.setData({
-            taskList:task1
+            task:task1
           })
-          console.log(that.data.TaskList)
+          console.log(that.data.task)
           wx.navigateBack({
             delta: 1
           })
@@ -115,6 +91,7 @@ Page({
       }
     })
   },
+  //完成任务
   tapComplete:function(e){
     var that = this
     wx.showModal({
@@ -123,7 +100,7 @@ Page({
       success:function(res){
         if(res.confirm){
           that.setData({
-            completed:1
+            completed:true
           })
         }
         else console.log("用户点击取消")
@@ -135,11 +112,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      task:wx.getStorageSync('task')
+    })
     index = -1;
     var that = this;
     if (options.taskIndex != null) {
       index = options.taskIndex;
-      var datas = this.data.TaskList[options.taskIndex]
+      var datas = this.data.task[options.taskIndex]
       that.setData({
         summary: datas.summary,
         details: datas.details,
@@ -149,7 +129,7 @@ Page({
         completed:datas.completed
       })
     }
-    if(index == -1)index = this.data.TaskList.length;
+    if(index == -1)index = this.data.task.length;
   },
 
   /**

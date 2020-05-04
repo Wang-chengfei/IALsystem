@@ -181,70 +181,9 @@ var course = [{
     }]
   }
 ];
-var classTime = [
-  {
-    id:1,
-    startTime:"08:15",
-    endTime:"09:00"
-  },
-  {
-    id:2,
-    startTime:"09:10",
-    endTime:"09:55"
-  },
-  {
-    id:3,
-    startTime:"10:15",
-    endTime:"11:00"
-  },
-  {
-    id:4,
-    startTime:"11:10",
-    endTime:"11:55"
-  },
-  {
-    id:5,
-    startTime:"13:50",
-    endTime:"14:35"
-  },
-  {
-    id:6,
-    startTime:"14:45",
-    endTime:"15:30"
-  },
-  {
-    id:7,
-    startTime:"15:40",
-    endTime:"16:25"
-  },
-  {
-    id:8,
-    startTime:"16:45",
-    endTime:"17:30"
-  },
-  {
-    id:9,
-    startTime:"17:40",
-    endTime:"18:25"
-  },
-  {
-    id:10,
-    startTime:"19:20",
-    endTime:"20:05"
-  },
-  {
-    id:11,
-    startTime:"20:15",
-    endTime:"21:00"
-  },
-  {
-    id:12,
-    startTime:"21:10",
-    endTime:"21:55"
-  },
-]
-
+var item = {
+  
+}
 module.exports = {
-  courses: course,
-  classTimes:classTime
+  courses: course
 }

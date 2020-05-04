@@ -5,7 +5,7 @@
 	<view class="content">
 		<block wx:for="{{task}}">
 			<view class="taskList clearfix" bindtap="toDetails" data-index="{{index}}">
-				<view class="image {{item.color}}"></view>
+				<view class="image {{item.iconColor}}"></view>
 				<view class="wenzi">
 					<text class="details">
 						<block wx:if="{{item.details.length==0}}">{{item.summry}}</block>
