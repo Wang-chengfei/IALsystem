@@ -5,7 +5,7 @@ page {
 view {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 image {
@@ -21,18 +21,23 @@ image {
 .clearfix:after {
   clear: both;
 }
+
 .red {
   background-color: #ed1c24;
 }
+
 .yellow {
   background-color: #fff200;
 }
+
 .green {
   background-color: #00ff00;
 }
+
 .blue {
   background-color: #1e90ff;
 }
+
 .grey {
   background-color: #cbccce;
 }

@@ -6,6 +6,20 @@ Page({
    */
   data: {
   task:[],
+  EnWord:[
+    {
+      word:"well",
+      meaning:"好"
+    },
+    {
+      word:"banana",
+      meaning:"香蕉"
+    },
+    {
+      word:"execute",
+      meaning:"执行"
+    },
+  ],
   chickenSoup:[
     {
       content:"有目标的人生才有方向，有规划的人生才更精彩。"
@@ -31,7 +45,7 @@ Page({
   },
   toTimeTable:function(){
     wx.navigateTo({
-      url: '../plan/plan',
+      url: '../timeTable/timeTable',
     })
   },
   toEnWordDetail:function(){

@@ -34,7 +34,6 @@
   border-radius: 50%;
 }
 
-
 .content .taskList .wenzi {
   padding: 20rpx 0;
   width: 635rpx;
@@ -51,4 +50,20 @@
   display: block;
   padding: 10rpx 0 0 30rpx;
   font-size: 26rpx;
+}
+
+.taskred {
+  border: 2rpx solid #ed1c24;
+}
+
+.taskyellow {
+  border: 2rpx solid #fff200;
+}
+
+.taskgreen {
+  border: 2rpx solid #00ff00;
+}
+
+.taskgrey {
+  border: 2rpx solid #cbccce;
 }

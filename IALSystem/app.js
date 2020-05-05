@@ -1,5 +1,6 @@
 App({
   onLaunch: function () {
+    wx.setStorageSync('numOfWeek', 11)
     wx.login({
       success: function (res) {
         var appid = "wxbc05f859ff1233f3";
@@ -36,15 +37,9 @@ App({
       success: function (res) {
         console.log("成功")
         var task = res.data.slice(5);
+        // task = task.replace(/\ufeff/g, "");
         task = JSON.parse(task)
         wx.setStorageSync('task', task)
-        // task = task.replace(/\ufeff/g, "");
-        // var task = JSON.parse(res.data);
-        // wx.setStorageSync('task', res.data)
-        // console.log(task1)
-        // task1 = task1.slice(5);
-        // var task = JSON.parse(task1);
-        // console.log(task)
       },
       fail: function (res) {
         console.log("失败")

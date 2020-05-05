@@ -1,2 +1,70 @@
 <view class="container">
+	<!-- 顶部菜单栏 -->
+	<view class="select">
+		<block wx:for="{{displayWeek}}">
+			<view class="selectFormatter {{formatter==index?'active':''}} {{weekTime==index?'today':''}}" bindtap="toTheDay" data-index="{{index}}">{{item}}</view>
+		</block>
+		<view class="all selectFormatter {{formatter==7?'active':''}}" bindtap="toAll">全部事项</view>
+	</view>
+	<!-- 显示一周内指定日期的事项，默认显示今日课程 -->
+	<block wx:for="{{weekDayItem[formatter]}}">
+		<view class="itemList type{{item.type}}">
+			<view class="name">{{item.name}}</view>
+			<view class="detailTime" wx:if="{{item.startTime!=''}}">{{item.startTime}}-{{item.endTime}}</view>
+			<view class="detailTime" wx:else></view>
+			<view class="remark">{{item.remark}}</view>
+		</view>
+	</block>
+	<!-- 全部事项 -->
+	<view class="allItem" wx:if="{{formatter==7}}">
+		<!-- 添加，删除事项 -->
+		<image class="addItem" src="../../images/icons/add.png" bindtap="addItem"></image>
+		<image class="clearItem" src="../../images/icons/clear.png" bindtap="clearItem"></image>
+		<!-- 全部课程和计划 -->
+		<!-- 全部课程 -->
+		<bigTitle titleContent="全部课程"></bigTitle>
+		<view class="courses clearfix">
+			<block wx:for="{{displayWeek}}" wx:for-item="item" wx:for-index="index">
+				<view class="weekCourse clearfix">
+					<view class="weekTitle">{{item}}</view>
+					<view class="weekContent">
+						<block wx:for="{{weekCourse[index]}}" wx:for-item="item1" wx:for-index="index1">
+							<block wx:if="{{item1.startWeek<=numOfWeek&&item1.endWeek>=numOfWeek}}">
+								<view class="course">
+									<view class="courseName">{{item1.name}}</view>
+									<view class="courseTime">{{item1.startTime}}-{{item1.endTime}}</view>
+								</view>
+							</block>
+							<block wx:else>
+								<view class="course grey transparent">
+									<view class="courseName">[非本周]{{item1.name}}</view>
+									<view class="courseTime">{{item1.startTime}}-{{item1.endTime}}</view>
+								</view>
+							</block>
+						</block>
+					</view>
+				</view>
+			</block>
+		</view>
+		<!-- 全部计划 -->
+		<bigTitle titleContent="全部计划"></bigTitle>
+		<view class="plans clearfix">
+			<block wx:for="{{item}}" wx:for-index="index" wx:for-item="item">
+				<block wx:if="{{item.type==1}}">
+					<view class="plan">
+						<view class="planName">{{item.name}}</view>
+						<view class="planTime">
+							<block wx:if="{{item.repetitionType==0}}">{{item.date}}</block>
+							<block wx:if="{{item.repetitionType==1}}">每天</block>
+							<block wx:if="{{item.repetitionType==2}}">
+								<block wx:for="{{item.repetitionTime}}" wx:for-index="index1" wx:for-item="item1">
+									<block wx:if="{{item1==true}}">{{displayWeek[index1]}} </block>
+								</block>
+							</block>
+						</view>
+					</view>
+				</block>
+			</block>
+		</view>
+	</view>
 </view>

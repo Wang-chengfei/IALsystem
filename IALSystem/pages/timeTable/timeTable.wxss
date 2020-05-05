@@ -1,0 +1,165 @@
+.select {
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+}
+
+.select .selectFormatter {
+  float: left;
+  width: 70rpx;
+  margin: 0 8rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.container .select .all {
+  width: 124rpx;
+  margin: 0 12rpx;
+}
+
+.container .select .active {
+  color: #1e90ff;
+  border-bottom: 4rpx solid #1e90ff;
+}
+
+.container .select .today {
+
+  background-color: #eee;
+}
+
+.itemList {
+  width: 720rpx;
+  height: 150rpx;
+  margin: 20rpx auto;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+
+.itemList .name,
+.itemList .detailTime,
+.itemList .remark {
+  float: left;
+  width: 220rpx;
+  height: 150rpx;
+  line-height: 150rpx;
+  text-align: center;
+  font-size: 38rpx;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+.itemList .detailTime {
+  width: 200rpx;
+  font-size: 30rpx;
+}
+
+.itemList .remark {
+  width: 300rpx;
+  font-size: 30rpx;
+}
+
+.container .type0 {
+  border: 2rpx solid #39c3f2;
+}
+
+.container .type1 {
+  border: 2rpx solid #ed1c24;
+}
+
+.addItem,
+.clearItem {
+  position: fixed;
+  right: 40rpx;
+  bottom: 220rpx;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.clearItem {
+  bottom: 80rpx;
+}
+
+.courses {
+  display: block;
+  width: 750rpx;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.weekCourse {
+  display: block;
+  width: 100%;
+}
+
+.weekTitle {
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-left: 20rpx;
+  font-size: 36rpx;
+}
+
+.weekContent {
+  width: 720rpx;
+}
+
+.course {
+  float: left;
+  width: 216rpx;
+  margin: 10rpx;
+  height: 90rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid #1e90ff;
+}
+
+.courseName {
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 28rpx;
+}
+
+.courseTime {
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+.plans {
+  width: 720rpx;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.plan {
+  float: left;
+  width: 216rpx;
+  height: 90rpx;
+  margin: 10rpx;
+  border: 2rpx solid #ed1c24;
+  border-radius: 20rpx;
+}
+
+.planName {
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.planTime {
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+.transparent {
+  opacity: 0.7;
+}

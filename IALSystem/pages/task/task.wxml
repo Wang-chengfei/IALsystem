@@ -4,7 +4,7 @@
 	<bigTitle titleContent="全部任务"></bigTitle>
 	<view class="content">
 		<block wx:for="{{task}}">
-			<view class="taskList clearfix" bindtap="toDetails" data-index="{{index}}">
+			<view class="taskList clearfix task{{item.iconColor}}" bindtap="toDetails" data-index="{{index}}">
 				<view class="image {{item.iconColor}}"></view>
 				<view class="wenzi">
 					<text class="details">
