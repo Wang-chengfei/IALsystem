@@ -1,6 +1,6 @@
 var formatTime = require("../../data/formatTime.js");
 var weekTime = formatTime.weekTime;
-var date = formatTime.formatDate;
+var date1 = formatTime.formatDate;
 Page({
 
   /**
@@ -237,6 +237,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     this.setData({
       formatter: weekTime
     })
@@ -410,7 +411,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**

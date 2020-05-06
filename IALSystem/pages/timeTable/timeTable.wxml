@@ -21,31 +21,6 @@
 		<image class="addItem" src="../../images/icons/add.png" bindtap="addItem"></image>
 		<image class="clearItem" src="../../images/icons/clear.png" bindtap="clearItem"></image>
 		<!-- 全部课程和计划 -->
-		<!-- 全部课程 -->
-		<bigTitle titleContent="全部课程"></bigTitle>
-		<view class="courses clearfix">
-			<block wx:for="{{displayWeek}}" wx:for-item="item" wx:for-index="index">
-				<view class="weekCourse clearfix">
-					<view class="weekTitle">{{item}}</view>
-					<view class="weekContent">
-						<block wx:for="{{weekCourse[index]}}" wx:for-item="item1" wx:for-index="index1">
-							<block wx:if="{{item1.startWeek<=numOfWeek&&item1.endWeek>=numOfWeek}}">
-								<view class="course">
-									<view class="courseName">{{item1.name}}</view>
-									<view class="courseTime">{{item1.startTime}}-{{item1.endTime}}</view>
-								</view>
-							</block>
-							<block wx:else>
-								<view class="course grey transparent">
-									<view class="courseName">[非本周]{{item1.name}}</view>
-									<view class="courseTime">{{item1.startTime}}-{{item1.endTime}}</view>
-								</view>
-							</block>
-						</block>
-					</view>
-				</view>
-			</block>
-		</view>
 		<!-- 全部计划 -->
 		<bigTitle titleContent="全部计划"></bigTitle>
 		<view class="plans clearfix">
@@ -59,6 +34,33 @@
 							<block wx:if="{{item.repetitionType==2}}">
 								<block wx:for="{{item.repetitionTime}}" wx:for-index="index1" wx:for-item="item1">
 									<block wx:if="{{item1==true}}">{{displayWeek[index1]}} </block>
+								</block>
+							</block>
+						</view>
+					</view>
+				</block>
+			</block>
+		</view>
+		<!-- 全部课程 -->
+		<bigTitle titleContent="全部课程"></bigTitle>
+		<view class="courses clearfix">
+			<block wx:for="{{displayWeek}}" wx:for-item="item" wx:for-index="index">
+				<block wx:if="{{weekCourse[index].length!=0}}">
+					<view class="weekCourse clearfix">
+						<view class="weekTitle">{{item}}</view>
+						<view class="weekContent">
+							<block wx:for="{{weekCourse[index]}}" wx:for-item="item1" wx:for-index="index1">
+								<block wx:if="{{item1.startWeek<=numOfWeek&&item1.endWeek>=numOfWeek}}">
+									<view class="course">
+										<view class="courseName">{{item1.name}}</view>
+										<view class="courseTime">{{item1.startTime}}-{{item1.endTime}}</view>
+									</view>
+								</block>
+								<block wx:else>
+									<view class="course grey transparent">
+										<view class="courseName">[非本周]{{item1.name}}</view>
+										<view class="courseTime">{{item1.startTime}}-{{item1.endTime}}</view>
+									</view>
 								</block>
 							</block>
 						</view>

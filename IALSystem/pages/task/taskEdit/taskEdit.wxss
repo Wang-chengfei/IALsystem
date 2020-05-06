@@ -45,9 +45,11 @@ slider {
   font-size: 32rpx;
   font-weight: 700;
 }
+
 .container .true {
   background-color: #0881f6;
 }
+
 .container .false {
   background-color: #cbccce;
 }
@@ -59,20 +61,23 @@ slider {
 .complete {
   left: 510rpx;
 }
+
 .ifCompleted {
- position: absolute;
- top: 10rpx;
- right: 20rpx;
- height: 80rpx;
- line-height: 80rpx;
- width: 180rpx;
- text-align: center;
+  position: absolute;
+  top: 10rpx;
+  right: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 180rpx;
+  text-align: center;
 }
+
 .ifCompleted text {
   display: block;
   float: left;
 }
+
 .ifCompleted icon {
   float: left;
-  margin :20rpx 10rpx 0 0;
+  margin: 20rpx 10rpx 0 0;
 }

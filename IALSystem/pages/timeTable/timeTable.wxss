@@ -95,8 +95,11 @@
 .weekTitle {
   height: 60rpx;
   line-height: 60rpx;
-  margin-left: 20rpx;
-  font-size: 36rpx;
+  padding-left: 20rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #fff;
+  background-color: #6db7ff;
 }
 
 .weekContent {
@@ -131,8 +134,9 @@
 }
 
 .plans {
-  width: 720rpx;
-  margin: 0 auto;
+  width: 750rpx;
+  margin: 10rpx 0;
+  padding: 0 15rpx;
   background-color: #fff;
 }
 
@@ -160,6 +164,7 @@
   text-align: center;
   font-size: 24rpx;
 }
+
 .transparent {
   opacity: 0.7;
 }
