@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    numOfWeek:0,
+    numOfWeek: 0,
     weekTime: weekTime,
     formatter: 0,
     item: [{
@@ -21,7 +21,7 @@ Page({
         startWeek: 1, //课程才有，其他为0
         endWeek: 13, //同上
         weekTime: 2, //周几上课 同上
-        repetitionTime: [] //计划且按周重复才有，其他为空数组，数组内数字为重复时间
+        repetitionTime: [false, false, false, false, false, false, false] //数组中true为重复时间,不是为计划每周重复时为[false,false,false,false,false,false,false]
       },
       {
         type: 1,
@@ -34,7 +34,7 @@ Page({
         startWeek: 0,
         endWeek: 0,
         weekTime: 0,
-        repetitionTime: []
+        repetitionTime: [false, false, false, false, false, false, false]
       },
       {
         type: 0,
@@ -47,7 +47,7 @@ Page({
         startWeek: 1,
         endWeek: 16,
         weekTime: 3,
-        repetitionTime: []
+        repetitionTime: [false, false, false, false, false, false, false]
       },
       {
         type: 0,
@@ -60,7 +60,7 @@ Page({
         startWeek: 1,
         endWeek: 9,
         weekTime: 1,
-        repetitionTime: []
+        repetitionTime: [false, false, false, false, false, false, false]
       },
       {
         type: 0,
@@ -73,7 +73,7 @@ Page({
         startWeek: 1,
         endWeek: 17,
         weekTime: 4,
-        repetitionTime: []
+        repetitionTime: [false, false, false, false, false, false, false]
       },
       {
         type: 0,
@@ -86,7 +86,7 @@ Page({
         startWeek: 11,
         endWeek: 17,
         weekTime: 5,
-        repetitionTime: []
+        repetitionTime: [false, false, false, false, false, false, false]
       },
       {
         type: 0,
@@ -99,7 +99,7 @@ Page({
         startWeek: 1,
         endWeek: 17,
         weekTime: 3,
-        repetitionTime: []
+        repetitionTime: [false, false, false, false, false, false, false]
       },
       {
         type: 0,
@@ -112,7 +112,7 @@ Page({
         startWeek: 1,
         endWeek: 17,
         weekTime: 1,
-        repetitionTime: []
+        repetitionTime: [false, false, false, false, false, false, false]
       },
       {
         type: 0,
@@ -125,7 +125,7 @@ Page({
         startWeek: 1,
         endWeek: 17,
         weekTime: 4,
-        repetitionTime: []
+        repetitionTime: [false, false, false, false, false, false, false]
       },
       {
         type: 0,
@@ -138,7 +138,7 @@ Page({
         startWeek: 2,
         endWeek: 13,
         weekTime: 4,
-        repetitionTime: []
+        repetitionTime: [false, false, false, false, false, false, false]
       },
       {
         type: 1,
@@ -151,7 +151,7 @@ Page({
         startWeek: 0,
         endWeek: 0,
         weekTime: 0,
-        repetitionTime: []
+        repetitionTime: [false, false, false, false, false, false, false]
       },
       {
         type: 1,
@@ -164,7 +164,7 @@ Page({
         startWeek: 0,
         endWeek: 0,
         weekTime: 0,
-        repetitionTime: []
+        repetitionTime: [false, false, false, false, false, false, false]
       },
       {
         type: 1,
@@ -237,7 +237,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
     this.setData({
       formatter: weekTime
     })
@@ -362,8 +362,8 @@ Page({
       }
     }
     //将所有课程分配到对应周几上（包括非本周课程）
-    for(var i = 0;i<item1.length;i++){
-      if(item1[i].type==0)weekCourse1[item1[i].weekTime].push(item1[i])
+    for (var i = 0; i < item1.length; i++) {
+      if (item1[i].type == 0) weekCourse1[item1[i].weekTime].push(item1[i])
     }
     //对课程按starTime排序（选择排序法）
     for (var i = 0; i < 7; i++) {
@@ -395,8 +395,8 @@ Page({
     }
     this.setData({
       weekDayItem: weekDayItem1,
-      weekCourse:weekCourse1,
-      numOfWeek:numOfWeek
+      weekCourse: weekCourse1,
+      numOfWeek: numOfWeek
     })
   },
 
@@ -411,7 +411,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**

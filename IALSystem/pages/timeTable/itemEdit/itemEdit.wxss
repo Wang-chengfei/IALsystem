@@ -92,11 +92,17 @@ checkbox-group {
   line-height: 100rpx;
   text-align: center;
   border-radius: 50rpx;
-  background-color: #0881f6;
   color: #fff;
   font-size: 36rpx;
   font-weight: 700;
 }
+.savedtrue {
+  background-color: #0881f6;
+}
+.savedfalse {
+  background-color: #cbccce;
+}
 .delet {
   left: 70rpx;
+  background-color: #e33e33;
 }

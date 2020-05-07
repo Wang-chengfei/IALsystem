@@ -1,5 +1,6 @@
 var formatTime = require("../../data/formatTime.js");
 var today = formatTime.formatData;
+var prom = require("../../data/prom.js")
 
 Page({
 
@@ -7,8 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    openid: "",
-    task:[]
+    task: []
   },
   addTask: function () {
     wx.navigateTo({
@@ -42,13 +42,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var task1 = wx.getStorageSync('task');
-    var openid1 = wx.getStorageSync('openid');
     this.setData({
-      openid: openid1,
-      task:task1
+      task: wx.getStorageSync('task')
     })
-    console.log(this.data.openid)
   },
 
   /**
@@ -62,7 +58,49 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this
+    // 彻底完成编辑，发送网络请求
+    var s = JSON.stringify(wx.getStorageSync('task'))
+    prom.wxPromisify(wx.request)({
+      url: "http://39.102.49.243:8080/IALS/load/task", //服务器地址
+      method: "POST", //请求方法 GET：请求数据， POST：发送数据给服务器并让服务器处理
+      header: {
+        "content-type": 'application/x-www-form-urlencoded;charset=utf-8', //小程序将以json形式读取文件
+        "Accept": "application/json, text/javascript, */*;q=0.01"
+      },
+      scriptCharset: "utf-8",
+      dataType: JSON, //返回的数据为 JSON，返回后会对返回的数据进行一次 JSON.parse
+      data: {
+        openid: wx.getStorageSync('openid'),
+        task: s
+      }
+    }).then(function () {
+      wx.request({
+        url: "http://39.102.49.243:8080/IALS/load/task", //服务器地址
+        method: "GET", //请求方法 GET：请求数据， POST：发送数据给服务器并让服务器处理
+        header: {
+          "content-type": 'application/x-www-form-urlencoded;charset=utf-8', //小程序将以json形式读取文件
+          "Accept": "application/json, text/javascript, */*;q=0.01"
+        },
+        scriptCharset: "utf-8",
+        dataType: JSON, //返回的数据为 JSON，返回后会对返回的数据进行一次 JSON.parse
+        data: {
+          openid: wx.getStorageSync('openid')
+        },
+        success: function (res) {
+          console.log("获取任务数据成功")
+          var task = JSON.parse(res.data)
+          wx.setStorageSync('task', task)
+          that.setData({
+            task:wx.getStorageSync('task')
+          })
+        },
+        fail: function (err) {
+          console.log("获取任务数据失败")
+          console.log(err)
+        }
+      })
+    })
   },
 
   /**

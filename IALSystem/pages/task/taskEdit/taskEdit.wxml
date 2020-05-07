@@ -38,11 +38,11 @@
 		<!-- 标记重要程度 -->
 		<view class="importanceLevel">
 			<smallTitle imgUrl="/images/icons/importanceLevel.png" titleContent="选择重要程度"></smallTitle>
-			<slider min="0" max="10" show-value="{{true}}" value="{{importanceLevel}}" bindchange="importanceLevelChange"></slider>
+			<slider min="1" max="10" show-value="{{true}}" value="{{importanceLevel}}" bindchange="importanceLevelChange"></slider>
 		</view>
 	</scroll-view>
 	<!-- 保存，删除，完成区 -->
-	<view class="save  {{saved}}" bindtap="tapSave">保存</view>
-	<view class="delet" bindtap="tapDelet">删除</view>
+	<view class="save  {{saved}}" bindtap="tapSave">保 存</view>
+	<view class="delet" bindtap="tapDelet">删 除</view>
 	<view class="complete" bindtap="tapComplete">完成任务</view>
 </view>

@@ -10,20 +10,20 @@
 		<view class="name">
 			<view class="title">课名</view>
 			<view class="content">
-				<input placeholder="未输入" maxlength="12" value="{{name}}" bindinput="name"></input>
+				<input placeholder="未输入" maxlength="12" value="{{name[type]}}" bindinput="name"></input>
 			</view>
 		</view>
 		<!-- 上课地点 -->
 		<view class="remark">
 			<view class="title">教室</view>
-			<view class="content"><input placeholder="未输入" maxlength="12" value="{{remark}}" bindinput="remark"></input></view>
+			<view class="content"><input placeholder="未输入" maxlength="12" value="{{remark[type]}}" bindinput="remark"></input></view>
 		</view>
 		<!-- 开始时间 -->
 		<view class="startTime">
 			<view class="title">开始时间</view>
 			<view class="content">
-				<picker mode="time" bindchange="startTime" value="{{startTime}}">
-					<view>{{startTime}}</view>
+				<picker mode="time" bindchange="startTime" value="{{startTime[type]}}">
+					<view>{{startTime[type]}}</view>
 				</picker>
 			</view>
 		</view>
@@ -31,8 +31,8 @@
 		<view class="endTime">
 			<view class="title">结束时间</view>
 			<view class="content">
-				<picker mode="time" bindchange="endTime" value="{{endTime}}">
-					<view>{{endTime}}</view>
+				<picker mode="time" bindchange="endTime" value="{{endTime[type]}}">
+					<view>{{endTime[type]}}</view>
 				</picker>
 			</view>
 		</view>
@@ -41,7 +41,7 @@
 			<view class="title">周数</view>
 			<view class="content">
 				<picker mode="multiSelector" range="{{courseWeekArr}}" value="{{[startWeek-1,endWeek-1]}}" bindchange="courseWeek">
-					<view>{{startWeek}} - {{endWeek}}</view>
+					<view>{{startWeek}} - {{endWeek}} 周</view>
 				</picker>
 			</view>
 		</view>
@@ -52,20 +52,20 @@
 		<view class="name">
 			<view class="title">概述</view>
 			<view class="content">
-				<input placeholder="未输入" maxlength="12" value="{{name}}" bindinput="name"></input>
+				<input placeholder="未输入" maxlength="12" value="{{name[type]}}" bindinput="name"></input>
 			</view>
 		</view>
 		<!-- 计划备注 -->
 		<view class="remark">
 			<view class="title">备注</view>
-			<view class="content"><input placeholder="未输入" maxlength="12" value="{{remark}}" bindinput="remark"></input></view>
+			<view class="content"><input placeholder="未输入" maxlength="12" value="{{remark[type]}}" bindinput="remark"></input></view>
 		</view>
 		<!-- 开始时间 -->
 		<view class="startTime">
 			<view class="title">开始时间</view>
 			<view class="content">
-				<picker mode="time" bindchange="startTime" value="{{startTime}}">
-					<view>{{startTime}}</view>
+				<picker mode="time" bindchange="startTime" value="{{startTime[type]}}">
+					<view>{{startTime[type]}}</view>
 				</picker>
 			</view>
 		</view>
@@ -73,8 +73,8 @@
 		<view class="endTime">
 			<view class="title">结束时间</view>
 			<view class="content">
-				<picker mode="time" bindchange="endTime" value="{{endTime}}">
-					<view>{{endTime}}</view>
+				<picker mode="time" bindchange="endTime" value="{{endTime[type]}}">
+					<view>{{endTime[type]}}</view>
 				</picker>
 			</view>
 		</view>
@@ -107,7 +107,7 @@
 					<checkbox-group bindchange="repetitionTime">
 						<label class="weui-cell weui-check__label" wx:for="{{displayWeek}}">
 							<view class="weui-cell__hd">
-								<checkbox value="{{week[index]}}" checked="{{repetitionTime[index]}}"/>
+								<checkbox value="{{week[index]}}" checked="{{repetitionTime[index]}}" />
 							</view>
 							<view class="weui-cell__bd">{{item}}</view>
 						</label>
@@ -116,6 +116,6 @@
 			</view>
 		</block>
 	</block>
-	<view class="delet">删 除</view>
-	<view class="save">保 存</view>
+	<view class="delet" bindtap="delet">删 除</view>
+	<view class="save saved{{isSaved}}" bindtap="save">保 存</view>
 </view>

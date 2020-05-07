@@ -33,14 +33,13 @@ slider {
 .delet,
 .complete {
   position: fixed;
-  left: 50rpx;
+  left: 510rpx;
   bottom: 15rpx;
   width: 200rpx;
   height: 80rpx;
   line-height: 80rpx;
   text-align: center;
   border-radius: 40rpx;
-  background-color: #0881f6;
   color: #fff;
   font-size: 32rpx;
   font-weight: 700;
@@ -55,11 +54,13 @@ slider {
 }
 
 .delet {
-  left: 280rpx;
+  left: 50rpx;
+  background-color: #e33e33;
 }
 
 .complete {
-  left: 510rpx;
+  left: 280rpx;
+  background-color: #0881f6;
 }
 
 .ifCompleted {
