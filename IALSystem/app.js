@@ -15,6 +15,7 @@ App({
           }
         }).then(function (res) {
           wx.setStorageSync('openid', res.data.openid); //获取用户openid
+          console.log("开启小程序获取用户openid成功")
           wx.setStorageSync('session_key', res.data.session_key)
         }).then(function () {
           wx.request({

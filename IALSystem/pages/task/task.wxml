@@ -4,13 +4,16 @@
 	<bigTitle titleContent="全部任务"></bigTitle>
 	<view class="content">
 		<block wx:for="{{task}}">
-			<view class="taskList clearfix task{{item.iconColor}}" bindtap="toDetails" data-index="{{index}}">
-				<view class="image {{item.iconColor}}"></view>
+			<view class="taskList clearfix" bindtap="toDetails" data-index="{{index}}">
+				<block wx:if="{{item.completed==false}}">
+					<view class="image {{item.iconColor}}"></view>
+				</block>
+				<block wx:else>
+					<icon type="success" class="image"></icon>
+				</block>
 				<view class="wenzi">
-					<text class="details">
-						<block wx:if="{{item.details.length==0}}">{{item.summry}}</block>
-						<block wx:else>{{item.details}}</block>
-					</text>
+					<text class="summary">{{item.summary}}</text>
+					<text class="details">{{item.details}}</text>
 					<text class="deadline"> 截止日期：{{item.deadline}}</text>
 				</view>
 			</view>

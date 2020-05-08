@@ -101,24 +101,24 @@ Page({
       }
     })
   },
-  //完成任务
+  //改变任务完成状态
   tapComplete: function (e) {
     var that = this
-    wx.showModal({
-      title: "提示",
-      content: "您确定完成该任务吗？",
-      success: function (res) {
-        if (res.confirm) {
-          wx.showToast({
-            title: '完成任务成功',
-          })
-          that.setData({
-            completed: true
-          })
-        } else console.log("用户点击取消")
-      }
-    })
-
+    if (this.data.completed == true) {
+      that.setData({
+        completed: false
+      })
+      wx.showToast({
+        title: '取消成功',
+      })
+    } else {
+      that.setData({
+        completed: true
+      })
+      wx.showToast({
+        title: '完成任务',
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

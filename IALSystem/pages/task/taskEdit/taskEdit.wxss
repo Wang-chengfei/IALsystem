@@ -1,39 +1,93 @@
-.summary .textarea,
-.details .textarea {
+.ifCompleted {
+  width: 200rpx;
+  height: 80rpx;
+  margin: 6rpx auto 6rpx auto;
+}
+
+.ifCompleted text {
+  float: left;
   display: block;
-  width: 720rpx;
-  font-size: 32rpx;
-  margin: 10rpx auto;
-  border-radius: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 38rpx;
+}
+
+.ifCompleted icon {
+  display: block;
+  float: left;
+  margin: 20rpx 12rpx 0 0;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.summary,
+.deadline,
+.importanceLevel {
+  height: 100rpx;
+  width: 750rpx;
   background-color: #fff;
 }
 
-.summary textarea,
-.details textarea {
-  width: 692rpx;
-  padding: 20rpx;
+.title {
+  float: left;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 220rpx;
+  text-align: center;
+}
+
+.content {
+  float: left;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 530rpx;
+}
+
+input {
+  height: 100%;
+  width: 500rpx;
 }
 
 .deadline .choose {
-  display: block;
-  width: 720rpx;
-  margin: 0 auto;
-  border-radius: 20rpx;
-  height: 70rpx;
-  line-height: 70rpx;
-  padding-left: 30rpx;
-  background-color: #fff;
+  height: 100rpx;
+  line-height: 100rpx;
 }
 
 slider {
-  padding-left: 20rpx;
+  height: 100rpx;
+  width: 490rpx;
+  padding: 0;
+  margin: 0;
+}
+
+.details {
+  width: 750rpx;
+  background-color: #fff;
+}
+
+.details .detailsTitle {
+  float: left;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 220rpx;
+  text-align: center;
+}
+
+.details .detailsContent {
+  margin-top: 30rpx;
+  float: left;
+  width: 490rpx;
+}
+
+.details textarea {
+  width: 100%;
 }
 
 .save,
 .delet,
 .complete {
   position: fixed;
-  left: 510rpx;
+  left: 500rpx;
   bottom: 15rpx;
   width: 200rpx;
   height: 80rpx;
@@ -59,26 +113,6 @@ slider {
 }
 
 .complete {
-  left: 280rpx;
+  left: 275rpx;
   background-color: #0881f6;
-}
-
-.ifCompleted {
-  position: absolute;
-  top: 10rpx;
-  right: 20rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  width: 180rpx;
-  text-align: center;
-}
-
-.ifCompleted text {
-  display: block;
-  float: left;
-}
-
-.ifCompleted icon {
-  float: left;
-  margin: 20rpx 10rpx 0 0;
 }
