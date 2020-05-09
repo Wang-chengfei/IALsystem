@@ -87,7 +87,8 @@
   padding: 15rpx 0 0 30rpx;
 }
 .container3 .title image {
-  display: inline-block;
+  display: block;
+  float: left;
   margin-right: 20rpx;
   width: 47rpx;
   height: 47rpx;
@@ -96,20 +97,27 @@
   width: 100%;
 }
 .container3 .content .wordList {
-  position: relative;
   width: 100%;
   line-height: 75rpx;
   height: 75rpx;
   border-top: 2rpx solid #eee;
 }
 .container3 .content .wordList .word {
-  display: inline-block;
-  padding-left: 30rpx;
+  display: block;
+  width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  float: left;
+  margin-left: 30rpx;
 }
 .container3 .content .wordList .meaning {
-  position: absolute;
-  display: inline-block;
-  right: 30rpx;
+  display: block;
+  width: 450rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  float: right;
+  text-align: right;
+  margin-right: 30rpx;
 }
 .container4 {
   width: 720rpx;

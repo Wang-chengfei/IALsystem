@@ -99,6 +99,14 @@ slider {
   font-weight: 700;
 }
 
+.container .center {
+  left: 235rpx;
+  width: 280rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 50rpx;
+}
+
 .container .true {
   background-color: #0881f6;
 }

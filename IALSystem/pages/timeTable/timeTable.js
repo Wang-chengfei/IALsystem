@@ -7,179 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+
     numOfWeek: 0,
     weekTime: weekTime,
-    formatter: 0,
-    item: [{
-        type: 0, //0-课程 1-计划
-        name: "java", //课程-课程名  计划-计划概述
-        remark: "江安一教A", //课程-上课地点  计划-备注
-        startTime: "08:15",
-        endTime: "11:50",
-        repetitionType: 0, //计划重复类型 0-不重复 1-每天重复 2-每周重复 课程时为0
-        date: "", //计划且不重复时才有，其他为空字符串
-        startWeek: 1, //课程才有，其他为0
-        endWeek: 13, //同上
-        weekTime: 2, //周几上课 同上
-        repetitionTime: [false, false, false, false, false, false, false] //数组中true为重复时间,不是为计划每周重复时为[false,false,false,false,false,false,false]
-      },
-      {
-        type: 1,
-        name: "写高数",
-        remark: "今天写好",
-        startTime: "13:50",
-        endTime: "15:30",
-        repetitionType: 0,
-        date: "2020-05-05",
-        startWeek: 0,
-        endWeek: 0,
-        weekTime: 0,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "数字逻辑",
-        remark: "江安综合楼C202",
-        startTime: "13:50",
-        endTime: "16:25",
-        repetitionType: 0,
-        date: "",
-        startWeek: 1,
-        endWeek: 16,
-        weekTime: 3,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "军事理论",
-        remark: "江安综合楼B206",
-        startTime: "19:20",
-        endTime: "21:00",
-        repetitionType: 0,
-        date: "",
-        startWeek: 1,
-        endWeek: 9,
-        weekTime: 1,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "大学英语",
-        remark: "江安二级楼C",
-        startTime: "10:15",
-        endTime: "11:55",
-        repetitionType: 0,
-        date: "",
-        startWeek: 1,
-        endWeek: 17,
-        weekTime: 4,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "形式与政策",
-        remark: "江安综合楼C205",
-        startTime: "13:50",
-        endTime: "16:25",
-        repetitionType: 0,
-        date: "",
-        startWeek: 11,
-        endWeek: 17,
-        weekTime: 5,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "概率统计",
-        remark: "江安综合楼C203",
-        startTime: "16:45",
-        endTime: "18:25",
-        repetitionType: 0,
-        date: "",
-        startWeek: 1,
-        endWeek: 17,
-        weekTime: 3,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "概率统计",
-        remark: "江安综合楼C203",
-        startTime: "16:45",
-        endTime: "18:25",
-        repetitionType: 0,
-        date: "",
-        startWeek: 1,
-        endWeek: 17,
-        weekTime: 1,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "大学体育",
-        remark: "江安二号体育场",
-        startTime: "13:50",
-        endTime: "15:30",
-        repetitionType: 0,
-        date: "",
-        startWeek: 1,
-        endWeek: 17,
-        weekTime: 4,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "计算机辅助三维设计",
-        remark: "江安一教B505",
-        startTime: "19:20",
-        endTime: "21:55",
-        repetitionType: 0,
-        date: "",
-        startWeek: 2,
-        endWeek: 13,
-        weekTime: 4,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 1,
-        name: "写代码",
-        remark: "每天坚持！！",
-        startTime: "",
-        endTime: "",
-        repetitionType: 1,
-        date: "",
-        startWeek: 0,
-        endWeek: 0,
-        weekTime: 0,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 1,
-        name: "背英语单词",
-        remark: "每天坚持！",
-        startTime: "",
-        endTime: "",
-        repetitionType: 1,
-        date: "",
-        startWeek: 0,
-        endWeek: 0,
-        weekTime: 0,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 1,
-        name: "运动",
-        remark: "周末去打球",
-        startTime: "18:00",
-        endTime: "19:00",
-        repetitionType: 2,
-        date: "",
-        startWeek: 0,
-        endWeek: 0,
-        weekTime: 0,
-        repetitionTime: [true, false, false, false, false, false, true]
-      },
-    ],
+    formatter: weekTime,
+    item: [],
     weekDayItem: [
       [],
       [],
@@ -232,19 +64,50 @@ Page({
       }
     })
   },
-
+  toDetail: function (e) {
+    var thisItem = e.currentTarget.dataset.thisitem
+    wx.navigateTo({
+      url: 'itemEdit/itemEdit?thisItem=' + JSON.stringify(thisItem),
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
-    this.setData({
-      formatter: weekTime
-    })
-    var numOfWeek = wx.getStorageSync('numOfWeek');
-    var weekDayItem1 = this.data.weekDayItem
-    var item1 = this.data.item;
-    var weekCourse1 = this.data.weekCourse
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    var item1 = wx.getStorageSync('item')
+    var numOfWeek = wx.getStorageSync('numOfWeek')
+    var weekDayItem1 = [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
+    var weekCourse1 = [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
     //将所有事项分配到对应周几上
     for (var i = 0; i < item1.length; i++) {
       //判断课程
@@ -396,22 +259,32 @@ Page({
     this.setData({
       weekDayItem: weekDayItem1,
       weekCourse: weekCourse1,
-      numOfWeek: numOfWeek
+      numOfWeek: numOfWeek,
+      item: item1
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+    //发起网络请求，上传事项数据
+    console.log(JSON.stringify(wx.getStorageSync('item')))
+    wx.request({
+      url: "http://39.102.49.243:8080/IALS/load/item", //服务器地址
+      method: "POST",
+      header: {
+        "content-type": 'application/x-www-form-urlencoded;charset=utf-8',
+        "accept": "application/json, text/javascript, */*;q=0.01"
+      },
+      scriptCharset: "utf-8",
+      dataType: JSON,
+      data: {
+        openid: wx.getStorageSync('openid'),
+        item: JSON.stringify(wx.getStorageSync('item'))
+      },
+      success: function (res) {
+        console.log("更新事项数据成功")
+      },
+      fail: function (err) {
+        console.log("更新事项数据失败")
+        console.log(err)
+      }
+    })
   },
 
   /**

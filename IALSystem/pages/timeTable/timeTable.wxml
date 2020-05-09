@@ -8,7 +8,7 @@
 	</view>
 	<!-- 显示一周内指定日期的事项，默认显示今日课程 -->
 	<block wx:for="{{weekDayItem[formatter]}}">
-		<view class="itemList type{{item.type}}">
+		<view class="itemList type{{item.type}}" bindtap="toDetail" data-thisItem="{{item}}">
 			<view class="name">{{item.name}}</view>
 			<view class="detailTime" wx:if="{{item.startTime!=''}}">{{item.startTime}}-{{item.endTime}}</view>
 			<view class="detailTime" wx:else></view>
@@ -26,7 +26,7 @@
 		<view class="plans clearfix">
 			<block wx:for="{{item}}" wx:for-index="index" wx:for-item="item">
 				<block wx:if="{{item.type==1}}">
-					<view class="plan">
+					<view class="plan" bindtap="toDetail" data-thisitem="{{item}}">
 						<view class="planName">{{item.name}}</view>
 						<view class="planTime">
 							<block wx:if="{{item.repetitionType==0}}">{{item.date}}</block>
@@ -51,13 +51,14 @@
 						<view class="weekContent">
 							<block wx:for="{{weekCourse[index]}}" wx:for-item="item1" wx:for-index="index1">
 								<block wx:if="{{item1.startWeek<=numOfWeek&&item1.endWeek>=numOfWeek}}">
-									<view class="course">
+									<view class="course" bindtap="toDetail" data-thisitem="{{item1}}">
 										<view class="courseName">{{item1.name}}</view>
-										<view class="courseTime">{{item1.startTime}}-{{item1.endTime}}</view>
+										<view class="courseTime" wx:if="{{item1.startTime!=''}}">{{item1.startTime}}-{{item1.endTime}}</view>
+										<view wx:else></view>
 									</view>
 								</block>
 								<block wx:else>
-									<view class="course grey transparent">
+									<view class="course grey transparent" bindtap="toDetail" data-thisitem="{{item1}}">
 										<view class="courseName">[非本周]{{item1.name}}</view>
 										<view class="courseTime">{{item1.startTime}}-{{item1.endTime}}</view>
 									</view>

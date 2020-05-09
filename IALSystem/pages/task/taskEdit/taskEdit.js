@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    newTask:true,
     task: [],
     summary: "",
     details: "",
@@ -119,6 +120,9 @@ Page({
         title: '完成任务',
       })
     }
+    this.setData({
+      saved:false
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -130,6 +134,13 @@ Page({
     index = -1;
     var that = this;
     if (options.taskIndex != null) {
+      wx.setNavigationBarTitle({
+        title: '编辑任务',
+      })
+      that.setData({
+        newTask:false,
+        saved:true
+      })
       index = options.taskIndex;
       var datas = this.data.task[options.taskIndex]
       that.setData({

@@ -9,6 +9,7 @@
   bottom: 220rpx;
   width: 100rpx;
   height: 100rpx;
+  z-index:999
 }
 
 .clearTask {
@@ -21,34 +22,40 @@
 }
 
 .content .taskList {
+  position: relative;
   border-radius: 20rpx;
   background-color: #fff;
   margin: 0rpx auto 20rpx auto;
 }
 
 .content .taskList .image {
-  float: left;
   width: 45rpx;
   height: 45rpx;
-  margin: 60rpx 0 0 20rpx;
+  margin: 40rpx 30rpx 0 32rpx;
   border-radius: 50%;
+}
+.content .taskList .dot {
+  float: left;
+  height: 130rpx;
 }
 
 .content .taskList .wenzi {
   padding: 20rpx 0;
-  width: 635rpx;
+  width: 600rpx;
   float: left;
   display: block;
+}
+.content .taskList .completedTask {
+  color: #898989;
 }
 
 .content .taskList .wenzi .details,
 .content .taskList .wenzi .summary{
   display: block;
-  padding-left: 30rpx;
 }
 
 .content .taskList .wenzi .deadline {
   display: block;
-  padding: 10rpx 0 0 30rpx;
+  padding-top: 10rpx;
   font-size: 26rpx;
 }

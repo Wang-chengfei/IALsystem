@@ -5,8 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    word:"execute",
-    meaning:"执行",
+    EnWords:[]
     
   },
 

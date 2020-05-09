@@ -1,3 +1,4 @@
+var prom = require("../../data/prom.js")
 Page({
 
   /**
@@ -5,19 +6,7 @@ Page({
    */
   data: {
     task: [],
-    EnWord: [{
-        word: "well",
-        meaning: "好"
-      },
-      {
-        word: "banana",
-        meaning: "香蕉"
-      },
-      {
-        word: "execute",
-        meaning: "执行"
-      },
-    ],
+    EnWords: [],
     chickenSoup: [{
         content: "有目标的人生才有方向，有规划的人生才更精彩。"
       },
@@ -61,8 +50,152 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      task: wx.getStorageSync('task')
+    var that = this
+    wx.setStorageSync('numOfWeek', 11)
+    wx.login({
+      success: function (res) {
+        var appid = "wxbc05f859ff1233f3";
+        var secret = "b4cfead7b3fd7b3859795636397fde85";
+        var code = res.code;
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          url: "https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + secret + "&grant_type=authorization_code&js_code=" + code,
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            console.log("开启小程序获取用户openid成功")
+            wx.setStorageSync('openid', res.data.openid);
+            wx.setStorageSync('session_key', res.data.session_key)
+            // 获取用户任务数据
+            wx.request({
+              url: "http://39.102.49.243:8080/IALS/load/task", //服务器地址
+              method: "GET", //请求方法 GET：请求数据， POST：发送数据给服务器并让服务器处理
+              header: {
+                "content-type": 'application/x-www-form-urlencoded;charset=utf-8', //小程序将以json形式读取文件
+                "Accept": "application/json, text/javascript, */*;q=0.01"
+              },
+              scriptCharset: "utf-8",
+              dataType: JSON, //返回的数据为 JSON，返回后会对返回的数据进行一次 JSON.parse
+              data: {
+                openid: wx.getStorageSync('openid')
+              },
+              success: function (res) {
+                console.log("开启小程序试获取任务数据成功")
+                // task = task.replace(/\ufeff/g, "");
+                var task = JSON.parse(res.data)
+                wx.setStorageSync('task', task)
+                that.setData({
+                  task: wx.getStorageSync('task')
+                })
+              },
+              fail: function (err) {
+                console.log("开启小程序试获取任务数据失败")
+                console.log(err)
+              }
+            })
+            //获取用户事项数据
+            wx.request({
+              url: "http://39.102.49.243:8080/IALS/load/item", //服务器地址
+              method: "GET",
+              header: {
+                "content-type": 'application/x-www-form-urlencoded;charset=utf-8',
+                "Accept": "application/json, text/javascript, */*;q=0.01"
+              },
+              scriptCharset: "utf-8",
+              dataType: JSON,
+              data: {
+                openid: wx.getStorageSync('openid')
+              },
+              success: function (res) {
+                console.log("开启小程序试获取事项数据成功")
+                if (res.data = "mission failed:Can not find the item information of this openid!") {
+                  wx.setStorageSync('item', [])
+                } else {
+                  var item = JSON.parse(res.data)
+                  wx.setStorageSync('item', item)
+                }
+              },
+              fail: function (err) {
+                console.log("开启小程序试获取事项数据失败")
+                console.log(err)
+              }
+            })
+            // 获取今日单词
+            var EnWords = [{
+              wordRank: 1,
+              headWord: "paragraph",
+              content: {
+                word: {
+                  wordHead: "paragraph",
+                  wordId: "KaoYan_2_1",
+                  content: {
+                    entence: {
+                      sentences: [{
+                        sContent: "the opening paragraphs of the novel",
+                        sCn: "小说开篇的几个段落"
+                      }],
+                      desc: "例句"
+                    },
+                    usphone: "'pærəɡræf",
+                    ukphone: "'pærəgrɑːf",
+                    ukspeech: "paragraph&type=1",
+                    star: 0,
+                    phrase: {
+                      phrases: [{
+                          pContent: "new paragraph",
+                          pCn: "另起一行，新段落"
+                        },
+                        {
+                          pContent: "opening paragraph",
+                          pCn: "开始部分"
+                        }
+                      ],
+                      desc: "短语"
+                    },
+                    phone: "'pærəɡrɑ:f, -ɡræf",
+                    speech: "paragraph",
+                    remMethod: {
+                      val: " para(在旁边)+graph(写)→写在文字旁边→段； 短评",
+                      desc: "记忆"
+                    },
+                    relWord: {
+                      rels: [{
+                        pos: "n",
+                        words: [{
+                          hwd: "paragrapher",
+                          tran: " 短评记者"
+                        }]
+                      }],
+                      desc: "同根"
+                    },
+                    usspeech: "paragraph&type=2",
+                    trans: [{
+                        tranCn: "段落；短评；段落符号",
+                        descOther: "英释",
+                        descCn: "中释",
+                        pos: "n",
+                        tranOther: "part of a piece of writing which starts on a new line and contains at least one sentence"
+                      },
+                      {
+                        tranCn: "将…分段",
+                        descCn: "中释",
+                        pos: "v"
+                      }
+                    ]
+                  }
+                }
+              },
+              "bookId": "KaoYan_2"
+            }]
+            wx.setStorageSync('EnWords', EnWords)
+          },
+          fail: function (err) {
+            console.log("开启小程序获取用户openid失败")
+            console.log(err)
+          }
+        })
+      }
     })
   },
   /**
@@ -77,7 +210,8 @@ Page({
    */
   onShow: function () {
     this.setData({
-      task: wx.getStorageSync('task')
+      task: wx.getStorageSync('task'),
+      EnWords: wx.getStorageSync('EnWords')
     })
   },
 

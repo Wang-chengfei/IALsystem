@@ -21,7 +21,7 @@ Page({
       url: 'taskEdit/taskEdit?taskIndex=' + key
     })
   },
-
+  //清除已完成任务
   clearTask: function () {
     var that = this
     wx.showModal({
@@ -32,7 +32,9 @@ Page({
           var task = wx.getStorageSync('task')
           for (var i = 0; i < task.length; i++) {
             if (task[i].completed == true) {
-              task.splice(i, 1)
+              var len = task.length
+              task.splice(i, len-i)
+              break;
             }
           }
           wx.setStorageSync('task', task)
@@ -70,6 +72,40 @@ Page({
       }
     })
   },
+  //改变任务完成状态
+  completed:function(e){
+    var that = this
+    var index = e.currentTarget.dataset.index
+    var task = wx.getStorageSync('task')
+    task[index].completed = !task[index].completed
+    wx.request({
+      url: "http://39.102.49.243:8080/IALS/load/task", //服务器地址
+      method: "POST", //请求方法 GET：请求数据， POST：发送数据给服务器并让服务器处理
+      header: {
+        "content-type": 'application/x-www-form-urlencoded;charset=utf-8', //小程序将以json形式读取文件
+        "Accept": "application/json, text/javascript, */*;q=0.01"
+      },
+      scriptCharset: "utf-8",
+      dataType: JSON, //返回的数据为 JSON，返回后会对返回的数据进行一次 JSON.parse
+      data: {
+        openid: wx.getStorageSync('openid'),
+        task: JSON.stringify(task)
+      },
+      success: function (res) {
+        console.log("改变任务完成状态成功")
+        var task = JSON.parse(res.data)
+        wx.setStorageSync('task', task)
+        that.setData({
+          task: wx.getStorageSync('task')
+        })
+      },
+      fail: function (err) {
+        console.log("打开任务页面时获取任务数据失败")
+        console.log(err)
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

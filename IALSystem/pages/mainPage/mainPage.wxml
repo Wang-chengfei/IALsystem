@@ -39,10 +39,11 @@
 			<image src="../../images/icons/yingyu.png"></image>每日单词
 		</view>
 		<view class="content">
-			<block wx:for="{{EnWord}}">
+			<block wx:for="{{EnWords}}">
 				<view class="wordList" bindtap="toEnWordDetail">
-					<text class="word">{{item.word}}</text>
-					<text class="meaning">{{item.meaning}}</text>
+					<text class="word">{{item.headWord}}</text>
+					<text class="meaning">{{item.content.word.content.trans[0].pos}}{{item.content.word.content.trans[0].tranCn}}
+					</text>
 				</view>
 			</block>
 		</view>

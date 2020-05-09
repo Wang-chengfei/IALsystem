@@ -1,180 +1,13 @@
 var formatTime = require("../../../data/formatTime.js");
 var today1 = formatTime.formatDate
+var index = -1
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    item: [{
-        type: 0, //0-课程 1-计划
-        name: "java", //课程-课程名  计划-计划概述
-        remark: "江安一教A", //课程-上课地点  计划-备注
-        startTime: "08:15",
-        endTime: "11:50",
-        repetitionType: 0, //计划重复类型 0-不重复 1-每天重复 2-每周重复 课程时为0
-        date: "", //计划且不重复时才有，其他为空字符串
-        startWeek: 1, //课程才有，其他为0
-        endWeek: 13, //同上
-        weekTime: 2, //周几上课 同上
-        repetitionTime: [false, false, false, false, false, false, false] //数组中true为重复时间,不是为计划每周重复时为[false,false,false,false,false,false,false]
-      },
-      {
-        type: 1,
-        name: "写高数",
-        remark: "今天写好",
-        startTime: "13:50",
-        endTime: "15:30",
-        repetitionType: 0,
-        date: "2020-05-05",
-        startWeek: 0,
-        endWeek: 0,
-        weekTime: 0,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "数字逻辑",
-        remark: "江安综合楼C202",
-        startTime: "13:50",
-        endTime: "16:25",
-        repetitionType: 0,
-        date: "",
-        startWeek: 1,
-        endWeek: 16,
-        weekTime: 3,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "军事理论",
-        remark: "江安综合楼B206",
-        startTime: "19:20",
-        endTime: "21:00",
-        repetitionType: 0,
-        date: "",
-        startWeek: 1,
-        endWeek: 9,
-        weekTime: 1,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "大学英语",
-        remark: "江安二级楼C",
-        startTime: "10:15",
-        endTime: "11:55",
-        repetitionType: 0,
-        date: "",
-        startWeek: 1,
-        endWeek: 17,
-        weekTime: 4,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "形式与政策",
-        remark: "江安综合楼C205",
-        startTime: "13:50",
-        endTime: "16:25",
-        repetitionType: 0,
-        date: "",
-        startWeek: 11,
-        endWeek: 17,
-        weekTime: 5,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "概率统计",
-        remark: "江安综合楼C203",
-        startTime: "16:45",
-        endTime: "18:25",
-        repetitionType: 0,
-        date: "",
-        startWeek: 1,
-        endWeek: 17,
-        weekTime: 3,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "概率统计",
-        remark: "江安综合楼C203",
-        startTime: "16:45",
-        endTime: "18:25",
-        repetitionType: 0,
-        date: "",
-        startWeek: 1,
-        endWeek: 17,
-        weekTime: 1,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "大学体育",
-        remark: "江安二号体育场",
-        startTime: "13:50",
-        endTime: "15:30",
-        repetitionType: 0,
-        date: "",
-        startWeek: 1,
-        endWeek: 17,
-        weekTime: 4,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 0,
-        name: "计算机辅助三维设计",
-        remark: "江安一教B505",
-        startTime: "19:20",
-        endTime: "21:55",
-        repetitionType: 0,
-        date: "",
-        startWeek: 2,
-        endWeek: 13,
-        weekTime: 4,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 1,
-        name: "写代码",
-        remark: "每天坚持！！",
-        startTime: "",
-        endTime: "",
-        repetitionType: 1,
-        date: "",
-        startWeek: 0,
-        endWeek: 0,
-        weekTime: 0,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 1,
-        name: "背英语单词",
-        remark: "每天坚持！",
-        startTime: "",
-        endTime: "",
-        repetitionType: 1,
-        date: "",
-        startWeek: 0,
-        endWeek: 0,
-        weekTime: 0,
-        repetitionTime: [false, false, false, false, false, false, false]
-      },
-      {
-        type: 1,
-        name: "运动",
-        remark: "周末去打球",
-        startTime: "18:00",
-        endTime: "19:00",
-        repetitionType: 2,
-        date: "",
-        startWeek: 0,
-        endWeek: 0,
-        weekTime: 0,
-        repetitionTime: [true, false, false, false, false, false, true]
-      },
-    ],
+    newItem: true,
+    item: [],
     today: today1,
     courseWeekArr: [
       ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"],
@@ -184,27 +17,27 @@ Page({
     week: [0, 1, 2, 3, 4, 5, 6, 7],
     isSaved: false,
     type: 0,
-    name: ["java", "写高数"],
-    remark: ["江安一教A", "今天写好"],
-    startTime: ["08:15", "19:00"],
-    endTime: ["11:50", "21:00"],
+    name: ["", ""],
+    remark: ["", ""],
+    startTime: ["", ""],
+    endTime: ["", ""],
     repetitionType: 0,
     date: today1,
-    startWeek: 1,
-    endWeek: 13,
-    weekTime: 2,
-    repetitionTime: [false, false, false, false, false, true, true]
+    startWeek: 0,
+    endWeek: 0,
+    weekTime: -1,
+    repetitionTime: [false, false, false, false, false, false, false]
   },
   toCourse: function (e) {
     this.setData({
       type: 0,
-      isSaved:false
+      isSaved: false
     })
   },
   toPlan: function (e) {
     this.setData({
       type: 1,
-      isSaved:false
+      isSaved: false
     })
   },
   name: function (e) {
@@ -212,7 +45,7 @@ Page({
     name1[this.data.type] = e.detail.value;
     this.setData({
       name: name1,
-      isSaved:false
+      isSaved: false
     })
   },
   remark: function (e) {
@@ -220,7 +53,7 @@ Page({
     remark1[this.data.type] = e.detail.value
     this.setData({
       remark: remark1,
-      isSaved:false
+      isSaved: false
     })
   },
   startTime: function (e) {
@@ -228,7 +61,7 @@ Page({
     startTime1[this.data.type] = e.detail.value
     this.setData({
       startTime: startTime1,
-      isSaved:false
+      isSaved: false
     })
   },
   endTime: function (e) {
@@ -236,7 +69,12 @@ Page({
     endTime1[this.data.type] = e.detail.value
     this.setData({
       endTime: endTime1,
-      isSaved:false
+      isSaved: false
+    })
+  },
+  weekTime: function (e) {
+    this.setData({
+      weekTime: e.detail.value
     })
   },
   courseWeek: function (e) {
@@ -244,13 +82,13 @@ Page({
     this.setData({
       startWeek: courseWeek[0] + 1,
       endWeek: courseWeek[1] + 1,
-      isSaved:false
+      isSaved: false
     })
   },
   dateChange: function (e) {
     this.setData({
       date: e.detail.value,
-      isSaved:false
+      isSaved: false
     })
   },
   chooseRepetitionType: function (e) {
@@ -260,11 +98,11 @@ Page({
       success: function (res) {
         that.setData({
           repetitionType: res.tapIndex,
-          isSaved:false
+          isSaved: false
         })
       },
       fail: function (err) {
-        console.log(res.errMsg)
+        console.log(err)
       }
     })
   },
@@ -276,56 +114,245 @@ Page({
     }
     this.setData({
       repetitionTime: repetitionTime1,
-      isSaved:false
+      isSaved: false
     })
     console.log(this.data.repetitionTime)
   },
+  // 保存事项
   save: function (e) {
-    var item1 = this.data.item;
-    var index = this.data.item.length;
-    var type1 = this.data.type;
-    var repetitionType1 = this.data.repetitionType;
-    if (type1 == 0) repetitionType1 = 0;
-    var date1 = this.data.date;
-    if (type1 == 0 || repetitionType1 != 0) date1 = "";
-    var startWeek1 = this.data.startWeek;
-    var endWeek1 = this.data.endWeek;
-    var weekTime1 = this.data.weekTime;
-    if (type1 == 1) {
-      startWeek1 = 0;
-      endWeek1 = 0;
-      weekTime1 = 0;
+    var that = this
+    var type1 = this.data.type
+    //检测用户是否输入正确
+    if (this.data.name[type1] == "") {
+      wx.showToast({
+        title: '课名不可为空',
+        image: '../../../images/icons/jinggao.png'
+      })
+    } else if (this.data.startTime == "" && this.endTime != "") {
+      wx.showToast({
+        title: '时间错误',
+        image: '../../../images/icons/jinggao.png'
+      })
+    } else if (type1 == 0 && this.data.weekTime == -1) {
+      wx.showToast({
+        title: '周几不可为空',
+        image: '../../../images/icons/jinggao.png'
+      })
+    } else if (type1 == 0 && this.data.startWeek==0) {
+      wx.showToast({
+        title: '上课周数不可为空',
+        image: '../../../images/icons/jinggao.png'
+      })
     }
-    var repetitionTime1 = this.data.repetitionTime;
-    if (type1 == 0 || repetitionType1 != 2) repetitionTime1 = [false, false, false, false, false, false, false]
-    var thisItem = {
-      type: type1,
-      name: this.data.name[type1],
-      remark: this.data.remark[type1],
-      startTime: this.data.startTime[type1],
-      endTime: this.data.endTime[type1],
-      repetitionType: repetitionType1,
-      date: date1,
-      startWeek: startWeek1,
-      endWeek: endWeek1,
-      weekTime: weekTime1,
-      repetitionTime: repetitionTime1
+    //若正确，执行保存操作
+    else {
+      var item1 = that.data.item;
+      var type1 = that.data.type;
+      var repetitionType1 = that.data.repetitionType;
+      if (type1 == 0) repetitionType1 = 0;
+      var date1 = that.data.date;
+      if (type1 == 0 || repetitionType1 != 0) date1 = "";
+      var startWeek1 = that.data.startWeek;
+      var endWeek1 = that.data.endWeek;
+      var weekTime1 = that.data.weekTime;
+      if (type1 == 1) {
+        startWeek1 = 0;
+        endWeek1 = 0;
+        weekTime1 = -1;
+      }
+      var repetitionTime1 = that.data.repetitionTime;
+      if (type1 == 0 || repetitionType1 != 2) repetitionTime1 = [false, false, false, false, false, false, false]
+      var thisItem = {
+        type: type1,
+        name: that.data.name[type1],
+        remark: that.data.remark[type1],
+        startTime: that.data.startTime[type1],
+        endTime: that.data.endTime[type1],
+        repetitionType: repetitionType1,
+        date: date1,
+        startWeek: startWeek1,
+        endWeek: endWeek1,
+        weekTime: weekTime1,
+        repetitionTime: repetitionTime1
+      }
+      console.log(thisItem)
+      if (index != -1) {
+        item1[index] = thisItem;
+      } else {
+        var item2 = wx.getStorageSync('item')
+        item2.push(thisItem)
+        item1 = item2
+      }
+      that.setData({
+        isSaved: true,
+        item: item1
+      })
+      wx.setStorageSync('item', item1)
+      wx.showToast({
+        title: '保存成功',
+      })
     }
-    item1[index] = thisItem;
-    this.setData({
-      isSaved: true,
-      item: item1
-    })
-    wx.showToast({
-      title: '保存成功',
-    })
-    console.log(this.data.item);
   },
+  //删除事项
+  delet: function (e) {
+    var that = this
+    var item1 = wx.getStorageSync('item')
+    wx.showModal({
+      title: '提示',
+      content: '您确定要删除改事项吗？',
+      success(res) {
+        if (res.confirm) {
+          item1.splice(index, 1)
+          wx.setStorageSync('item', item1)
+          wx.navigateBack({
+            delta: 1
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  //比较两个对象是否相等
+  compare: function (x, y) {
+    var i, l, leftChain, rightChain;
+
+    function compare2Objects(x, y) {
+      var p;
+      // remember that NaN === NaN returns false
+      // and isNaN(undefined) returns true
+      if (isNaN(x) && isNaN(y) && typeof x === 'number' && typeof y === 'number') {
+        return true;
+      }
+      // Compare primitives and functions.     
+      // Check if both arguments link to the same object.
+      // Especially useful on the step where we compare prototypes
+      if (x === y) {
+        return true;
+      }
+      // Works in case when functions are created in constructor.
+      // Comparing dates is a common scenario. Another built-ins?
+      // We can even handle functions passed across iframes
+      if ((typeof x === 'function' && typeof y === 'function') ||
+        (x instanceof Date && y instanceof Date) ||
+        (x instanceof RegExp && y instanceof RegExp) ||
+        (x instanceof String && y instanceof String) ||
+        (x instanceof Number && y instanceof Number)) {
+        return x.toString() === y.toString();
+      }
+      // At last checking prototypes as good as we can
+      if (!(x instanceof Object && y instanceof Object)) {
+        return false;
+      }
+      if (x.isPrototypeOf(y) || y.isPrototypeOf(x)) {
+        return false;
+      }
+      if (x.constructor !== y.constructor) {
+        return false;
+      }
+      if (x.prototype !== y.prototype) {
+        return false;
+      }
+      // Check for infinitive linking loops
+      if (leftChain.indexOf(x) > -1 || rightChain.indexOf(y) > -1) {
+        return false;
+      }
+      // Quick checking of one object being a subset of another.
+      // todo: cache the structure of arguments[0] for performance
+      for (p in y) {
+        if (y.hasOwnProperty(p) !== x.hasOwnProperty(p)) {
+          return false;
+        } else if (typeof y[p] !== typeof x[p]) {
+          return false;
+        }
+      }
+      for (p in x) {
+        if (y.hasOwnProperty(p) !== x.hasOwnProperty(p)) {
+          return false;
+        } else if (typeof y[p] !== typeof x[p]) {
+          return false;
+        }
+        switch (typeof (x[p])) {
+          case 'object':
+          case 'function':
+            leftChain.push(x);
+            rightChain.push(y);
+            if (!compare2Objects(x[p], y[p])) {
+              return false;
+            }
+            leftChain.pop();
+            rightChain.pop();
+            break;
+
+          default:
+            if (x[p] !== y[p]) {
+              return false;
+            }
+            break;
+        }
+      }
+      return true;
+    }
+    if (arguments.length < 1) {
+      return true; //Die silently? Don't know how to handle such case, please help...
+      // throw "Need two or more arguments to compare";
+    }
+    for (i = 1, l = arguments.length; i < l; i++) {
+      leftChain = []; //Todo: this can be cached
+      rightChain = [];
+      if (!compare2Objects(arguments[0], arguments[i])) {
+        return false;
+      }
+    }
+    return true;
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    if (options.thisItem != null) {
+      wx.setNavigationBarTitle({
+        title: '编辑事项',
+      })
+      var thisItem = JSON.parse(options.thisItem)
+      var item = wx.getStorageSync('item')
+      that.setData({
+        item: wx.getStorageSync('item')
+      })
+      for (var i = 0; i < item.length; i++) {
+        if (that.compare(thisItem, item[i])) {
+          index = i
+          console.log(index)
+          break
+        }
+      }
+      var name1 = ["", ""]
+      var remark1 = ["", ""]
+      var startTime1 = ["", ""]
+      var endTime1 = ["", ""]
+      name1[thisItem.type] = thisItem.name
+      remark1[thisItem.type] = thisItem.remark
+      startTime1[thisItem.type] = thisItem.startTime
+      endTime1[thisItem.type] = thisItem.endTime
+      that.setData({
+        newItem: false,
+        type: thisItem.type,
+        name: name1,
+        remark: remark1,
+        startTime: startTime1,
+        endTime: endTime1,
+        repetitionType: thisItem.repetitionType,
+        date: thisItem.data,
+        startWeek: thisItem.startWeek,
+        endWeek: thisItem.endWeek,
+        weekTime: thisItem.weekTime,
+        repetitionTime: thisItem.repetitionTime
+      })
+    } else {
+      index = -1
+    }
   },
 
   /**
