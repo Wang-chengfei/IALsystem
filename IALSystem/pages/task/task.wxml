@@ -1,13 +1,29 @@
 <view class="container">
 	<image class="addTask" src="../../images/icons/add.png" bindtap="addTask"></image>
 	<image class="clearTask" src="../../images/icons/clear.png" bindtap="clearTask"></image>
-	<bigTitle titleContent="全部任务"></bigTitle>
+	<block wx:if="{{task.length!=0}}">
+		<bigTitle titleContent="全部任务"></bigTitle>
+	</block>
+	<block wx:else>
+		<view class="nothing">
+			<image src="/images/icons/nothing.png" mode="widthFix"></image>
+			<view class="text">没有任务</view>
+		</view>
+	</block>
 	<view class="content">
 		<block wx:for="{{task}}">
-			<view class="taskList clearfix" bindtap="toDetails" data-index="{{index}}">
-				<image src="../../images/icons/{{item.iconColor}}Round.png"></image>
-				<view class="wenzi">
-					<text class="details"> {{item.details}}</text>
+			<view class="taskList clearfix">
+				<view class="dot" bindtap="completed" data-index="{{index}}">
+					<block wx:if="{{item.completed==false}}">
+						<view class="image {{item.iconColor}}"></view>
+					</block>
+					<block wx:else>
+						<icon type="success" class="image"></icon>
+					</block>
+				</view>
+				<view class="wenzi {{item.completed==true?'completedTask':''}}" bindtap="toDetails" data-index="{{index}}">
+					<text class="summary">{{item.summary}}</text>
+					<text class="details">{{item.details}}</text>
 					<text class="deadline"> 截止日期：{{item.deadline}}</text>
 				</view>
 			</view>

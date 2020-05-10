@@ -1,35 +1,58 @@
 <view class="container">
-	<image src="{{save}}" class="save" bindtap="tapSave"></image>
-	<image src="{{delet}}" class="delet" bindtap="tapDelet"></image>
-	<!-- 内容概述 -->
-	<view class="summary">
-		<smallTitle imgUrl="/images/icons/summary.png" titleContent="任务概述"></smallTitle>
-		<view class="textarea">
-			<textarea maxlength="-1" auto-height="{{true}}" value="{{summary}}"></textarea>
+	<!-- 任务编辑区 -->
+	<scroll-view scroll-y style="height: 1200rpx;">
+		<!-- 任务是否完成 -->
+		<block wx:if="{{completed==false}}">
+			<view class="ifCompleted">
+				<icon type="info"></icon>
+				<text>未完成</text>
+			</view>
+		</block>
+		<block wx:else>
+			<view class="ifCompleted">
+				<icon type="success"></icon>
+				<text>已完成</text>
+			</view>
+		</block>
+		<!-- 内容概述 -->
+		<view class="summary">
+			<view class="title">任务概述</view>
+			<view class="content">
+				<input maxlength="15" placeholder="未填写" value="{{summary}}" bindinput="inputSummary"></input>
+			</view>
 		</view>
-	</view>
-	<!-- 具体内容 -->
-	<view class="details">
-		<smallTitle imgUrl="/images/icons/details.png" titleContent="具体内容"></smallTitle>
-		<view class="textarea">
-			<textarea maxlength="-1" auto-height="{{true}}" value="{{details}}"></textarea>
+		<!-- 具体内容 -->
+		<view class="details clearfix">
+			<view class="detailsTitle">具体内容</view>
+			<view class="detailsContent">
+				<textarea placeholder="未填写" maxlength="-1" auto-height="{{true}}" value="{{details}}" bindinput="inputDetails"></textarea>
+			</view>
 		</view>
+		<!-- 设定截止日期 -->
+		<view class="deadline">
+			<view class="title">截止时间</view>
+			<view class="content">
+				<picker mode="date" value="{{deadline}}" start="2010-01-01" end="2050-12-31" bindchange="bindDateChange">
+					<view class="choose">{{deadline}}</view>
+				</picker>
+			</view>
+		</view>
+		<!-- 标记重要程度 -->
+		<view class="importanceLevel">
+			<view class="title">重要程度</view>
+			<view class="content">
+				<slider min="1" max="10" show-value="{{true}}" value="{{importanceLevel}}" bindchange="importanceLevelChange"></slider>
+			</view>
+		</view>
+	</scroll-view>
+	<!-- 保存，删除，完成区 -->
+	<view class="save  {{saved}} {{newTask?'center':''}}" bindtap="tapSave">
+		<block wx:if="{{newTask==true}}">添 加</block>
+		<block wx:else>保 存</block>
 	</view>
-	<!-- 设定截止日期 -->
-	<view class="deadline">
-		<smallTitle imgUrl="/images/icons/deadline.png" titleContent="设定截止日期"></smallTitle>
-		<picker mode="date" value="{{deadline}}" start="2010-01-01" end="2050-12-31" bindchange="bindDateChange">
-			<view class="choose">日期：{{deadline}}</view>
-		</picker>
-	</view>
-	<!-- 标记重要程度 -->
-	<view class="importanceLevel">
-		<smallTitle imgUrl="/images/icons/importanceLevel.png" titleContent="选择重要程度"></smallTitle>
-		<slider min="0" max="10" show-value="{{true}}" value="{{importanceLevel}}"></slider>
-	</view>
-	<!-- 标记难易程度 -->
-	<view class="difficultyLevel">
-		<smallTitle imgUrl="/images/icons/difficultyLevel.png" titleContent="选择难易程度"></smallTitle>
-		<slider min="0" max="10" show-value="{{true}}" value="{{difficultyLevel}}"></slider>
+	<view class="delet" bindtap="tapDelet" wx:if="{{newTask==false}}">删 除</view>
+	<view class="complete" bindtap="tapComplete" wx:if="{{newTask==false}}">
+		<block wx:if="{{completed==false}}">完成任务</block>
+		<block wx:if="{{completed==true}}">取消完成</block>
 	</view>
 </view>

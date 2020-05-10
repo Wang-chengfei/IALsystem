@@ -20,7 +20,7 @@ else {
   formatDate += '-0' + date
 }
 module.exports = {
-  formatData: formatDate,
+  formatDate: formatDate,
   year:year,
   month:month,
   date:date,

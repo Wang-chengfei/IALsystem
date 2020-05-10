@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "bigTitle":"../../components/bigTitle/bigTitle"
+  },
+  "navigationBarTitleText": "事项"
+}

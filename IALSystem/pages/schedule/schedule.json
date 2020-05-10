@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "bigTitle":"../../components/bigTitle/bigTitle"
-  },
-  "navigationBarTitleText": "我的课程表"
-}

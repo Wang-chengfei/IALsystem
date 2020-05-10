@@ -1,4 +1,0 @@
-<view class="icon">
-	<image src="{{imgUrl}}"></image>
-</view>
-<view class="title">{{titleContent}}</view>

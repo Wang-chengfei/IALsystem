@@ -5,7 +5,7 @@ page {
 view {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 image {
@@ -20,4 +20,52 @@ image {
 
 .clearfix:after {
   clear: both;
+}
+
+.red {
+  background-color: #ed1c24;
+}
+
+.yellow {
+  background-color: #fff200;
+}
+
+.green {
+  background-color: #00ff00;
+}
+
+.blue {
+  background-color: #1e90ff;
+}
+
+.grey {
+  background-color: #cbccce;
+}
+.nothing {
+  margin-top: 310rpx;
+  width: 100%;
+  height: 200rpx;
+}
+.nothing image {
+  width: 100rpx;
+  margin-left: 325rpx;
+}
+.nothing .text {
+  margin-top: 10rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #818080;
+}
+
+.reminder {
+  width: 100%;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: 100rpx;
+  font-size: 30rpx;
+  color: #818080;
 }
