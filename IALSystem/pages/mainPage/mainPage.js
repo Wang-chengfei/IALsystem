@@ -35,10 +35,9 @@ Page({
       url: '../EnWord/EnWord?index='+index,
     })
   },
-  toChickenSoupDetail: function (e) {
-    var key = e.currentTarget.dataset.index
+  toChickenSoup: function (e) {
     wx.navigateTo({
-      url: '../chickenSoup/chickenSoup?chickenSoupData=' + this.data.chickenSoup[key].content,
+      url: '../chickenSoup/chickenSoup',
     })
   },
 

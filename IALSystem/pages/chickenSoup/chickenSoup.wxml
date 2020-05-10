@@ -1,6 +1,0 @@
-<view class="container">
-  <view class="content">
-    <image src="../../images/icons/jitang.png"></image>
-    <text>{{words}}</text>
-  </view>
-</view>

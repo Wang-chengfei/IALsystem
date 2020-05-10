@@ -1,6 +1,4 @@
 {
-  "usingComponents": {
-    "smallTitle":"../../../components/smallTitle/smallTitle"
-  },
+  "usingComponents": {},
   "navigationBarTitleText": "新建任务"
 }

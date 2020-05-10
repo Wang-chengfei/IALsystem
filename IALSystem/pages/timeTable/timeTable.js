@@ -41,6 +41,7 @@ Page({
       numOfWeek:e.detail.value
     })
     wx.setStorageSync('numOfWeek', this.data.numOfWeek)
+    this.onShow()
   },
   // 页面跳转
   toTheDay: function (e) {

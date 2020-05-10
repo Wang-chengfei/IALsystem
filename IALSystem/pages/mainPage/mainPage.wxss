@@ -59,15 +59,16 @@
   border-top: 2rpx solid #eee;
 }
 .container2 .content .taskList .image {
-  margin: 0 30rpx 16rpx 30rpx;
-  display: inline-block;
+  float: left;
+  margin: 15rpx 30rpx 0 30rpx;
   height: 45rpx;
   width: 45rpx;
   border-radius: 50%;
 }
 .container2 .content .taskList text {
-  display: inline-block;
-  padding-left: 15rpx;
+  display: block;
+  float: left;
+  margin-left: 10rpx;
   line-height: 75rpx;
   overflow: hidden;
   text-overflow : ellipsis;
@@ -118,33 +119,5 @@
   text-align: right;
   margin-right: 30rpx;
 }
-.container4 {
-  width: 720rpx;
-  margin: 16rpx auto;
-  background-color: #fff;
-  border-radius: 20rpx;
-}
-.container4 .title {
-  display: block;
-  font-size: 36rpx;
-  font-weight: 700;
-  height: 80rpx;
-  padding: 15rpx 0 0 30rpx;
-}
-.container4 .title image {
-  display: inline-block;
-  margin-right: 20rpx;
-  width: 47rpx;
-  height: 47rpx;
-}
-.container4 .content {
-  width: 100%;
-}
-.container4 .content .soupList {
-  width: 100%;
-  padding: 15rpx 30rpx;
-  border-top: 2rpx solid #eee;
-}
-
 
 

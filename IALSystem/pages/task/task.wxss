@@ -9,7 +9,7 @@
   bottom: 220rpx;
   width: 100rpx;
   height: 100rpx;
-  z-index:999
+  z-index: 999
 }
 
 .clearTask {
@@ -34,6 +34,7 @@
   margin: 40rpx 30rpx 0 32rpx;
   border-radius: 50%;
 }
+
 .content .taskList .dot {
   float: left;
   height: 130rpx;
@@ -45,12 +46,13 @@
   float: left;
   display: block;
 }
+
 .content .taskList .completedTask {
   color: #898989;
 }
 
 .content .taskList .wenzi .details,
-.content .taskList .wenzi .summary{
+.content .taskList .wenzi .summary {
   display: block;
 }
 
@@ -58,4 +60,8 @@
   display: block;
   padding-top: 10rpx;
   font-size: 26rpx;
+}
+
+.higher {
+  margin-top: 500rpx;
 }

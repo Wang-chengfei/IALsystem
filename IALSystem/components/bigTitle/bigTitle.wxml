@@ -1,7 +1,7 @@
 <view class="title">
-	<view class="dot"></view>
-	<view class="dot"></view>
-	<text>{{titleContent}}</text>
-	<view class="dot"></view>
-	<view class="dot"></view>
+	<view class="dot1"></view>
+	<view class="dot2"></view>
+	<view class="wenzi">{{titleContent}}</view>
+	<view class="dot3"></view>
+	<view class="dot4"></view>
 </view>

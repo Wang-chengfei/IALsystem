@@ -1,13 +1,12 @@
-<!--miniprogram/pages/mainPage.wxml-->
 <view class="container">
 	<!-- 大图片部分 -->
 	<image src="/images/motivationImages/study.jpg" class="motivationImage" mode="widthFix"></image>
 	<!-- 菜单部分 -->
 	<view class="container1">
-		<view class="iconsContainer">
+		<view class="iconsContainer" bindtap="toChickenSoup">
 			<view class="iconContaner">
-				<image src="/images/icons/schedule.png" class="iconImage"></image>
-				<text>课程表</text>
+				<image src="/images/icons/jiayouzhan.png" class="iconImage"></image>
+				<text>加油站</text>
 			</view>
 			<view class="iconContaner" bindtap="toTimeTable">
 				<image src="/images/icons/timeTable.png" class="iconImage"></image>
@@ -44,19 +43,6 @@
 					<text class="word">{{item.headWord}}</text>
 					<text class="meaning" decode="true">{{item.content.word.content.trans[0].pos}}.&nbsp;{{item.content.word.content.trans[0].tranCn}}
 					</text>
-				</view>
-			</block>
-		</view>
-	</view>
-	<!-- 每日鸡汤部分 -->
-	<view class="container4">
-		<view class="title">
-			<image src="../../images/icons/jitang.png"></image>每日鸡汤
-		</view>
-		<view class="content">
-			<block wx:for="{{chickenSoup}}">
-				<view class="soupList" bindtap="toChickenSoupDetail" data-index="{{index}}">
-					<text>{{item.content}}</text>
 				</view>
 			</block>
 		</view>

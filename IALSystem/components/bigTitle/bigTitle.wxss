@@ -1,21 +1,45 @@
 .title {
+  position: relative;
   display: block;
-  height: 90rpx;
-  line-height: 90rpx;
-  text-align: center;
+  height: 100rpx;
+  width: 750rpx;
+  line-height: 100rpx;
 }
 
-.title text {
-  display: inline-block;
-  margin: 0 12rpx;
+.dot1,
+.dot2,
+.dot3,
+.dot4 {
+  position: absolute;
+  top: 42rpx;
+  background-color: #4183ff;
+  border-radius: 50rpx;
+  height: 16rpx;
+  width: 16rpx;
+}
+
+.wenzi {
+  width: 154rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: absolute;
+  top: 0;
+  left: 300rpx;
   font-size: 38rpx;
 }
 
-.dot {
-  display: inline-block;
-  background-color: #4183ff;
-  width: 14rpx;
-  height: 14rpx;
-  border-radius: 50%;
-  margin: 0 10rpx 5rpx 10rpx;
+.dot1 {
+  left: 250rpx;
+}
+
+.dot2 {
+  left: 210rpx;
+}
+
+.dot3 {
+  left: 480rpx;
+}
+
+.dot4 {
+  left: 520rpx;
 }
