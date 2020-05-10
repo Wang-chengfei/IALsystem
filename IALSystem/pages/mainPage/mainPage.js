@@ -47,7 +47,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    wx.setStorageSync('numOfWeek', 11)
+    if(wx.getStorageSync('numOfWeek')==null){
+      wx.setStorageSync('numOfWeek', 1)
+    }
     wx.login({
       success: function (res) {
         var appid = "wxbc05f859ff1233f3";
