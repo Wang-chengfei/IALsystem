@@ -1,19 +1,21 @@
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    EnWords:[]
-    
+    word:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var index = options.index
+    var EnWords = wx.getStorageSync('EnWords')
+    this.setData({
+      word:EnWords[index]
+    })
   },
 
   /**

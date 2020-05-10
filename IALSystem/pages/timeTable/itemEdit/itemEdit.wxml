@@ -107,8 +107,8 @@
 			<view class="chooseDate">
 				<view class="title">计划日期</view>
 				<view class="content">
-					<picker mode="date" min="{{today}}" value="{{date}}" bindchange="dateChange">
-						<view>{{date}}</view>
+					<picker mode="date" min="{{today}}" value="{{planDate}}" bindchange="dateChange">
+						<view>{{planDate}}</view>
 					</picker>
 				</view>
 			</view>
@@ -131,6 +131,10 @@
 			</view>
 		</block>
 	</block>
+	<!-- 删除保存按钮 -->
 	<view class="delet" bindtap="delet" wx:if="{{newItem==false}}">删 除</view>
-	<view class="save saved{{isSaved}} {{newItem==true?'newItem':''}}" bindtap="save">保 存</view>
+	<view class="save saved{{isSaved}} {{newItem==true?'newItem':''}}" bindtap="save">
+		<block wx:if="{{newItem==true}}">添 加</block>
+		<block wx:else>保 存</block>
+	</view>
 </view>

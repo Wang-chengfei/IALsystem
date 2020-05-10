@@ -22,7 +22,7 @@ Page({
     startTime: ["", ""],
     endTime: ["", ""],
     repetitionType: 0,
-    date: today1,
+    planDate: today1,
     startWeek: 0,
     endWeek: 0,
     weekTime: -1,
@@ -87,7 +87,7 @@ Page({
   },
   dateChange: function (e) {
     this.setData({
-      date: e.detail.value,
+      planDate: e.detail.value,
       isSaved: false
     })
   },
@@ -138,7 +138,7 @@ Page({
         title: '周几不可为空',
         image: '../../../images/icons/jinggao.png'
       })
-    } else if (type1 == 0 && this.data.startWeek==0) {
+    } else if (type1 == 0 && this.data.startWeek == 0) {
       wx.showToast({
         title: '上课周数不可为空',
         image: '../../../images/icons/jinggao.png'
@@ -150,8 +150,10 @@ Page({
       var type1 = that.data.type;
       var repetitionType1 = that.data.repetitionType;
       if (type1 == 0) repetitionType1 = 0;
-      var date1 = that.data.date;
-      if (type1 == 0 || repetitionType1 != 0) date1 = "";
+      var date1 = that.data.planDate;
+      if (type1 == 0 || repetitionType1 != 0) {
+        date1 = "";
+      }
       var startWeek1 = that.data.startWeek;
       var endWeek1 = that.data.endWeek;
       var weekTime1 = that.data.weekTime;
@@ -188,9 +190,15 @@ Page({
         item: item1
       })
       wx.setStorageSync('item', item1)
-      wx.showToast({
-        title: '保存成功',
-      })
+      if (that.data.newItem == false) {
+        wx.showToast({
+          title: '保存成功',
+        })
+      } else {
+        wx.navigateBack({
+          delta: 1
+        })
+      }
     }
   },
   //删除事项
@@ -311,6 +319,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(this.data.planDate)
     var that = this
     if (options.thisItem != null) {
       wx.setNavigationBarTitle({
@@ -344,7 +353,7 @@ Page({
         startTime: startTime1,
         endTime: endTime1,
         repetitionType: thisItem.repetitionType,
-        date: thisItem.data,
+        planDate: thisItem.date,
         startWeek: thisItem.startWeek,
         endWeek: thisItem.endWeek,
         weekTime: thisItem.weekTime,

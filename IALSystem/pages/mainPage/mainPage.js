@@ -24,19 +24,15 @@ Page({
       url: '../task/task',
     })
   },
-  toSchedule: function () {
-    wx.navigateTo({
-      url: '../schedule/schedule',
-    })
-  },
   toTimeTable: function () {
     wx.navigateTo({
       url: '../timeTable/timeTable',
     })
   },
-  toEnWordDetail: function () {
+  toEnWordDetail: function (e) {
+    var index = e.currentTarget.dataset.index
     wx.navigateTo({
-      url: '../EnWord/EnWord',
+      url: '../EnWord/EnWord?index='+index,
     })
   },
   toChickenSoupDetail: function (e) {
@@ -67,6 +63,7 @@ Page({
             console.log("开启小程序获取用户openid成功")
             wx.setStorageSync('openid', res.data.openid);
             wx.setStorageSync('session_key', res.data.session_key)
+            var myOpenid = wx.getStorageSync('openid')
             // 获取用户任务数据
             wx.request({
               url: "http://39.102.49.243:8080/IALS/load/task", //服务器地址
@@ -78,7 +75,7 @@ Page({
               scriptCharset: "utf-8",
               dataType: JSON, //返回的数据为 JSON，返回后会对返回的数据进行一次 JSON.parse
               data: {
-                openid: wx.getStorageSync('openid')
+                openid: myOpenid
               },
               success: function (res) {
                 console.log("开启小程序试获取任务数据成功")
@@ -99,20 +96,20 @@ Page({
               url: "http://39.102.49.243:8080/IALS/load/item", //服务器地址
               method: "GET",
               header: {
-                "content-type": 'application/x-www-form-urlencoded;charset=utf-8',
+                "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8',
                 "Accept": "application/json, text/javascript, */*;q=0.01"
               },
               scriptCharset: "utf-8",
-              dataType: JSON,
               data: {
-                openid: wx.getStorageSync('openid')
+                openid: myOpenid
               },
               success: function (res) {
                 console.log("开启小程序试获取事项数据成功")
-                if (res.data = "mission failed:Can not find the item information of this openid!") {
+                if (res.data == "mission failed:Can not find the item information of this openid!") {
+                  console.log(res.data)
                   wx.setStorageSync('item', [])
                 } else {
-                  var item = JSON.parse(res.data)
+                  var item = res.data
                   wx.setStorageSync('item', item)
                 }
               },
@@ -122,73 +119,34 @@ Page({
               }
             })
             // 获取今日单词
-            var EnWords = [{
-              wordRank: 1,
-              headWord: "paragraph",
-              content: {
-                word: {
-                  wordHead: "paragraph",
-                  wordId: "KaoYan_2_1",
-                  content: {
-                    entence: {
-                      sentences: [{
-                        sContent: "the opening paragraphs of the novel",
-                        sCn: "小说开篇的几个段落"
-                      }],
-                      desc: "例句"
-                    },
-                    usphone: "'pærəɡræf",
-                    ukphone: "'pærəgrɑːf",
-                    ukspeech: "paragraph&type=1",
-                    star: 0,
-                    phrase: {
-                      phrases: [{
-                          pContent: "new paragraph",
-                          pCn: "另起一行，新段落"
-                        },
-                        {
-                          pContent: "opening paragraph",
-                          pCn: "开始部分"
-                        }
-                      ],
-                      desc: "短语"
-                    },
-                    phone: "'pærəɡrɑ:f, -ɡræf",
-                    speech: "paragraph",
-                    remMethod: {
-                      val: " para(在旁边)+graph(写)→写在文字旁边→段； 短评",
-                      desc: "记忆"
-                    },
-                    relWord: {
-                      rels: [{
-                        pos: "n",
-                        words: [{
-                          hwd: "paragrapher",
-                          tran: " 短评记者"
-                        }]
-                      }],
-                      desc: "同根"
-                    },
-                    usspeech: "paragraph&type=2",
-                    trans: [{
-                        tranCn: "段落；短评；段落符号",
-                        descOther: "英释",
-                        descCn: "中释",
-                        pos: "n",
-                        tranOther: "part of a piece of writing which starts on a new line and contains at least one sentence"
-                      },
-                      {
-                        tranCn: "将…分段",
-                        descCn: "中释",
-                        pos: "v"
-                      }
-                    ]
-                  }
-                }
+            wx.request({
+              url: "http://39.102.49.243:8080/IALS/get/enword", //服务器地址
+              method: "GET",
+              header: {
+                "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8',
+                "Accept": "application/json, text/javascript, */*;q=0.01"
               },
-              "bookId": "KaoYan_2"
-            }]
-            wx.setStorageSync('EnWords', EnWords)
+              scriptCharset: "utf-8",
+              data: {
+                openid: myOpenid
+              },
+              success: function (res) {
+                console.log("开启小程序试获取英语单词数据成功")
+                var EnWords = res.data
+                var realEnWords = []
+                for(var i = 0;i<EnWords.length;i++){
+                  realEnWords[i]=JSON.parse(EnWords[i])
+                }
+                wx.setStorageSync('EnWords', realEnWords)
+                that.setData({
+                  EnWords:realEnWords
+                })
+              },
+              fail: function (err) {
+                console.log("开启小程序试获取英语单词数据失败")
+                console.log(err)
+              }
+            })
           },
           fail: function (err) {
             console.log("开启小程序获取用户openid失败")

@@ -1,17 +1,17 @@
 <!--miniprogram/pages/mainPage.wxml-->
 <view class="container">
 	<!-- 大图片部分 -->
-	<image src="/images/motivationImages/motivatExample.png" class="motivationImage" mode="widthFix"></image>
+	<image src="/images/motivationImages/study.jpg" class="motivationImage" mode="widthFix"></image>
 	<!-- 菜单部分 -->
 	<view class="container1">
 		<view class="iconsContainer">
-			<view class="iconContaner" bindtap="toSchedule">
+			<view class="iconContaner">
 				<image src="/images/icons/schedule.png" class="iconImage"></image>
 				<text>课程表</text>
 			</view>
 			<view class="iconContaner" bindtap="toTimeTable">
 				<image src="/images/icons/timeTable.png" class="iconImage"></image>
-				<text>计划</text>
+				<text>规划</text>
 			</view>
 			<view class="iconContaner" bindtap="toTask">
 				<image src="/images/icons/task.png" class="iconImage"></image>
@@ -40,9 +40,9 @@
 		</view>
 		<view class="content">
 			<block wx:for="{{EnWords}}">
-				<view class="wordList" bindtap="toEnWordDetail">
+				<view class="wordList" bindtap="toEnWordDetail" data-index="{{index}}">
 					<text class="word">{{item.headWord}}</text>
-					<text class="meaning">{{item.content.word.content.trans[0].pos}}{{item.content.word.content.trans[0].tranCn}}
+					<text class="meaning" decode="true">{{item.content.word.content.trans[0].pos}}.&nbsp;{{item.content.word.content.trans[0].tranCn}}
 					</text>
 				</view>
 			</block>

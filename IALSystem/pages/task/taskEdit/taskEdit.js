@@ -52,9 +52,6 @@ Page({
         image: '../../../images/icons/jinggao.png'
       })
     } else {
-      wx.showToast({
-        title: '保存成功'
-      })
       var task1 = that.data.task;
       if (index != task1.length) {
         task1[index].summary = that.data.summary;
@@ -76,6 +73,15 @@ Page({
         saved: true
       })
       wx.setStorageSync('task', that.data.task)
+      if(that.data.newTask==false){
+        wx.showToast({
+          title: '保存成功'
+        })
+      }else {
+        wx.navigateBack({
+          delta: 1
+        })
+      }
     }
   },
   //删除

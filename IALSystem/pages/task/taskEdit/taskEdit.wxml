@@ -46,7 +46,10 @@
 		</view>
 	</scroll-view>
 	<!-- 保存，删除，完成区 -->
-	<view class="save  {{saved}} {{newTask?'center':''}}" bindtap="tapSave">保 存</view>
+	<view class="save  {{saved}} {{newTask?'center':''}}" bindtap="tapSave">
+		<block wx:if="{{newTask==true}}">添 加</block>
+		<block wx:else>保 存</block>
+	</view>
 	<view class="delet" bindtap="tapDelet" wx:if="{{newTask==false}}">删 除</view>
 	<view class="complete" bindtap="tapComplete" wx:if="{{newTask==false}}">
 		<block wx:if="{{completed==false}}">完成任务</block>
