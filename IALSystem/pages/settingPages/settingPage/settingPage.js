@@ -8,28 +8,8 @@ Page({
   data: {
     settingList:[
       {
-        "url":"/pages/settingPages/settingEnglishWords/settingEnglishWords",
-        "value":"设置每日词汇",
-        "footer":"",
-      },
-      {
-        "url":"/pages/settingPages/settingChickenSoup/settingChickenSoup",
-        "value":"设置每日鸡汤",
-        "footer":"",
-      },
-      {
-        "url":"/pages/settingPages/settingMotto/settingMotto",
-        "value":"设置励志语",
-        "footer":"",
-      },
-      {
-        "url":"/pages/settingPages/settingPlan/settingPlan",
-        "value":"设置计划",
-        "footer":"",
-      },
-      {
-        "url":"/pages/settingPages/settingTask/settingTask",
-        "value":"设置任务",
+        "url":"/pages/settingPages/settingMainPage/settingMainPage",
+        "value":"设置主页面",
         "footer":"",
       },
       {

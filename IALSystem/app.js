@@ -1,7 +1,6 @@
 var prom = require("./data/prom.js")
 App({
   onLaunch: function () {
-  
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {

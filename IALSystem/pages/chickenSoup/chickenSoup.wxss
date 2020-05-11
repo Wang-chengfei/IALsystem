@@ -1,0 +1,19 @@
+.container swiper {
+  width: 750rpx;
+  height: 1280rpx;
+  position: relative;
+}
+.container image {
+  width: 750rpx;
+  height: 1280rpx;
+}
+.container .wenzi {
+  position: absolute;
+  top: 300rpx;
+  left: 75rpx;
+  width: 600rpx;
+  text-align: center;
+  line-height: 62rpx;
+  font-size: 34rpx;
+  color: #f2f6f7;
+}

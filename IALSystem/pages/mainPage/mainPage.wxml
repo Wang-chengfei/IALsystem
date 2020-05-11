@@ -19,7 +19,7 @@
 		</view>
 	</view>
 	<!-- 待完成任务部分 -->
-	<view class="container2">
+	<view class="container2" wx:if="{{displayTask}}">
 		<view class="title">
 			<image src="../../images/icons/daiban.png"></image>待完成任务
 		</view>
@@ -30,10 +30,13 @@
 					<text>{{item.summary}}</text>
 				</view>
 			</block>
+			<view wx:if="{{hasTask==false}}" class="replaceTask">
+			没有待完成任务(=・ω・=) 
+			</view>
 		</view>
 	</view>
 	<!-- 每日单词部分 -->
-	<view class="container3">
+	<view class="container3" wx:if="{{displayEnWords}}">
 		<view class="title">
 			<image src="../../images/icons/yingyu.png"></image>每日单词
 		</view>

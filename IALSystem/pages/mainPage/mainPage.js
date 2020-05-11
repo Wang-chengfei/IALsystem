@@ -5,18 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    displayTask: true,
+    displayEnWords: true,
+    hasTask: true,
     task: [],
-    EnWords: [],
-    chickenSoup: [{
-        content: "有目标的人生才有方向，有规划的人生才更精彩。"
-      },
-      {
-        content: "当走过了曾经隐忍的年月再回首时，我才发现，曾经觉得难以启齿的往事，都不过是沧海一粟，生命给予我的，不是那些艰难，而是成长，是学会举重若轻，是将曾经无法释怀的那些过往，统统放下。"
-      },
-      {
-        content: "所谓的人间烟火，就是这样—个可以时而温暖时而冷漠的词语，所谓的人间，就是这样时而光明时而黑暗的时刻。"
-      }
-    ]
+    EnWords: []
   },
 
   toTask: function () {
@@ -32,7 +25,7 @@ Page({
   toEnWordDetail: function (e) {
     var index = e.currentTarget.dataset.index
     wx.navigateTo({
-      url: '../EnWord/EnWord?index='+index,
+      url: '../EnWord/EnWord?index=' + index,
     })
   },
   toChickenSoup: function (e) {
@@ -46,8 +39,14 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    if(wx.getStorageSync('numOfWeek')==null){
+    if (!wx.getStorageSync('numOfWeek')) {
       wx.setStorageSync('numOfWeek', 1)
+    }
+    if (!wx.getStorageSync('displayTask')) {
+      wx.setStorageSync('displayTask', true)
+    }
+    if (!wx.getStorageSync('displayEnWords')) {
+      wx.setStorageSync('displayEnWords', true)
     }
     wx.login({
       success: function (res) {
@@ -79,7 +78,7 @@ Page({
                 openid: myOpenid
               },
               success: function (res) {
-                console.log("开启小程序试获取任务数据成功")
+                console.log("开启小程序获取任务数据成功")
                 // task = task.replace(/\ufeff/g, "");
                 var task = JSON.parse(res.data)
                 wx.setStorageSync('task', task)
@@ -88,7 +87,7 @@ Page({
                 })
               },
               fail: function (err) {
-                console.log("开启小程序试获取任务数据失败")
+                console.log("开启小程序获取任务数据失败")
                 console.log(err)
               }
             })
@@ -105,7 +104,7 @@ Page({
                 openid: myOpenid
               },
               success: function (res) {
-                console.log("开启小程序试获取事项数据成功")
+                console.log("开启小程序获取事项数据成功")
                 if (res.data == "mission failed:Can not find the item information of this openid!") {
                   console.log(res.data)
                   wx.setStorageSync('item', [])
@@ -115,7 +114,7 @@ Page({
                 }
               },
               fail: function (err) {
-                console.log("开启小程序试获取事项数据失败")
+                console.log("开启小程序获取事项数据失败")
                 console.log(err)
               }
             })
@@ -132,19 +131,19 @@ Page({
                 openid: myOpenid
               },
               success: function (res) {
-                console.log("开启小程序试获取英语单词数据成功")
+                console.log("开启小程序获取英语单词数据成功")
                 var EnWords = res.data
                 var realEnWords = []
-                for(var i = 0;i<EnWords.length;i++){
-                  realEnWords[i]=JSON.parse(EnWords[i])
+                for (var i = 0; i < EnWords.length; i++) {
+                  realEnWords[i] = JSON.parse(EnWords[i])
                 }
                 wx.setStorageSync('EnWords', realEnWords)
                 that.setData({
-                  EnWords:realEnWords
+                  EnWords: realEnWords
                 })
               },
               fail: function (err) {
-                console.log("开启小程序试获取英语单词数据失败")
+                console.log("开启小程序获取英语单词数据失败")
                 console.log(err)
               }
             })
@@ -156,6 +155,7 @@ Page({
         })
       }
     })
+    this.onShow()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -168,9 +168,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var hasTask1 = false
+    var task1 = wx.getStorageSync('task')
+    for (var i = 0; i < task1.length; i++) {
+      if (task1[i].completed == false) {
+        hasTask1 = true
+        break
+      }
+    }
     this.setData({
+      hasTask: hasTask1,
       task: wx.getStorageSync('task'),
-      EnWords: wx.getStorageSync('EnWords')
+      EnWords: wx.getStorageSync('EnWords'),
+      displayTask: wx.getStorageSync('displayTask'),
+      displayEnWords: wx.getStorageSync('displayEnWords')
     })
   },
 
