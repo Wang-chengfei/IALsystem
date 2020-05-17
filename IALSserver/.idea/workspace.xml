@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="IALS" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3c7c69cd-9971-4633-8dbe-0f53057b6bcf" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="UML Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1bQvmSr6nnKrn6lzEACPj6jJYnl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\javaPro\IALSserver\src\bin\etc" />
+      <recent name="G:\javaPro\IALSserver\src\bin\com" />
+      <recent name="G:\javaPro\IALSserver\src" />
+      <recent name="G:\javaPro\IALSserver\src\jdbc\jdbcUtils" />
+      <recent name="G:\javaPro\IALSserver\src\jdbc\jdbcDemo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\javaPro\IALSserver\libs" />
+      <recent name="G:\javaPro\IALSserver\src" />
+      <recent name="G:\javaPro\IALSserver\src\jdbc" />
+      <recent name="G:\javaPro\IALSserver\src\bin" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Deploy to Host.deploy_IALS">
+    <configuration name="AddDailyPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bin.etc.AddDailyPage" />
+      <module name="IALSserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bin.etc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestGet" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bin.test.TestGet" />
+      <module name="IALSserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bin.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bin.test.TestUser" />
+      <module name="IALSserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bin.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="User" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bin.com.User" />
+      <module name="IALSserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bin.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="deploy_IALS" type="DEPLOY_HOST_RUN_CONFIGURATION" factoryName="Deploy to Host">
+      <option name="address" value="39.102.49.243" />
+      <option name="afterCommand" value="/opt/tomcat8.5/bin/startup.sh" />
+      <option name="alreadyReset" value="true" />
+      <option name="autoOpen" value="false" />
+      <option name="beforeCommand" value="/opt/tomcat8.5/bin/shutdown.sh " />
+      <option name="defaultTabIdx" value="0" />
+      <option name="ecsInstance">
+        <EcsInstance>
+          <option name="OSType" />
+          <option name="instanceId" />
+          <option name="instanceName" />
+          <option name="netType" />
+          <option name="privateIps" />
+          <option name="publicIps" />
+          <option name="regionId" />
+          <option name="tags" />
+        </EcsInstance>
+      </option>
+      <option name="hostTagId" value="0" />
+      <option name="location" value="/opt/tomcat8.5/webapps" />
+      <option name="pathOrUrl" value="G:\javaPro\IALSserver\out\artifacts\IALS\IALS.war" />
+      <option name="tagId" value="0" />
+      <option name="terminalCommand" />
+      <option name="type" value="HOST" />
+      <option name="uploadType" value="FILE" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="IALS" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="User.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IALSserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bin.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bin.com" />
+      <option name="MAIN_CLASS_NAME" value="bin.com.User" />
+      <option name="METHOD_NAME" value="main" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 9.0.34" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.34" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <deployment>
+        <artifact name="IALSserver">
+          <settings>
+            <option name="CONTEXT_PATH" value="/ials" />
+          </settings>
+        </artifact>
+        <file path="H:/桌面壁纸/dark">
+          <settings>
+            <option name="CONTEXT_PATH" value="/pic" />
+          </settings>
+        </file>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_9_0_34_IALSserver" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="10870" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="IALSserver" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.User" />
+      <item itemvalue="Application.TestUser" />
+      <item itemvalue="Application.TestGet" />
+      <item itemvalue="Application.AddDailyPage" />
+      <item itemvalue="Deploy to Host.deploy_IALS" />
+      <item itemvalue="JUnit.User.main" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.34" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AddDailyPage" />
+        <item itemvalue="Application.TestGet" />
+        <item itemvalue="Application.User" />
+        <item itemvalue="Application.TestUser" />
+        <item itemvalue="JUnit.User.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3c7c69cd-9971-4633-8dbe-0f53057b6bcf" name="Default Changelist" comment="" />
+      <created>1588577290809</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588577290809</updated>
+      <workItem from="1588577294884" duration="24707000" />
+      <workItem from="1588641556838" duration="8522000" />
+      <workItem from="1588724516814" duration="655000" />
+      <workItem from="1588725192653" duration="2866000" />
+      <workItem from="1588728582629" duration="1788000" />
+      <workItem from="1588730394150" duration="1891000" />
+      <workItem from="1588732471862" duration="115000" />
+      <workItem from="1588732609403" duration="15425000" />
+      <workItem from="1588764906753" duration="986000" />
+      <workItem from="1588765925845" duration="10121000" />
+      <workItem from="1588817077695" duration="5279000" />
+      <workItem from="1588831213083" duration="989000" />
+      <workItem from="1588840549493" duration="3019000" />
+      <workItem from="1588848394109" duration="1180000" />
+      <workItem from="1588903054259" duration="4541000" />
+      <workItem from="1588933477021" duration="6000" />
+      <workItem from="1588948050857" duration="3885000" />
+      <workItem from="1588995367092" duration="721000" />
+      <workItem from="1588996661438" duration="3475000" />
+      <workItem from="1589013203534" duration="4045000" />
+      <workItem from="1589030556622" duration="7125000" />
+      <workItem from="1589073279408" duration="6541000" />
+      <workItem from="1589088449007" duration="4633000" />
+      <workItem from="1589118123842" duration="6621000" />
+      <workItem from="1589162193070" duration="2473000" />
+      <workItem from="1589195053691" duration="3769000" />
+      <workItem from="1589248675493" duration="1027000" />
+      <workItem from="1589512251166" duration="653000" />
+      <workItem from="1589678560064" duration="8530000" />
+      <workItem from="1589720393453" duration="39000" />
+      <workItem from="1589720627066" duration="1145000" />
+      <workItem from="1589725969462" duration="651000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="325" key="#BuildArtifactsBeforeRunChooser" timestamp="1588725989394">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="325" key="#BuildArtifactsBeforeRunChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588725989394" />
+    <state x="552" y="178" key="#Notifications" timestamp="1588765002096">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1588765002096" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589195605550">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589195605550" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1589679069379">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589679069379" />
+    <state x="552" y="178" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable" timestamp="1588591553272">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable/0.0.1920.1040@0.0.1920.1040" timestamp="1588591553272" />
+    <state x="811" y="341" key="FileChooserDialogImpl" timestamp="1589720424360">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="811" y="341" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589720424360" />
+    <state width="1292" height="343" key="GridCell.Tab.0.bottom" timestamp="1589688785463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="343" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589688785463" />
+    <state width="1292" height="343" key="GridCell.Tab.0.center" timestamp="1589688785463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="343" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589688785463" />
+    <state width="1292" height="343" key="GridCell.Tab.0.left" timestamp="1589688785463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="343" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589688785463" />
+    <state width="1292" height="343" key="GridCell.Tab.0.right" timestamp="1589688785463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="343" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589688785463" />
+    <state width="1292" height="343" key="GridCell.Tab.1.bottom" timestamp="1589688785463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="343" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589688785463" />
+    <state width="1292" height="343" key="GridCell.Tab.1.center" timestamp="1589688785463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="343" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589688785463" />
+    <state width="1292" height="343" key="GridCell.Tab.1.left" timestamp="1589688785463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="343" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589688785463" />
+    <state width="1292" height="343" key="GridCell.Tab.1.right" timestamp="1589688785463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="343" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589688785463" />
+    <state width="1292" height="343" key="GridCell.Tab.2.bottom" timestamp="1589688785464">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="343" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589688785464" />
+    <state width="1292" height="343" key="GridCell.Tab.2.center" timestamp="1589688785464">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="343" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589688785464" />
+    <state width="1292" height="343" key="GridCell.Tab.2.left" timestamp="1589688785464">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="343" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589688785464" />
+    <state width="1292" height="343" key="GridCell.Tab.2.right" timestamp="1589688785464">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="343" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589688785464" />
+    <state width="1292" height="284" key="GridCell.Tab.5.bottom" timestamp="1589122315200">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="284" key="GridCell.Tab.5.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589122315200" />
+    <state width="1292" height="284" key="GridCell.Tab.5.center" timestamp="1589122315200">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="284" key="GridCell.Tab.5.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589122315200" />
+    <state width="1292" height="284" key="GridCell.Tab.5.left" timestamp="1589122315200">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="284" key="GridCell.Tab.5.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589122315200" />
+    <state width="1292" height="284" key="GridCell.Tab.5.right" timestamp="1589122315200">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="284" key="GridCell.Tab.5.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589122315200" />
+    <state x="644" y="243" width="1065" height="739" key="SettingsEditor" timestamp="1588949159163">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="644" y="243" width="1065" height="739" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588949159163" />
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1589720394212">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589720394212" />
+    <state x="433" y="53" key="new project wizard" timestamp="1589249000720">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="433" y="53" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1589249000720" />
+    <state x="631" y="165" width="835" height="787" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1588731513263">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="631" y="165" width="835" height="787" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588731513263" />
+    <state x="616" y="173" width="670" height="676" key="search.everywhere.popup" timestamp="1588907616730">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="173" width="670" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588907616730" />
+  </component>
+</project>
