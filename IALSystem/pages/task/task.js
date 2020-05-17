@@ -24,56 +24,70 @@ Page({
   //清除已完成任务
   clearTask: function () {
     var that = this
-    wx.showModal({
-      title: "提示",
-      content: "您确定要删除所有已完成的任务吗？",
-      success(res) {
-        if (res.confirm) {
-          var task = wx.getStorageSync('task')
-          for (var i = 0; i < task.length; i++) {
-            if (task[i].completed == true) {
-              var len = task.length
-              task.splice(i, len-i)
-              break;
-            }
-          }
-          wx.setStorageSync('task', task)
-          that.setData({
-            task: task
-          })
-          wx.request({
-            url: "http://39.102.49.243:8080/IALS/load/task",
-            method: "POST",
-            header: {
-              "content-type": 'application/x-www-form-urlencoded;charset=utf-8',
-              "Accept": "application/json, text/javascript, */*;q=0.01"
-            },
-            scriptCharset: "utf-8",
-            dataType: JSON,
-            data: {
-              openid: wx.getStorageSync('openid'),
-              task: JSON.stringify(wx.getStorageSync('task'))
-            },
-            success: function (res) {
-              console.log("删除已完成任务成功")
-            },
-            fail: function (err) {
-              console.log("删除已完成任务失败")
-              console.log(err)
-            }
-          })
-          wx.showToast({
-            title: "删除成功"
-          })
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
+    var hasUncompleted = false
+    for (var i = 0; i < this.data.task.length; i++) {
+      if (this.data.task[i].completed == true) {
+        hasUncompleted = true
+        break
       }
-    })
+    }
+    if (hasUncompleted == true) {
+      wx.showModal({
+        title: "提示",
+        content: "您确定要删除所有已完成的任务吗？",
+        success(res) {
+          if (res.confirm) {
+            var task = wx.getStorageSync('task')
+            for (var i = 0; i < task.length; i++) {
+              if (task[i].completed == true) {
+                var len = task.length
+                task.splice(i, len - i)
+                break;
+              }
+            }
+            wx.setStorageSync('task', task)
+            that.setData({
+              task: task
+            })
+            wx.request({
+              url: "http://39.102.49.243:8080/IALS/load/task",
+              method: "POST",
+              header: {
+                "content-type": 'application/x-www-form-urlencoded;charset=utf-8',
+                "Accept": "application/json, text/javascript, */*;q=0.01"
+              },
+              scriptCharset: "utf-8",
+              dataType: JSON,
+              data: {
+                openid: wx.getStorageSync('openid'),
+                task: JSON.stringify(wx.getStorageSync('task'))
+              },
+              success: function (res) {
+                console.log("删除已完成任务成功")
+              },
+              fail: function (err) {
+                console.log("删除已完成任务失败")
+                console.log(err)
+              }
+            })
+            wx.showToast({
+              title: "删除成功"
+            })
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    } else {
+      wx.showToast({
+        title: '没有已完成任务了哟~',
+        image: '/images/icons/jinggao.png'
+      })
+    }
   },
   //改变任务完成状态
-  completed:function(e){
+  completed: function (e) {
     var that = this
     var index = e.currentTarget.dataset.index
     var task = wx.getStorageSync('task')

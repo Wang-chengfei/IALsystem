@@ -23,7 +23,7 @@
 	<block wx:else>
 		<view class="nothing">
 			<image src="/images/icons/nothing.png" mode="widthFix"></image>
-			<view class="text">今天还没有计划哟~~</view>
+			<view class="text">还没有事项哟~~</view>
 		</view>
 	</block>
 	<!-- 全部事项 -->

@@ -1,6 +1,8 @@
 <view class="container">
-  <view class="content">
-    <image src="../../images/icons/jitang.png"></image>
-    <text>{{words}}</text>
-  </view>
+	<swiper indicator-dots="{{true}}" autoplay="{{false}}">
+		<swiper-item wx:for="{{content}}">
+			<image src="{{item.url}}"></image>
+      <view class="wenzi">{{item.wenzi}}</view>
+		</swiper-item>
+	</swiper>
 </view>

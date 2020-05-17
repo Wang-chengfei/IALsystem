@@ -33,14 +33,15 @@ Page({
     ],
     displayWeek: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
     displayDate: [],
-    chooseWeek:["第1周","第2周","第3周","第4周","第5周","第6周","第7周","第8周","第9周","第10周","第11周","第12周","第13周","第14周","第15周","第16周","第17周","第18周","第19周","第20周","第21周","第22周","第23周","第24周","第25周"]
+    chooseWeek: ["第1周", "第2周", "第3周", "第4周", "第5周", "第6周", "第7周", "第8周", "第9周", "第10周", "第11周", "第12周", "第13周", "第14周", "第15周", "第16周", "第17周", "第18周", "第19周", "第20周", "第21周", "第22周", "第23周", "第24周", "第25周"]
   },
   //改变当前周
-  changeNumOfWeek:function(e){
+  changeNumOfWeek: function (e) {
     this.setData({
-      numOfWeek:e.detail.value
+      numOfWeek: Number(e.detail.value) + 1
     })
     wx.setStorageSync('numOfWeek', this.data.numOfWeek)
+    this.onShow()
   },
   // 页面跳转
   toTheDay: function (e) {
@@ -125,75 +126,13 @@ Page({
         weekDayItem1[item1[i].weekTime].push(item1[i])
       } else if (item1[i].type == 1) {
         if (item1[i].repetitionType == 0) { //不重复事项类型判断
-          if (weekTime == 0) {
-            for (var j = 0; j < 7; j++) {
-              var day2 = new Date();
-              day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-              var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-              if (s2 == item1[i].date) {
-                weekDayItem1[j].push(item1[i]);
-                break;
-              }
-            }
-          } else if (weekTime == 1) {
-            for (var j = -1; j < 6; j++) {
-              var day2 = new Date();
-              day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-              var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-              if (s2 == item1[i].date) {
-                weekDayItem1[j + 1].push(item1[i]);
-                break;
-              }
-            }
-          } else if (weekTime == 2) {
-            for (var j = -2; j < 5; j++) {
-              var day2 = new Date();
-              day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-              var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-              if (s2 == item1[i].date) {
-                weekDayItem1[j + 2].push(item1[i]);
-                break;
-              }
-            }
-          } else if (weekTime == 3) {
-            for (var j = -3; j < 4; j++) {
-              var day2 = new Date();
-              day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-              var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-              if (s2 == item1[i].date) {
-                weekDayItem1[j + 3].push(item1[i]);
-                break;
-              }
-            }
-          } else if (weekTime == 4) {
-            for (var j = -4; j < 3; j++) {
-              var day2 = new Date();
-              day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-              var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-              if (s2 == item1[i].date) {
-                weekDayItem1[j + 4].push(item1[i]);
-                break;
-              }
-            }
-          } else if (weekTime == 5) {
-            for (var j = -5; j < 2; j++) {
-              var day2 = new Date();
-              day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-              var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-              if (s2 == item1[i].date) {
-                weekDayItem1[j + 5].push(item1[i]);
-                break;
-              }
-            }
-          } else if (weekTime == 6) {
-            for (var j = -6; j < 1; j++) {
-              var day2 = new Date();
-              day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-              var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-              if (s2 == item1[i].date) {
-                weekDayItem1[j + 6].push(item1[i]);
-                break;
-              }
+          for (var j = 0 - weekTime; j < 7 - weekTime; j++) {
+            var day2 = new Date();
+            day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
+            var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
+            if (s2 == item1[i].date) {
+              weekDayItem1[j + weekTime].push(item1[i]);
+              break;
             }
           }
         } else if (item1[i].repetitionType == 1) { //每天重复
@@ -289,55 +228,11 @@ Page({
     })
     //获取本周所有天的日期
     var weekDate = []
-    if (weekTime == 0) {
-      for (var j = 0; j < 7; j++) {
-        var day2 = new Date();
-        day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-        var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-        weekDate[j] = s2;
-      }
-    } else if (weekTime == 1) {
-      for (var j = -1; j < 6; j++) {
-        var day2 = new Date();
-        day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-        var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-        weekDate[j] = s2;
-      }
-    } else if (weekTime == 2) {
-      for (var j = -2; j < 5; j++) {
-        var day2 = new Date();
-        day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-        var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-        weekDate[j] = s2;
-      }
-    } else if (weekTime == 3) {
-      for (var j = -3; j < 4; j++) {
-        var day2 = new Date();
-        day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-        var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-        weekDate[j] = s2;
-      }
-    } else if (weekTime == 4) {
-      for (var j = -4; j < 3; j++) {
-        var day2 = new Date();
-        day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-        var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-        weekDate[j] = s2;
-      }
-    } else if (weekTime == 5) {
-      for (var j = -5; j < 2; j++) {
-        var day2 = new Date();
-        day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-        var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-        weekDate[j] = s2;
-      }
-    } else if (weekTime == 6) {
-      for (var j = -6; j < 1; j++) {
-        var day2 = new Date();
-        day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
-        var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
-        weekDate[j] = s2;
-      }
+    for (var j = 0 - weekTime; j < 7 - weekTime; j++) {
+      var day2 = new Date();
+      day2.setTime(day2.getTime() + 24 * 60 * 60 * 1000 * j);
+      var s2 = day2.getFullYear() + "-" + ((day2.getMonth() + 1) >= 10 ? (day2.getMonth() + 1) : '0' + (day2.getMonth() + 1)) + "-" + (day2.getDate() >= 10 ? day2.getDate() : '0' + day2.getDate());
+      weekDate[j + weekTime] = s2;
     }
     var weekDate1 = []
     for (var i = 0; i < 7; i++) {
@@ -345,7 +240,7 @@ Page({
       weekDate1[i] = arr[1] + "-" + arr[2]
     }
     this.setData({
-      displayDate:weekDate1
+      displayDate: weekDate1
     })
     //发起网络请求，上传事项数据
     var s = JSON.stringify(wx.getStorageSync('item'))

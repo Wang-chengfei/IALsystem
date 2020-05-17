@@ -4,16 +4,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    displayTask: true,
+    displayEnWord: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      displayTask: wx.getStorageSync('displayTask'),
+      displayEnWords: wx.getStorageSync('displayEnWords')
+    })
   },
-
+  //改变任务是否显示
+  changeTask: function (e) {
+    this.setData({
+      displayTask: e.detail.value
+    })
+    wx.setStorageSync('displayTask', e.detail.value)
+  },
+  //改变英语单词是否显示
+  changeEnWords: function (e) {
+    this.setData({
+      displayEnWords: e.detail.value
+    })
+    wx.setStorageSync('displayEnWords', e.detail.value)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

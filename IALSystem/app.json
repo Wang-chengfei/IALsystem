@@ -2,11 +2,7 @@
   "pages": [
     "pages/mainPage/mainPage",
     "pages/settingPages/settingPage/settingPage",
-    "pages/settingPages/settingTask/settingTask", 
-    "pages/settingPages/settingEnglishWords/settingEnglishWords",
-    "pages/settingPages/settingChickenSoup/settingChickenSoup",
-    "pages/settingPages/settingMotto/settingMotto",
-    "pages/settingPages/settingPlan/settingPlan",
+    "pages/settingPages/settingMainPage/settingMainPage", 
     "pages/settingPages/aboutUs/aboutUs",
     "pages/timeTable/timeTable",
     "pages/timeTable/itemEdit/itemEdit",

@@ -1,20 +1,19 @@
-page {
-  background-color: #c1d5f8;
+.container swiper {
+  width: 750rpx;
+  height: 1280rpx;
+  position: relative;
 }
-.content image {
+.container image {
+  width: 750rpx;
+  height: 1280rpx;
+}
+.container .wenzi {
   position: absolute;
-  top: 120rpx;
-  left: 90rpx;
-  width: 66rpx;
-  height: 66rpx;
-  background-color: #c1d5f8;
-}
-.content text {
-  display: block;
+  top: 300rpx;
+  left: 75rpx;
   width: 600rpx;
-  padding: 30rpx;
-  margin: 150rpx auto;
-  border: 2rpx dashed blue;
-  border-radius: 20rpx;
+  text-align: center;
+  line-height: 62rpx;
   font-size: 34rpx;
+  color: #f2f6f7;
 }

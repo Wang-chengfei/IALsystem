@@ -5,7 +5,7 @@
 		<bigTitle titleContent="全部任务"></bigTitle>
 	</block>
 	<block wx:else>
-		<view class="nothing">
+		<view class="nothing higher">
 			<image src="/images/icons/nothing.png" mode="widthFix"></image>
 			<view class="text">没有任务</view>
 		</view>
