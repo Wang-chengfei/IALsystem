@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
-@WebServlet({"/load/task","/get/task","/post/task"})
+@WebServlet({"/load/task"})
 public class TaskReactor extends Reactor {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

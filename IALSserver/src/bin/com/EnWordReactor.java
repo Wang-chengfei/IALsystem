@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet({"/get/enword","load/enword"})
+@WebServlet({"/get/enword","/load/enword"})
 public class EnWordReactor extends Reactor {
     private String openid;
     private int startNumber;
@@ -28,8 +28,9 @@ public class EnWordReactor extends Reactor {
         openid = super.getOpenid();
         startNumber = RandomEnWordNumber.getRandomNumber();
 
-        EnglishLevel = getLevel();
-        number_Enword = getNumber();
+        User user = new User(openid);
+        EnglishLevel = user.getLevel();
+        number_Enword = user.getNumber();
         String s = getWords();
 
         resp.setContentType("application/json");
@@ -47,17 +48,7 @@ public class EnWordReactor extends Reactor {
 
     }
 
-    private int getNumber(){
-        String sql = "select number_Enword from user where openid=?";
-        Map map = template.queryForMap(sql, openid);
-        return Integer.parseInt(map.get("number_Enword").toString());
-    }
 
-    private String getLevel() {
-        String sql = "select EnglishLevel from user where openid=?";
-        Map map = template.queryForMap(sql, openid);
-        return map.get("EnglishLevel").toString();
-    }
 
     private String getWords() {
         Gson gson = new Gson();
@@ -82,7 +73,7 @@ public class EnWordReactor extends Reactor {
                 total = 1000;
                 sql= "select word from cet4 where id=?";
         }
-
+        System.out.println(startNumber);
         for (int i = 0; i < number_Enword; i++) {
             id = (startNumber + i) % total + 1;
             Map map = template.queryForMap(sql, id);

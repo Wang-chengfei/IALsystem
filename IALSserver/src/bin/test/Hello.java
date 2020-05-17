@@ -5,7 +5,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/temp")
+@WebServlet("/hello")
 public class Hello extends HttpServlet {
 
     @Override
@@ -23,6 +23,5 @@ public class Hello extends HttpServlet {
         out.println("</body>");
         out.println("</html>");
     }
-
 
 }

@@ -15,6 +15,8 @@ public class User {
     private String EnglishLevel;
     private String name;
     private String selectedMotivation;
+    JdbcTemplate template = new JdbcTemplate(JdbcUtils.getDataSource());
+
 
     public User(String openid){
         this.openid = openid;
@@ -22,10 +24,9 @@ public class User {
     public User (){    }
 
     public void register() throws FileNotFoundException {
-        JdbcTemplate template = new JdbcTemplate(JdbcUtils.getDataSource());
         try {
-            this.initItemList(openid);
-            this.initTaskList(openid);
+            this.initItemList();
+            this.initTaskList();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -35,29 +36,25 @@ public class User {
         selectedMotivation = "motivation1";
         String sql="insert into user (openid,name,EnglishLevel,selectedMotivation) values (?,?,?,?)";
         template.update(sql, openid, name, EnglishLevel, selectedMotivation);
-
     }
 
-    private void initTaskList(String openid) throws FileNotFoundException, UnsupportedEncodingException {
+    private void initTaskList() throws FileNotFoundException, UnsupportedEncodingException {
         JsonParser parser=new JsonParser();
         InputStream in = TestUser.class.getClassLoader().getResourceAsStream("bin/etc/initTask.json");
         JsonArray jsonArray = parser.parse(new InputStreamReader(in,"UTF-8")).getAsJsonArray();
-        JdbcTemplate template = new JdbcTemplate(JdbcUtils.getDataSource());
         String sql = "insert into tasks (openid,task) values(?,?)";
         template.update(sql,openid, new Gson().toJson(jsonArray));
     }
 
-    private void initItemList(String openid) throws FileNotFoundException, UnsupportedEncodingException {
+    private void initItemList() throws FileNotFoundException, UnsupportedEncodingException {
         JsonParser parser=new JsonParser();
         InputStream in = TestUser.class.getClassLoader().getResourceAsStream("bin/etc/initItem.json");
         JsonArray jsonArray = parser.parse(new InputStreamReader(in,"UTF-8")).getAsJsonArray();
-        JdbcTemplate template = new JdbcTemplate(JdbcUtils.getDataSource());
         String sql = "insert into items (openid,item) values(?,?)";
         template.update(sql,openid, new Gson().toJson(jsonArray));
     }
 
     public Boolean registered() {
-        JdbcTemplate template = new JdbcTemplate(JdbcUtils.getDataSource());
         Gson gson = new Gson();
 
         String sql = "select count(*) from  user where openid = ?";
@@ -68,7 +65,33 @@ public class User {
         } else {
             return true;
         }
+    }
 
+    public void updateEnglishLevel(String newLevel){
+        String sql = "update user set EnglishLevel=? where openid=?";
+        template.update(sql, newLevel, openid);
+    }
+
+    public void updateNumber_Enword(String newNumber){
+        String sql = "update user set number_Enword=? where openid=?";
+        template.update(sql, newNumber, openid);
+    }
+    public void updateSelectedpic(String newPicture){
+
+        String sql = "update user set selectedMotivation=? where openid=?";
+        template.update(sql, newPicture, openid);
+    }
+
+    public int getNumber(){
+        String sql = "select number_Enword from user where openid=?";
+        Map map = template.queryForMap(sql, openid);
+        return Integer.parseInt(map.get("number_Enword").toString());
+    }
+
+    public String getLevel() {
+        String sql = "select EnglishLevel from user where openid=?";
+        Map map = template.queryForMap(sql, openid);
+        return map.get("EnglishLevel").toString();
     }
 
     public static void main(String[] args) {

@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class TestGet {
 
-    private  static int number_Enword=3;
+    /*private  static int number_Enword=3;
     private  static int startNumber=2;
     private  static String EnglishLevel="cet4";
     private static JdbcTemplate template = new JdbcTemplate(JdbcUtils.getDataSource());
@@ -69,6 +69,6 @@ public class TestGet {
         Map map = template.queryForMap(sql, openid);
         System.out.println(map.get("number_Enword"));
         return Integer.parseInt(map.get("number_Enword").toString());
-    }
+    }*/
 
 }

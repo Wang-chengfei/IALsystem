@@ -27,6 +27,7 @@ public class DailyFresh extends TimerTask {
 
                 RandomEnWordNumber.fresh();
 
+
                 isRunning = false;
                 context.log("指定任务执行结束");
             }
