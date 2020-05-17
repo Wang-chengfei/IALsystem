@@ -1,0 +1,102 @@
+.wordTitle {
+  width: 100%;
+  height: 160rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.word {
+  font-size: 60rpx;
+  font-weight: 700;
+  width: 100%;
+  height: 100rpx;
+  line-height: 130rpx;
+  padding-left: 25rpx;
+}
+
+.pronounce {
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 100%;
+}
+
+.English,
+.America {
+  float: left;
+  padding-left: 25rpx;
+  height: 100%;
+  text-align: left;
+  font-size: 26rpx;
+}
+
+.meaining {
+  width: 100%;
+  height: 100%;
+}
+
+.meaningList {
+  padding: 0 25rpx;
+  background-color: #fff;
+  width: 100%;
+  line-height: 70rpx;
+}
+
+.meaningList .pos {
+  width: 50rpx;
+  float: left;
+}
+
+.meaningList .tranCn {
+  float: left;
+  width: 664rpx;
+  padding-left: 36rpx;
+}
+
+.sentence,
+.phrase,
+.more {
+  width: 700rpx;
+  margin-top: 10rpx;
+  background-color: #fff;
+  padding: 0 25rpx;
+}
+
+.sentence .title,
+.phrase .title,
+.more .title {
+  color: #818080;
+  font-size: 26rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+}
+
+.sentence .content,
+.phrase .content,
+.more .content {
+  line-height: 54rpx;
+}
+
+.sentence .content .sentenceList,
+.phrase .content .phraseList {
+  border-bottom: 1rpx solid #eee;
+}
+
+.phrase .content .phraseList .pContent,
+.phrase .content .phraseList .pCn {
+  line-height: 60rpx;
+}
+
+.more .onePos {
+  width: 100%;
+}
+
+.more .onePos .words .oneWord {
+  border-bottom: 1rpx solid #eee;
+}
+
+.more .onePos .words .hwd,
+.more .onePos .words .tran {
+  display: block;
+  width: 100%;
+  line-height: 60rpx;
+}

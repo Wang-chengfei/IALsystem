@@ -1,0 +1,33 @@
+page {
+  width: 750prx;
+  height: 100%;
+}
+.container {
+  height: 100%;
+}
+.container swiper {
+  width: 750rpx;
+  background-color: #5d737d;
+}
+.container .card {
+  width: 700rpx;
+  height: 96.4%;
+  margin: 25rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+.container image {
+  width: 100%;
+  height: 550rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+.container .wenzi {
+  width: 600rpx;
+  text-align: center;
+  margin: 150rpx auto 0 auto;
+  padding-bottom: 60rpx;
+  line-height: 60rpx;
+  font-size: 34rpx;
+  border-bottom: 2rpx solid #c1cbd1;
+}

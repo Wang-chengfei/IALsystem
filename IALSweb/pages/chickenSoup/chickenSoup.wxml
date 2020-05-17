@@ -1,0 +1,10 @@
+<view class="container">
+	<swiper indicator-dots="{{false}}" autoplay="{{false}}" style="height: 100%;">
+		<swiper-item wx:for="{{chickenSoup}}" style="height: 100%;">
+			<view class="card">
+				<image src="{{item.url}}" mode="aspectFill"></image>
+				<view class="wenzi">{{item.sentence}}</view>
+			</view>
+		</swiper-item>
+	</swiper>
+</view>

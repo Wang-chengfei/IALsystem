@@ -1,0 +1,35 @@
+<view class="container">
+	<!-- 设置待完成任务 -->
+	<view class="title">设置任务</view>
+	<view class="content">
+		<text>是否在主页面显示待完成任务</text>
+		<switch checked="{{displayTask}}" bindchange="changeTask"></switch>
+	</view>
+	<!-- 设置每日英语单词 -->
+	<view class="title">设置每日单词</view>
+	<view class="content">
+		<text>是否在主页面显示每日单词</text>
+		<switch checked="{{displayEnWords}}" bindchange="changeEnWords"></switch>
+	</view>
+	<!-- 如果在主界面显示英语单词-更多设置 -->
+	<block wx:if="{{displayEnWords}}">
+		<view class="detail">
+			<!-- 设置英语单词等级 -->
+			<view class="EnglishLevel">
+				<view class="smallTitle">英语单词等级</view>
+				<view class="choose" bindtap="EnglishLevel">
+					<block wx:if="{{EnglishLevel=='cet4'}}">四级词汇</block>
+					<block wx:elif="{{EnglishLevel=='cet6'}}">六级词汇</block>
+					<block wx:else>考研词汇</block>
+				</view>
+			</view>
+			<!-- 设置每日英语单词数量 -->
+			<view class="number_Enword">
+				<view class="smallTitle">英语单词数量</view>
+				<picker class="choose" mode="selector" range="{{numberArr}}" value="{{number_Enword - 1}}" bindchange="number_Enword">
+					{{number_Enword}}
+				</picker>
+			</view>
+		</view>
+	</block>
+</view>

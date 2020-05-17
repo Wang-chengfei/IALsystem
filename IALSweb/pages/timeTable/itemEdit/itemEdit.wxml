@@ -1,0 +1,140 @@
+<view class="container">
+	<!-- 选择课程或计划 -->
+	<view class="chooseType">
+		<view class="courseType {{type==0?'active':''}}" bindtap="toCourse">课程</view>
+		<view class="planType {{type==1?'active':''}}" bindtap="toPlan">计划</view>
+	</view>
+	<!-- 课程 -->
+	<block wx:if="{{type==0}}">
+		<!-- 课程名 -->
+		<view class="name">
+			<view class="title">课名</view>
+			<view class="content">
+				<input placeholder="请输入课程名" maxlength="16" value="{{name[type]}}" bindinput="name"></input>
+			</view>
+		</view>
+		<!-- 上课地点 -->
+		<view class="remark">
+			<view class="title">教室</view>
+			<view class="content"><input placeholder="请输入上课地点" maxlength="16" value="{{remark[type]}}" bindinput="remark"></input></view>
+		</view>
+		<!-- 开始时间 -->
+		<view class="startTime">
+			<view class="title">开始时间</view>
+			<view class="content">
+				<picker mode="time" bindchange="startTime" value="{{startTime[type]==''?'06:00':startTime[type]}}" start="06:00" end="{{endTime[type]==''?'23:30':endTime[type]}}">
+					<view wx:if="{{startTime[type]!=''}}">{{startTime[type]}}</view>
+					<view wx:else class="noChoose">请选择开始时间</view>
+				</picker>
+			</view>
+		</view>
+		<!-- 结束时间 -->
+		<view class="endTime">
+			<view class="title">结束时间</view>
+			<view class="content">
+				<picker mode="time" bindchange="endTime" value="{{endTime[type]==''?(startTime[type]==''?'06:00':startTime[type]):endTime[type]}}" start="{{startTime[type]==''?'06:00':startTime[type]}}" end="23:30">
+					<view wx:if="{{endTime[type]!=''}}">{{endTime[type]}}</view>
+					<view wx:else class="noChoose">请选择结束时间</view>
+				</picker>
+			</view>
+		</view>
+		<!-- 周几上课 -->
+		<view class="weekTime">
+			<view class="title">周几上课</view>
+			<view class="content">
+				<picker mode="selector" range="{{displayWeek}}" value="{{weekTime!=-1?'weekTime':0}}" bindchange="weekTime">
+					<view wx:if="{{weekTime!=-1}}">{{displayWeek[weekTime]}}</view>
+					<view wx:else class="noChoose">请选择周几上课</view>
+				</picker>
+			</view>
+		</view>
+		<!-- 上课周数 -->
+		<view class="courseWeek">
+			<view class="title">上课周数</view>
+			<view class="content">
+				<picker mode="multiSelector" range="{{courseWeekArr}}" value="{{startWeek==0?[0,0]:[startWeek-1,endWeek-1]}}" bindchange="courseWeek" bindcolumnchange="columnChange" bindcancel="cancelChoose">
+					<view wx:if="{{startWeek!=0}}">{{startWeek}} - {{endWeek}} 周</view>
+					<view wx:else class="noChoose">请选择周数</view>
+				</picker>
+			</view>
+		</view>
+	</block>
+	<!-- 计划 -->
+	<block wx:else>
+		<!-- 计划概述 -->
+		<view class="name">
+			<view class="title">概述</view>
+			<view class="content">
+				<input placeholder="请输入计划概述" maxlength="12" value="{{name[type]}}" bindinput="name"></input>
+			</view>
+		</view>
+		<!-- 计划备注 -->
+		<view class="remark">
+			<view class="title">备注</view>
+			<view class="content"><input placeholder="请输入计划备注" maxlength="12" value="{{remark[type]}}" bindinput="remark"></input></view>
+		</view>
+		<!-- 开始时间 -->
+		<view class="startTime">
+			<view class="title">开始时间</view>
+			<view class="content">
+				<picker mode="time" bindchange="startTime" value="{{startTime[type]==''?'06:00':startTime[type]}}" start="06:00" end="{{endTime[type]==''?'23:30':endTime[type]}}">
+					<view wx:if="{{startTime[type]!=''}}">{{startTime[type]}}</view>
+					<view wx:else class="noChoose">请选择开始时间</view>
+				</picker>
+			</view>
+		</view>
+		<!-- 结束时间 -->
+		<view class="endTime">
+			<view class="title">结束时间</view>
+			<view class="content">
+				<picker mode="time" bindchange="endTime" value="{{endTime[type]==''?(startTime[type]==''?'06:00':startTime[type]):endTime[type]}}" start="{{startTime[type]==''?'06:00':startTime[type]}}" end="23:30">
+					<view wx:if="{{endTime[type]!=''}}">{{endTime[type]}}</view>
+					<view wx:else class="noChoose">请选择开始时间</view>
+				</picker>
+			</view>
+		</view>
+		<!-- 选择计划重复重复类型 -->
+		<view class="repetitionType">
+			<view class="title">计划重复</view>
+			<view class="content" bindtap="chooseRepetitionType">
+				<block wx:if="{{repetitionType==0}}">不重复</block>
+				<block wx:elif="{{repetitionType==1}}">每天</block>
+				<block wx:else>按周重复</block>
+			</view>
+		</view>
+		<!-- 不重复-选择日期 -->
+		<block wx:if="{{repetitionType==0}}">
+			<view class="chooseDate">
+				<view class="title">计划日期</view>
+				<view class="content">
+					<picker mode="date" min="{{today}}" value="{{planDate}}" bindchange="dateChange">
+						<view>{{date}}</view>
+					</picker>
+				</view>
+			</view>
+		</block>
+		<!-- 每天重复-不用选择 -->
+		<!-- 按周选择-选择重复周几 -->
+		<block wx:elif="{{repetitionType==2}}">
+			<view class="chooseWeekTime">
+				<view class="repetitionByWeek">重复</view>
+				<view class="content">
+					<checkbox-group bindchange="repetitionTime">
+						<label class="weui-cell weui-check__label" wx:for="{{displayWeek}}">
+							<view class="weui-cell__hd">
+								<checkbox value="{{week[index]}}" checked="{{repetitionTime[index]}}" />
+							</view>
+							<view class="weui-cell__bd">{{item}}</view>
+						</label>
+					</checkbox-group>
+				</view>
+			</view>
+		</block>
+	</block>
+	<!-- 删除保存按钮 -->
+	<view class="delet" bindtap="delet" wx:if="{{newItem==false}}">删 除</view>
+	<view class="save saved{{isSaved}} {{newItem==true?'newItem':''}}" bindtap="save">
+		<block wx:if="{{newItem==true}}">添 加</block>
+		<block wx:else>保 存</block>
+	</view>
+</view>

@@ -1,0 +1,53 @@
+<view class="container">
+	<!-- 大图片部分 -->
+	<image src="/images/motivationImages/study.jpg" class="motivationImage" mode="widthFix"></image>
+	<!-- 菜单部分 -->
+	<view class="container1">
+		<view class="iconsContainer">
+			<view class="iconContaner" bindtap="toChickenSoup">
+				<image src="/images/icons/jiayouzhan.png" class="iconImage"></image>
+				<text>加油站</text>
+			</view>
+			<view class="iconContaner" bindtap="toTimeTable">
+				<image src="/images/icons/timeTable.png" class="iconImage"></image>
+				<text>规划</text>
+			</view>
+			<view class="iconContaner" bindtap="toTask">
+				<image src="/images/icons/task.png" class="iconImage"></image>
+				<text>任务</text>
+			</view>
+		</view>
+	</view>
+	<!-- 待完成任务部分 -->
+	<view class="container2" wx:if="{{displayTask}}">
+		<view class="title">
+			<image src="../../images/icons/daiban.png"></image>待完成任务
+		</view>
+		<view class="content">
+			<block wx:for="{{task}}">
+				<view class="taskList" wx:if="{{item.completed==false}}">
+					<view class="image {{item.iconColor}}"></view>
+					<text>{{item.summary}}</text>
+				</view>
+			</block>
+			<view wx:if="{{hasTask==false}}" class="replaceTask">
+			没有待完成任务(=・ω・=) 
+			</view>
+		</view>
+	</view>
+	<!-- 每日单词部分 -->
+	<view class="container3" wx:if="{{displayEnWords}}">
+		<view class="title">
+			<image src="../../images/icons/yingyu.png"></image>每日单词
+		</view>
+		<view class="content">
+			<block wx:for="{{EnWords}}">
+				<view class="wordList" bindtap="toEnWordDetail" data-index="{{index}}">
+					<text class="word">{{item.headWord}}</text>
+					<text class="meaning" decode="true">{{item.content.word.content.trans[0].pos}}.&nbsp;{{item.content.word.content.trans[0].tranCn}}
+					</text>
+				</view>
+			</block>
+		</view>
+	</view>
+</view>
