@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    changeWeek: false,
     hasPlan: false,
     hasCourse: false,
     numOfWeek: 0,
@@ -34,14 +35,6 @@ Page({
     displayWeek: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
     displayDate: [],
     chooseWeek: ["第1周", "第2周", "第3周", "第4周", "第5周", "第6周", "第7周", "第8周", "第9周", "第10周", "第11周", "第12周", "第13周", "第14周", "第15周", "第16周", "第17周", "第18周", "第19周", "第20周", "第21周", "第22周", "第23周", "第24周", "第25周"]
-  },
-  //改变当前周
-  changeNumOfWeek: function (e) {
-    this.setData({
-      numOfWeek: Number(e.detail.value) + 1
-    })
-    wx.setStorageSync('numOfWeek', this.data.numOfWeek)
-    this.onShow()
   },
   // 页面跳转
   toTheDay: function (e) {
@@ -110,6 +103,41 @@ Page({
       url: 'itemEdit/itemEdit?thisItem=' + JSON.stringify(thisItem),
     })
   },
+  //改变当前周
+  changeNumOfWeek: function (e) {
+    this.setData({
+      numOfWeek: Number(e.detail.value) + 1,
+      changeWeek: true
+    })
+    wx.setStorageSync('numOfWeek', this.data.numOfWeek)
+    this.onShow()
+    this.setData({
+      changeWeek: false
+    })
+  },
+  //获取当前周数
+  getNumOfWeek: function (flag) {
+    var firstWeekDay;
+    var numOfWeek = wx.getStorageSync('numOfWeek')
+    if (!wx.getStorageSync('firstWeekDay') || flag) {
+      var day3 = new Date();
+      day3.setTime(day3.getTime() - 24 * 60 * 60 * 1000 * numOfWeek * 7)
+      day3.setTime(day3.getTime() - day3.getDay() * 24 * 60 * 60 * 1000)
+      firstWeekDay = day3.getFullYear() + "-" + ((day3.getMonth() + 1) >= 10 ? (day3.getMonth() + 1) : '0' + (day3.getMonth() + 1)) + "-" + (day3.getDate() >= 10 ? day3.getDate() : '0' + day3.getDate());
+      wx.setStorageSync('firstWeekDay', firstWeekDay)
+    } else {
+      firstWeekDay = wx.getStorageSync('firstWeekDay')
+    }
+    var startDate = Date.parse(firstWeekDay);
+    var endDate = Date.parse(date1);
+    console.log(startDate)
+    console.log(endDate)
+    var days = (endDate - startDate) / (1 * 24 * 60 * 60 * 1000);
+    console.log(days)
+    var numberOfweek = Math.floor(days / 7)
+    console.log(numberOfweek)
+    wx.setStorageSync('numOfWeek', numberOfweek)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -148,6 +176,8 @@ Page({
       [],
       []
     ]
+    //判断当前周数
+    this.getNumOfWeek(this.data.changeWeek);
     //将所有事项分配到对应周几上
     for (var i = 0; i < item1.length; i++) {
       //判断课程
