@@ -304,7 +304,7 @@ Page({
     //发起网络请求，上传事项数据
     var s = JSON.stringify(wx.getStorageSync('item'))
     wx.request({
-      url: "http://39.102.49.243:8080/IALS/load/item", //服务器地址
+      url: "https://muzi.fun:8443/IALS/load/item", //服务器地址
       method: "POST",
       header: {
         "content-type": 'application/x-www-form-urlencoded;charset=utf-8',

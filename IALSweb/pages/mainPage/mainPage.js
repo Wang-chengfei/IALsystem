@@ -1,4 +1,3 @@
-
 Page({
 
   /**
@@ -50,23 +49,26 @@ Page({
     }
     wx.login({
       success: function (res) {
-        var appid = "wxbc05f859ff1233f3";
-        var secret = "b4cfead7b3fd7b3859795636397fde85";
+        // var appid = "wxbc05f859ff1233f3";
+        // var secret = "b4cfead7b3fd7b3859795636397fde85";
         var code = res.code;
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
-          url: "https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + secret + "&grant_type=authorization_code&js_code=" + code,
+          url: "https://muzi.fun:8443/IALS/get/openid",
           header: {
-            'content-type': 'application/json'
+            'content-type': 'application/json' //默认值
+          },
+          data: {
+            code: code,
+            operFlag: 'getOpenid'
           },
           success: function (res) {
             console.log("开启小程序获取用户openid成功")
-            wx.setStorageSync('openid', res.data.openid);
-            wx.setStorageSync('session_key', res.data.session_key)
-            var myOpenid = wx.getStorageSync('openid')
+            wx.setStorageSync('openid', res.data.openid)
+            var myOpenid = res.data.openid
             // 获取用户任务数据
             wx.request({
-              url: "http://muzi.fun:8080/IALS/load/task", //服务器地址
+              url: "https://muzi.fun:8443/IALS/load/task", //服务器地址
               method: "GET", //请求方法 GET：请求数据， POST：发送数据给服务器并让服务器处理
               header: {
                 "content-type": 'application/x-www-form-urlencoded;charset=utf-8', //小程序将以json形式读取文件
@@ -94,7 +96,7 @@ Page({
             })
             //获取用户事项数据
             wx.request({
-              url: "http://muzi.fun:8080/IALS/load/item", //服务器地址
+              url: "https://muzi.fun:8443/IALS/load/item", //服务器地址
               method: "GET",
               header: {
                 "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8',
@@ -121,7 +123,7 @@ Page({
             })
             // 获取今日单词
             wx.request({
-              url: "http://muzi.fun:8080/IALS/get/enword", //服务器地址
+              url: "https://muzi.fun:8443/IALS/get/enword", //服务器地址
               method: "GET",
               header: {
                 "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8',
@@ -139,17 +141,17 @@ Page({
                   realEnWords[i] = JSON.parse(EnWords[i])
                 }
                 wx.setStorageSync('EnWords', realEnWords)
-                if(!wx.getStorageSync('EnglishLevel')){
+                if (!wx.getStorageSync('EnglishLevel')) {
                   var str = realEnWords[0].bookId.split("_")
-                  if(str[0]=="CET6"){
+                  if (str[0] == "CET6") {
                     wx.setStorageSync('EnglishLevel', "cet6")
-                  } else if(str[0]=="CET4"){
+                  } else if (str[0] == "CET4") {
                     wx.setStorageSync('EnglishLevel', "cet4")
                   } else {
                     wx.setStorageSync('EnglishLevel', "kaoyan")
                   }
                 }
-                if(!wx.getStorageSync('number_Enword')){
+                if (!wx.getStorageSync('number_Enword')) {
                   wx.setStorageSync('number_Enword', realEnWords.length)
                 }
                 that.setData({
@@ -163,7 +165,7 @@ Page({
             })
             //获取加油站信息
             wx.request({
-              url: "http://muzi.fun:8080/IALS/get/dailypage", //服务器地址
+              url: "https://muzi.fun:8443/IALS/get/dailypage", //服务器地址
               method: "GET",
               header: {
                 "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8',

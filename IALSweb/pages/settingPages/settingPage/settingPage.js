@@ -6,21 +6,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    settingList:[
-      {
-        "url":"/pages/settingPages/settingMainPage/settingMainPage",
-        "value":"设置主页面",
-        "footer":"",
-      },
-      {
-        "url":"/pages/settingPages/aboutUs/aboutUs",
-        "value":"关于我们",
-        "footer":"",
-      }
-    ],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
+  },
+  setMainPage:function(e){
+    wx.navigateTo({
+      url: '/pages/settingPages/settingMainPage/settingMainPage',
+    })
+  },
+  toAboutUs:function(e){
+    wx.navigateTo({
+      url: '/pages/settingPages/aboutUs/aboutUs',
+    })
   },
   toJurisdiction:function(e){
     wx.openSetting({

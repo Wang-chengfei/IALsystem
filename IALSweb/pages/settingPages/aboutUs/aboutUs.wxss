@@ -6,3 +6,25 @@ page {
   padding: 20rpx;
   background-color: #fff;
 }
+.title {
+  font-size: 50rpx;
+  font-weight: 700;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 3rpx solid #eee;
+}
+.smallTitle {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 36rpx;
+}
+.p {
+  line-height: 50rpx;
+}
+.blackDot {
+  position: relative;
+  bottom: 6rpx;
+  line-height: 80rpx;
+  font-size: 22rpx;
+}
+

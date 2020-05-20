@@ -1,5 +1,22 @@
 <view class="container">
-  <view class="words">
-    <text decode="ture">{{words}}</text>
-  </view>
+	<view class="words">
+		<view class="title">项目概述</view>
+    <view class="p"><text decode="true">&emsp;&emsp;</text>此项目是一个微信小程序项目，由四川大学软件学院2019级本科的两位同学在2020年共同完成。其中一位同学主要负责前端界面的设计和页面的动态数据处理，另一位同学主要负责后端和数据库的搭建。</view>
+    <view class="p"><text decode="true">&emsp;&emsp;</text>此项目设计了许多利于学习的小功能，包括每日单词，每日心灵鸡汤，任务管理和事项管理。</view>
+    <view class="p"><text decode="true">&emsp;&emsp;</text>此微信小程序旨在帮助大家规划好任务和计划，合理安排时间，并且利用零碎时间进行有效的学习，让大家可以更好更高效地去学习。</view>
+		<view class="smallTitle"><text class="blackDot">●</text> 每日单词</view>
+		<view class="p">每天会推送不同的单词，可以在设置中选择是否显示每日单词，如果显示，则可以选择推送单词的等级（包括四级，六级，考研词汇）和推送单词的数量（1-20个），也可以点击单词查看单词详情和更多的拓展。此功能可以帮助你每天学习一点英语单词，每天进步。</view>
+		<view class="smallTitle"><text class="blackDot">●</text> 每日鸡汤</view>
+		<view class="p">每天会推送优美5个有内涵的心灵鸡汤，并配上简约别致的图片。</view>
+		<view class="smallTitle"><text class="blackDot">●</text> 任务管理</view>
+		<view class="p">你可以把你要完成的任务记录在这里，我们会根据任务的重要程度和截止日期对任务进行智能排序，并用不同的记号表示出来。</view>
+		<view class="smallTitle"><text class="blackDot">●</text> 事项管理</view>
+		<view class="p">你可以把你的计划和课程记录在这里，你可以快速查看本周内每天的具体安排，也可以查看你的所有事项。</view>
+		<view class="p"></view>
+		<view class="title">编程环境</view>
+		<view class="smallTitle"><text class="blackDot">●</text> 前端</view>
+		<view class="list">工具：微信开发者工具</view><view class="list">语言：WXML<text decode="true">&emsp;</text>WXSS<text decode="true">&emsp;</text>JavaScript<text decode="true">&emsp;</text>JSON</view>
+		<view class="smallTitle"><text class="blackDot">●</text> 后端</view>
+		<view class="list">工具：IntelliJ IDEA</view><view class="list">语言：Java<text decode="true">&emsp;</text>servlet<text decode="true">&emsp;</text>tomcat<text decode="true">&emsp;</text>mysql</view>
+	</view>
 </view>

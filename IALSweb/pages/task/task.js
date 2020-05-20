@@ -48,7 +48,7 @@ Page({
               task: task
             })
             wx.request({
-              url: "http://39.102.49.243:8080/IALS/load/task",
+              url: "https://muzi.fun:8443/IALS/load/task",
               method: "POST",
               header: {
                 "content-type": 'application/x-www-form-urlencoded;charset=utf-8',
@@ -91,7 +91,7 @@ Page({
     var task = wx.getStorageSync('task')
     task[index].completed = !task[index].completed
     wx.request({
-      url: "http://39.102.49.243:8080/IALS/load/task", //服务器地址
+      url: "https://muzi.fun:8443/IALS/load/task", //服务器地址
       method: "POST", //请求方法 GET：请求数据， POST：发送数据给服务器并让服务器处理
       header: {
         "content-type": 'application/x-www-form-urlencoded;charset=utf-8', //小程序将以json形式读取文件
@@ -142,7 +142,7 @@ Page({
     // 彻底完成编辑，发送网络请求
     var s = JSON.stringify(wx.getStorageSync('task'))
     wx.request({
-      url: "http://39.102.49.243:8080/IALS/load/task", //服务器地址
+      url: "https://muzi.fun:8443/IALS/load/task", //服务器地址
       method: "POST", //请求方法 GET：请求数据， POST：发送数据给服务器并让服务器处理
       header: {
         "content-type": 'application/x-www-form-urlencoded;charset=utf-8', //小程序将以json形式读取文件

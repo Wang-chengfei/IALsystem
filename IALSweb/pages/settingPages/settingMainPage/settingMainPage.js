@@ -36,7 +36,7 @@ Page({
         })
         wx.setStorageSync('EnglishLevel', that.data.EnglishLevel)
         wx.request({
-          url: "http://muzi.fun:8080/IALS/update/user",
+          url: "https://muzi.fun:8443/IALS/update/user",
           method: "POST",
           header: {
             "content-type": 'application/x-www-form-urlencoded;charset=utf-8',
@@ -52,7 +52,7 @@ Page({
           success: function (res) {
             console.log("更改用户英语单词等级信息成功")
             wx.request({
-              url: "http://muzi.fun:8080/IALS/get/enword", //服务器地址
+              url: "https://muzi.fun:8443/IALS/get/enword", //服务器地址
               method: "GET",
               header: {
                 "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8',
@@ -97,7 +97,7 @@ Page({
     })
     wx.setStorageSync('number_Enword', this.data.number_Enword)
     wx.request({
-      url: "http://muzi.fun:8080/IALS/update/user",
+      url: "https://muzi.fun:8443/IALS/update/user",
       method: "POST",
       header: {
         "content-type": 'application/x-www-form-urlencoded;charset=utf-8',
@@ -113,7 +113,7 @@ Page({
       success: function (res) {
         console.log("更改用户英语单词数量信息成功")
         wx.request({
-          url: "http://muzi.fun:8080/IALS/get/enword", //服务器地址
+          url: "https://muzi.fun:8443/IALS/get/enword", //服务器地址
           method: "GET",
           header: {
             "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8',
