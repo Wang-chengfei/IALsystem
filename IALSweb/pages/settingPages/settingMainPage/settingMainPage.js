@@ -151,11 +151,37 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
     this.setData({
       displayTask: wx.getStorageSync('displayTask'),
       displayEnWords: wx.getStorageSync('displayEnWords'),
       EnglishLevel: wx.getStorageSync('EnglishLevel'),
       number_Enword: wx.getStorageSync('number_Enword')
+    })
+    wx.request({
+      url: "https://muzi.fun:8443/IALS/get/user",
+      method: "GET",
+      header: {
+        "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8',
+        "Accept": "application/json, text/javascript, */*;q=0.01"
+      },
+      scriptCharset: "utf-8",
+      data: {
+        openid: wx.getStorageSync('openid')
+      },
+      success: function (res) {
+        console.log(res.data)
+        wx.setStorageSync('EnglishLevel', res.data.EnglishLevel)
+        wx.setStorageSync('number_Enword', res.data.number_Enword)
+        that.setData({
+          EnglishLevel: wx.getStorageSync('EnglishLevel'),
+          number_Enword: wx.getStorageSync('number_Enword')
+        })
+      },
+      fail: function (err) {
+        console.log("初始化用户英语单词信息失败")
+        console.log(err)
+      }
     })
   },
 

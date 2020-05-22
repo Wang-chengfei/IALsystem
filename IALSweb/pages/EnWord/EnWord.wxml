@@ -19,7 +19,7 @@
 			</block>
 		</view>
 		<!-- 单词例句 -->
-		<view class="sentence">
+		<view class="sentence" wx:if="{{word.content.word.content.sentence.sentences}}">
 			<view class="title">例句</view>
 			<view class="content">
 				<block wx:for="{{word.content.word.content.sentence.sentences}}">
@@ -31,7 +31,7 @@
 			</view>
 		</view>
 		<!-- 单词短语 -->
-		<view class="phrase">
+		<view class="phrase" wx:if="{{word.content.word.content.phrase.phrases}}">
 			<view class="title">短语</view>
 			<view class="content">
 				<block wx:for="{{word.content.word.content.phrase.phrases}}">
@@ -43,7 +43,7 @@
 			</view>
 		</view>
 		<!-- 拓展 -->
-		<view class="more">
+		<view class="more" wx:if="{{word.content.word.content.relWord.rels}}">
 			<view class="title">拓展词汇</view>
 			<view class="content">
 				<block wx:for="{{word.content.word.content.relWord.rels}}" wx:for-item="item">

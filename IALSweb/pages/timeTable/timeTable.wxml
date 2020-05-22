@@ -23,7 +23,7 @@
 	<block wx:else>
 		<view class="nothing">
 			<image src="/images/icons/nothing.png" mode="widthFix"></image>
-			<view class="text">还没有事项哟~~</view>
+			<view class="text">没有事项</view>
 		</view>
 	</block>
 	<!-- 全部事项 -->
@@ -92,7 +92,7 @@
 		</block>
 		<!-- 如果没有课程和计划，则显示无事项 -->
 		<block wx:if="{{!hasPlan&&!hasCourse}}">
-			<view class="nothing">
+			<view class="nothing special">
 				<image src="/images/icons/nothing.png" mode="widthFix"></image>
 				<view class="text">没有事项</view>
 			</view>

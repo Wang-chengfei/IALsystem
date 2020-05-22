@@ -107,7 +107,7 @@
 			<view class="chooseDate">
 				<view class="title">计划日期</view>
 				<view class="content">
-					<picker mode="date" min="{{today}}" value="{{planDate}}" bindchange="dateChange">
+					<picker mode="date" start="{{today}}" value="{{planDate}}" bindchange="dateChange">
 						<view>{{date}}</view>
 					</picker>
 				</view>

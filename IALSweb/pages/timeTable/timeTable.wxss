@@ -214,3 +214,6 @@
 .transparent {
   color: #818080;
 }
+.container .special {
+  margin-top: 310rpx;
+}

@@ -31,7 +31,7 @@
 		<view class="deadline">
 			<view class="title">截止时间</view>
 			<view class="content">
-				<picker mode="date" value="{{deadline}}" start="2010-01-01" end="2050-12-31" bindchange="bindDateChange">
+				<picker mode="date" value="{{deadline}}" start="{{thisDay}}" bindchange="bindDateChange">
 					<view class="choose">{{deadline}}</view>
 				</picker>
 			</view>

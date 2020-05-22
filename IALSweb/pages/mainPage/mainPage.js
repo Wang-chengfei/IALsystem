@@ -141,19 +141,6 @@ Page({
                   realEnWords[i] = JSON.parse(EnWords[i])
                 }
                 wx.setStorageSync('EnWords', realEnWords)
-                if (!wx.getStorageSync('EnglishLevel')) {
-                  var str = realEnWords[0].bookId.split("_")
-                  if (str[0] == "CET6") {
-                    wx.setStorageSync('EnglishLevel', "cet6")
-                  } else if (str[0] == "CET4") {
-                    wx.setStorageSync('EnglishLevel', "cet4")
-                  } else {
-                    wx.setStorageSync('EnglishLevel', "kaoyan")
-                  }
-                }
-                if (!wx.getStorageSync('number_Enword')) {
-                  wx.setStorageSync('number_Enword', realEnWords.length)
-                }
                 that.setData({
                   EnWords: realEnWords
                 })

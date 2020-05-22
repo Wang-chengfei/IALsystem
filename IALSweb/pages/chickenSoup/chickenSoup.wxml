@@ -1,5 +1,5 @@
 <view class="container">
-	<swiper indicator-dots="{{false}}" autoplay="{{false}}" style="height: 100%;">
+	<swiper indicator-dots="{{false}}" autoplay="{{false}}" style="height: 100%;" vertical="true">
 		<swiper-item wx:for="{{chickenSoup}}" style="height: 100%;">
 			<view class="card">
 				<image src="{{item.url}}" mode="aspectFill"></image>

@@ -48,8 +48,8 @@
 
 .meaningList .tranCn {
   float: left;
-  width: 664rpx;
-  padding-left: 36rpx;
+  width: 680rpx;
+  padding-left: 20rpx;
 }
 
 .sentence,

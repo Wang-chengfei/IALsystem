@@ -11,7 +11,7 @@ page {
 }
 .container .card {
   width: 700rpx;
-  height: 96.4%;
+  height: 96.2%;
   margin: 25rpx;
   border-radius: 20rpx;
   background-color: #fff;
