@@ -78,7 +78,11 @@
 
 .sentence .content .sentenceList,
 .phrase .content .phraseList {
-  border-bottom: 1rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
+}
+.sentence .content .noline,
+.phrase .content .noline {
+  border-bottom: none;
 }
 
 .phrase .content .phraseList .pContent,
@@ -91,7 +95,10 @@
 }
 
 .more .onePos .words .oneWord {
-  border-bottom: 1rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
+}
+.more .onePos .words .noline {
+  border-bottom: none;
 }
 
 .more .onePos .words .hwd,

@@ -7,7 +7,7 @@
 		</block>
 	</view>
 	<view class="listClass">
-		<view bindtap="setMainPage" class="Jurisdiction">设置主页面</view>
+		<view bindtap="setMainPage" class="Jurisdiction noline">设置主页面</view>
     <view bindtap="toAboutUs" class="Jurisdiction">关于我们</view>
 		<view bindtap="toJurisdiction" class="Jurisdiction">权限管理</view>
 	</view>

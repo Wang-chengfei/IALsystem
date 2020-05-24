@@ -25,7 +25,7 @@
 		</view>
 		<view class="content">
 			<block wx:for="{{task}}">
-				<view class="taskList" wx:if="{{item.completed==false}}">
+				<view class="taskList {{index==0?'noline':''}}" wx:if="{{item.completed==false}}">
 					<view class="image {{item.iconColor}}"></view>
 					<text>{{item.summary}}</text>
 				</view>
@@ -42,7 +42,7 @@
 		</view>
 		<view class="content">
 			<block wx:for="{{EnWords}}">
-				<view class="wordList" bindtap="toEnWordDetail" data-index="{{index}}">
+				<view class="wordList {{index==0?'noline':''}}" bindtap="toEnWordDetail" data-index="{{index}}">
 					<text class="word">{{item.headWord}}</text>
 					<text class="meaning" decode="true">{{item.content.word.content.trans[0].pos}}.&nbsp;{{item.content.word.content.trans[0].tranCn}}
 					</text>

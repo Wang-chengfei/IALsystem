@@ -44,7 +44,7 @@
 
 .itemList {
   width: 720rpx;
-  height: 150rpx;
+  height: 140rpx;
   margin: 20rpx auto;
   border-radius: 20rpx;
   background-color: #fff;
@@ -55,8 +55,8 @@
 .itemList .remark {
   float: left;
   width: 220rpx;
-  height: 150rpx;
-  line-height: 150rpx;
+  height: 140rpx;
+  line-height: 140rpx;
   text-align: center;
   font-size: 38rpx;
   overflow: hidden;

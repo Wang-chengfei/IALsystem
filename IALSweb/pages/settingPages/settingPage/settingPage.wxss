@@ -38,3 +38,6 @@
   line-height: 100rpx;
   margin-left: 35rpx;
 }
+.container .noline {
+  border-top: none;
+}

@@ -69,3 +69,6 @@ image {
   font-size: 30rpx;
   color: #818080;
 }
+::-webkit-scrollbar {
+  display: none;
+}

@@ -157,7 +157,6 @@ Page({
    */
   onShow: function () {
     var item1 = wx.getStorageSync('item')
-    var numOfWeek = wx.getStorageSync('numOfWeek')
     var weekDayItem1 = [
       [],
       [],
@@ -177,7 +176,8 @@ Page({
       []
     ]
     //判断当前周数
-    this.getNumOfWeek(this.data.changeWeek);
+    this.getNumOfWeek(this.data.changeWeek)
+    var numOfWeek = wx.getStorageSync('numOfWeek')
     //将所有事项分配到对应周几上
     for (var i = 0; i < item1.length; i++) {
       //判断课程
